@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "start": "node server.js",
-    "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "yarn --only=dev --no-shrinkwrap && yarn build"
   },
   "dependencies": {
     "core-js": "^3.6.5",
