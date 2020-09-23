@@ -1,22 +1,26 @@
 <template>
   <div class="header">
     <div class="header-content">
-      <img alt="Website logo" src="../assets/logo.svg">
+      <router-link to="/">
+        <img alt="Website logo" src="../assets/logo.svg" />
+      </router-link>
       <div class="header-right-side">
         <section>
-          <Button>
-            <img alt="consultation icon" src="../assets/consultation.svg">
-            Consultation
-          </Button>
-          <img alt="consultation icon" src="../assets/chat.svg">
+          <router-link to="/consultation">
+            <Button>
+              <img alt="consultation icon" src="../assets/consultation.svg" />
+              Consultation
+            </Button>
+          </router-link>
+          <img alt="consultation icon" src="../assets/chat.svg" />
         </section>
 
         <section>
           <Badge active>
-            <img alt="consultation icon" src="../assets/notification.svg">
+            <img alt="consultation icon" src="../assets/notification.svg" />
           </Badge>
           <Button circle>
-            <img alt="consultation icon" src="../assets/account.svg">
+            <img alt="consultation icon" src="../assets/account.svg" />
           </Button>
         </section>
       </div>
@@ -25,59 +29,59 @@
 </template>
 
 <script>
-import Button from './atoms/Button'
-import Badge from './atoms/Badge'
+import Button from "./atoms/Button";
+import Badge from "./atoms/Badge";
 
 export default {
-  name: 'Header',
+  name: "Header",
   components: {
     Button,
-    Badge
-  }
-}
+    Badge,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  .header {
-    position: fixed;
-    top: 0;
-    left: 0;
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px -4px 36px rgba(0, 0, 0, 0.129753);
+  background: white;
+  z-index: 999;
+
+  .header-content {
     width: 100%;
-    height: 80px;
+    max-width: 979px;
+    margin: auto;
+
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    box-shadow: 0px -4px 36px rgba(0, 0, 0, 0.129753);
-    background: white;
-    z-index: 999;
 
-    .header-content{
-      width: 100%;
-      max-width: 979px;
-      margin: auto;
-
+    .header-right-side {
       display: flex;
       justify-content: space-between;
       align-items: center;
 
-      .header-right-side{
+      section {
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        &:first-child {
+          margin-right: 120px;
+        }
 
-        section {
-          display: flex;
-          align-items: center;
+        > * {
           &:first-child {
-            margin-right: 120px;
-          }
-
-          > * {
-            &:first-child {
-              margin-right: 40px;
-            }
+            margin-right: 40px;
           }
         }
       }
     }
   }
+}
 </style>

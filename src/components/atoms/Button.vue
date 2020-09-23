@@ -1,5 +1,5 @@
 <template>
-    <button :class="{ circle, white, small, transparent, fullRounded }" :style="{ color }">
+    <button @click="click" :class="{ circle, white, small, transparent, fullRounded, big, fullWidth }" :style="{ color }">
         <slot></slot>
     </button>
 </template>
@@ -12,8 +12,11 @@ export default {
       white: Boolean,
       color: String,
       small: Boolean,
+      big: Boolean,
       transparent: Boolean,
-      fullRounded: Boolean
+      fullRounded: Boolean,
+      fullWidth: Boolean,
+      click: Function
   }
 }
 </script>
@@ -22,6 +25,7 @@ export default {
     button {
         background-color: rgba(96, 99, 235, 0.1);
         border: none;
+        color: #131416;
         border-radius: 15px;
         box-shadow: none;
         padding: 0 14px;
@@ -65,6 +69,16 @@ export default {
             font-size: 12px;
             padding: 0 12px;
             height: 24px;
+        }
+
+        &.big {
+            font-size: 16px;
+            height: 46px;
+            padding: 0 15px;
+        }
+
+        &.fullWidth {
+            width: 100%;
         }
 
         &.transparent{

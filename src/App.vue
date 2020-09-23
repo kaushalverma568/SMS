@@ -1,28 +1,22 @@
 <template>
   <div id="app">
     <Header />
-    <Promoation />
-    <Videos />
-    <Blog />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Promoation from './components/Promoation.vue'
-import Blog from './components/Blog.vue'
-import Videos from './components/Videos.vue'
+import Header from "./components/Header.vue";
 
 export default {
-  name: 'App',
+  name: "app",
   components: {
     Header,
-    Promoation,
-    Blog,
-    Videos
-  }
-}
+  },
+};
 </script>
+
+
 
 <style lang="scss">
 #app {
@@ -30,8 +24,12 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 80px;
   overflow: hidden;
   margin-bottom: 80px;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
 }
 </style>
