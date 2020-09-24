@@ -7,7 +7,7 @@
           <h1>You can talk to us</h1>
           <p>Make sure you keywords is correct or use another keywords</p>
         </div>
-        <Button big transparent fullWidth :click="onStart">Start now</Button>
+        <Button big transparent fullWidth @click="onStart">Start now</Button>
       </div>
     </div>
   </div>

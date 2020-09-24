@@ -1,12 +1,20 @@
 <template>
-    <div class="carousel">
+    <div class="carousel" :style="style">
         <slot></slot>
     </div>
 </template>
 
 <script>
 export default {
-    name: "Carousel"
+    name: "Carousel",
+    props: {
+        height: String
+    },
+    computed: {
+        style () {
+            return "height: " + this.height
+        }
+    }
 }
 </script>
 
@@ -16,6 +24,11 @@ export default {
         overflow: hidden;
         position: relative;
         width: 100%;
-        height: 148px;
+        cursor: pointer;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 </style>

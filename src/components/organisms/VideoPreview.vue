@@ -36,12 +36,12 @@ export default {
 <style lang="scss" scoped>
 .video-preview {
   margin-right: 30px;
-  width: 390px;
-
   .video-thumb {
     width: 100%;
     height: 228px;
     position: relative;
+    overflow: hidden;
+      border-radius: 24px;
 
     &::after{
         content: ' ';
@@ -59,7 +59,6 @@ export default {
       left: 20px;
       bottom: 20px;
       background: rgba(255, 255, 255, 0.3);
-      border-radius: 9px;
       color: white;
       padding: 6px 8px;
       font-size: 12px;
@@ -67,9 +66,8 @@ export default {
     }
 
     img {
-      width: 390px;
+      width: 100%;
       height: 228px;
-      border-radius: 24px;
     }
   }
 

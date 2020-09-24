@@ -5,13 +5,13 @@
         <Title text="Our blogs" />
         <Button transparent>See all</Button>
       </div>
-      <div class="articles">
-        <div class="articles-holder">
+      <Carousel height="348px" v-touch:swipe.right="swipeRight" v-touch:swipe.left="swipeLeft">
+        <CarouseScroll :page="activePage" :perPage="2">
           <BlogArticle />
           <BlogArticle />
           <BlogArticle />
-        </div>
-      </div>
+        </CarouseScroll>
+      </Carousel>
     </div>
   </Container>
 </template>
@@ -20,16 +20,35 @@
 import Title from "./atoms/Title";
 import Button from "./atoms/Button";
 import Container from "./atoms/Container";
+import Carousel from "./atoms/Carousel/Carousel";
+import CarouseScroll from "./atoms/Carousel/CarouseScroll";
 
 import BlogArticle from "./organisms/BlogArticle";
 
 export default {
   name: "Blog",
+  data() {
+    return {
+      activePage: 1,
+    };
+  },
   components: {
     Title,
     Container,
     Button,
     BlogArticle,
+    Carousel,
+    CarouseScroll,
+  },
+  methods: {
+    swipeLeft() {
+      const newPage = this.activePage + 1;
+      this.activePage = newPage <= 3 ? newPage : 3;
+    },
+    swipeRight() {
+      const newPage = this.activePage - 1;
+      this.activePage = newPage >= 1 ? newPage : 1;
+    },
   },
 };
 </script>
@@ -40,15 +59,6 @@ export default {
   .blog-header {
     display: flex;
     justify-content: space-between;
-  }
-
-  .articles {
-    display: flex;
-
-    .articles-holder{
-        display: flex;
-        width: calc(410px * 3)
-    }
   }
 }
 </style>

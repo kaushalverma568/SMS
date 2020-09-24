@@ -3,11 +3,11 @@
   <div class="promations">
     <div class="promations-header">
       <Title text="Promotions" />
-      <CarouselPins :pages="3" :activePage="activePage" :click="handleCarouselChange"></CarouselPins>
+      <CarouselPins :pages="3" :activePage="activePage" @clicked="handleCarouselChange"></CarouselPins>
     </div>
 
-    <Carousel>
-      <CarouseScroll :page="activePage">
+    <Carousel height="144px" v-touch:swipe.right="swipeRight" v-touch:swipe.left="swipeLeft">
+      <CarouseScroll :page="activePage" :perPage="3">
         <CarouselItem backgroundColor="#FF9638">
           <img src="../assets/caroussel1.png" />
           <h1>Title should be here</h1>
@@ -120,7 +120,7 @@
 
 <script>
 import Carousel from "./atoms/Carousel/Carousel";
-import CarouselItem from "./atoms/Carousel/CarouselItem";
+import CarouselItem from "./organisms/CarouselItem";
 import CarouseScroll from "./atoms/Carousel/CarouseScroll";
 import CarouselPins from "./atoms/Carousel/CarouselPins";
 
@@ -146,9 +146,17 @@ export default {
   },
   methods: {
     handleCarouselChange(e) {
-      console.log(e);
       this.activePage = e;
+      console.log(this.activePage)
     },
+    swipeLeft() {
+      const newPage = this.activePage + 1
+      this.activePage = newPage <= 3 ? newPage : 3
+    },
+    swipeRight() {
+      const newPage = this.activePage - 1
+      this.activePage = newPage >= 1 ? newPage : 1
+    }
   },
 };
 </script>

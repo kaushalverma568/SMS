@@ -1,6 +1,6 @@
 <template>
     <div class="carousel-pins">
-        <div class="carousel-pîn" v-for="n in pages" :key="n" :class="{ active: n === activePage }" @click="click(n)" />
+        <div class="carousel-pîn" v-for="n in pages" :key="n" :class="{ active: n === activePage }" @click="onClick(n)" />
     </div>
 </template>
 
@@ -8,9 +8,14 @@
 export default {
     name: 'CarouselPins',
     props: {
-        pages: String,
-        activePage: String,
-        click: Function
+        pages: Number,
+        activePage: Number,
+        handlePinClick: Function
+    },
+    methods: {
+        onClick (n) {
+            this.$emit('clicked', n)
+        }
     }
 }
 </script>

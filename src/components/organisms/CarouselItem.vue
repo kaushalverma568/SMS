@@ -16,7 +16,6 @@ export default {
 <style scoped lang="scss">
     .carousel-item {
         height: 148px;
-        width: 248px;
         border-radius: 15px;
         margin-right: 20px;
         position: relative;
@@ -26,6 +25,17 @@ export default {
         justify-content: center;
         padding: 0 24px;
         overflow: hidden;
+
+        &::after{
+            content: ' ';
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            z-index: 1;
+        }
+
 
         > * {
             z-index: 1;
