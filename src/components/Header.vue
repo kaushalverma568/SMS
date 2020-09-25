@@ -12,7 +12,9 @@
               Consultation
             </Button>
           </router-link>
-          <img alt="consultation icon" src="../assets/chat.svg" />
+          <router-link to="/chat">
+            <img alt="consultation icon" src="../assets/chat.svg" />
+          </router-link>
         </section>
 
         <section>
@@ -53,6 +55,18 @@ export default {
   box-shadow: 0px -4px 36px rgba(0, 0, 0, 0.129753);
   background: white;
   z-index: 999;
+
+  a {
+    img {
+      opacity: 0.8;
+    }
+
+    &:hover {
+     img {
+      opacity: 1;
+    }
+    }
+  }
 
   .header-content {
     width: 100%;

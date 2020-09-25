@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomePage from './pages/HomePage'
 import Consultation from './pages/Consultation'
+import Chat from './pages/Chat'
+
 import App from './App'
 import Vue2TouchEvents from 'vue2-touch-events'
  
@@ -10,7 +12,8 @@ Vue.use(Vue2TouchEvents)
 
 const routes = [
   { path: '/', component: HomePage },
-  { path: '/consultation', component: Consultation }
+  { path: '/consultation', component: Consultation },
+  { path: '/chat', component: Chat }
 ]
 
 const router = new VueRouter({

@@ -49,6 +49,6 @@ a {
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 4px;
     border-radius: 8px;
-    background: #666 ; 
+    background: #E2E2E4 ; 
 }
 </style>

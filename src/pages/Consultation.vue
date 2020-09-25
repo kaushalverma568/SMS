@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Conversation v-if="conversationStarted" />
+    <div class="conversation-wrapper" v-if="conversationStarted">
+      <Conversation border />
+    </div>
     <StartConversation v-else :onStart="startConversation" />
   </div>
 </template>
@@ -17,7 +19,7 @@ export default {
   },
   data() {
     return {
-      conversationStarted: true,
+      conversationStarted: false,
     };
   },
   methods: {
@@ -27,3 +29,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.conversation-wrapper {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+</style>
