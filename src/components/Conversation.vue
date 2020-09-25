@@ -16,12 +16,20 @@
         <ConversationMessages />
       </div>
 
-      <div class="conversation-actions">
-        <img src="../assets/attachement.svg" />
-        <input autofocus />
-        <button class="send-btn">
-          <img src="../assets/send.svg" />
-        </button>
+      <div class="conversation-actions" :class="{ active: attachement }">
+        <div class="attachemnts" v-if="attachement">
+          <div class="attachement-thumb" />
+          <div class="attachement-thumb" />
+        </div>
+        <div class="new-message-actions">
+          <a @click="attachement = !attachement" href="#">
+            <img src="../assets/attachement.svg" />
+          </a>
+          <input autofocus />
+          <button class="send-btn">
+            <img src="../assets/send.svg" />
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -32,6 +40,11 @@ import ConversationMessages from './organisms/ConversationMessages'
 
 export default {
   name: 'Conversation',
+  data () {
+    return {
+      attachement: false
+    }
+  },
   components: {
     ConversationMessages
   }
@@ -56,6 +69,7 @@ export default {
     max-width: 95%;
     position: relative;
     max-height: calc(100vh - 180px);
+    overflow: hidden;
 
     .conversation-list {
       height: calc(100% - 210px);
@@ -101,9 +115,35 @@ export default {
       bottom: 0;
       left: 0;
       display: flex;
-      align-items: center;
       padding: 0 20px;
       box-sizing: border-box;
+      flex-direction: column;
+
+      &.active {
+        background: #FFFFFF;
+        box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.230769);
+        border-radius: 18px 18px 0px 0px;
+      }
+
+      .attachemnts{
+        display: flex;
+      }
+
+      .attachement-thumb{
+        background: #dd6633;
+        height: 230px;
+        width: 230px;
+        border-radius: 24px;
+        margin: 20px 20px 0 0;
+      }
+
+      .new-message-actions{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        align-items: center;
+        height: 80px;
+      }
 
       input {
         margin: 0 20px;
