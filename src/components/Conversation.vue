@@ -12,7 +12,9 @@
         </div>
       </div>
 
-      <div class="conversation-list"></div>
+      <div class="conversation-list">
+        <ConversationMessages />
+      </div>
 
       <div class="conversation-actions">
         <img src="../assets/attachement.svg" />
@@ -25,12 +27,23 @@
   </div>
 </template>
 
+<script>
+import ConversationMessages from './organisms/ConversationMessages'
+
+export default {
+  name: 'Conversation',
+  components: {
+    ConversationMessages
+  }
+}
+</script>
+
 <style lang="scss" scoped>
 .conversation-wrapper {
   display: flex;
   justify-content: center;
   min-height: 100vh;
-
+  
   .conversation {
     margin: 120px 0;
     display: flex;
@@ -42,6 +55,12 @@
     width: 643px;
     max-width: 95%;
     position: relative;
+    max-height: calc(100vh - 180px);
+
+    .conversation-list {
+      height: calc(100% - 210px);
+      padding: 0 4px 4px 0;     
+    }
 
     .conversation-header {
       border-bottom: solid 1px #f0f0f1;

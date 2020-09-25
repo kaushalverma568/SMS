@@ -17,7 +17,7 @@ export default {
   },
   data() {
     return {
-      conversationStarted: false,
+      conversationStarted: true,
     };
   },
   methods: {
