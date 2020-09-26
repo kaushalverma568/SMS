@@ -28,6 +28,11 @@ export default {
   color: #131416
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 a {
   text-decoration: inherit;
   color: inherit;

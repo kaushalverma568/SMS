@@ -1,13 +1,16 @@
 <template>
   <div class="conversation" :class="{ border }">
+    <Modal v-if="callStarted">
+      <CallModal @ended="callStarted = false" @videoSwitch="handleVideoSwitch" :video="videoCallStarted" />
+    </Modal>
     <div class="conversation-header">
       <div class="conversation-header-col">
         <h1>Consultation</h1>
         <div class="conversation-date">June 22, 2020</div>
       </div>
       <div class="conversation-header-col inline">
-        <img src="../assets/camera.svg" />
-        <img src="../assets/phone.svg" />
+        <img @click="callStarted = true; videoCallStarted = true" src="../assets/camera.svg" />
+        <img @click="callStarted = true; videoCallStarted = false" src="../assets/phone.svg" />
       </div>
     </div>
 
@@ -35,6 +38,8 @@
 
 <script>
 import ConversationMessages from "./organisms/ConversationMessages";
+import Modal from './atoms/Modal'
+import CallModal from './organisms/CallModal'
 
 export default {
   name: "Conversation",
@@ -44,10 +49,19 @@ export default {
   data() {
     return {
       attachement: false,
+      callStarted: false,
+      videoCallStarted: false
     };
+  },
+  methods: {
+    handleVideoSwitch() {
+      this.videoCallStarted = !this.videoCallStarted;
+    },
   },
   components: {
     ConversationMessages,
+    Modal,
+    CallModal
   },
 };
 </script>
@@ -89,6 +103,12 @@ export default {
     .conversation-header-col.inline {
       img {
         margin-right: 30px;
+        cursor: pointer;
+        opacity: 0.8;
+
+        &:hover {
+          opacity: 1;
+        }
       }
     }
 

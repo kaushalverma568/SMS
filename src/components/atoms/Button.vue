@@ -1,7 +1,7 @@
 <template>
   <button
     @click="onClick"
-    :class="{ circle, white, small, transparent, fullRounded, big, fullWidth }"
+    :class="{ circle, white, small, transparent, fullRounded, big, fullWidth, transparentBlack, danger }"
     :style="{ color }"
   >
     <slot></slot>
@@ -20,6 +20,8 @@ export default {
     transparent: Boolean,
     fullRounded: Boolean,
     fullWidth: Boolean,
+    transparentBlack: Boolean,
+    danger: Boolean
   },
   methods: {
     onClick() {
@@ -97,6 +99,16 @@ button {
 
   &.fullRounded {
     border-radius: 5000;
+  }
+
+  &.transparentBlack {
+    background: rgba($color: #000000, $alpha: 0.2);
+    color: white;
+  }
+
+  &.danger {
+    background: #EF3F3F;
+    color: white;
   }
 }
 </style>
