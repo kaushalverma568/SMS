@@ -2,8 +2,14 @@
     <div class="request-list">
         <h1>Request</h1>
         <div class="list-tabs">
-            <Button>Ongoing</Button>
-            <Button transparent>History</Button>
+            <Button :transparent="selectedTab === 1" @click="selectedTab = 0">Ongoing</Button>
+            <Button :transparent="selectedTab === 0" @click="selectedTab = 1">History</Button>
+        </div>
+        <div class="search-filters" v-if="selectedTab === 1">
+            <SearchInput />
+            <Button big transparent dropdown>
+                Filter
+            </Button>
         </div>
         <div class="list">
             <div class="item" v-for="n in 4" :key="n" :class="{ active: n === 1 }">
@@ -22,11 +28,18 @@
 
 <script>
 import Button from './atoms/Button'
+import SearchInput from './atoms/SearchInput'
 
 export default {
     name: 'RequestList',
     components: {
-        Button
+        Button,
+        SearchInput
+    },
+    data () {
+        return {
+            selectedTab: 1
+        }
     }
 }
 </script>
@@ -48,6 +61,13 @@ export default {
 
         > button {
             margin-right: 20px;
+        }
+    }
+
+    .search-filters{
+        display: flex;
+        button {
+            margin-left: 20px;
         }
     }
 

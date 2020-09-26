@@ -5,6 +5,7 @@
     :style="{ color }"
   >
     <slot></slot>
+    <img src="../../assets/arrow-down.svg" class="arrow-down-dropdown" v-if="dropdown" />
   </button>
 </template>
 
@@ -21,7 +22,8 @@ export default {
     fullRounded: Boolean,
     fullWidth: Boolean,
     transparentBlack: Boolean,
-    danger: Boolean
+    danger: Boolean,
+    dropdown: Boolean
   },
   methods: {
     onClick() {
@@ -48,9 +50,16 @@ button {
   font-size: 15px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  border: 1px solid transparent;
 
   img {
-    margin-right: 7px;
+    &:first-child {
+      margin-right: 7px;
+    }
+
+    &.arrow-down-dropdown {
+      margin: 0 0 0 16px;
+    }
   }
 
   &:focus {

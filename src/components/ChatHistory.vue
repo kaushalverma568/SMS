@@ -1,10 +1,7 @@
 <template>
   <div class="chat-history">
     <h1>Chat</h1>
-    <div class="search">
-      <img src="../assets/search.svg" />
-      <input placeholder="Search" />
-    </div>
+    <SearchInput />
     <div class="chat-history-items">
       <div class="chat-history-items-scroll">
         <div class="chat-history-item" :key="n" v-for="n in 60" :class="{ active: n === 1 }">
@@ -19,6 +16,17 @@
   </div>
 </template>
 
+<script>
+import SearchInput from './atoms/SearchInput'
+
+export default {
+  name: 'ChatHistory',
+  components: {
+    SearchInput
+  }
+}
+</script>
+
 <style lang="scss" scoped>
 .chat-history {
   padding: 24px;
@@ -32,30 +40,6 @@
     font-size: 30px;
     margin: 0;
     margin-bottom: 24px;
-  }
-
-  .search {
-    position: relative;
-    width: 100%;
-    margin-bottom: 24px;
-    img {
-      position: absolute;
-      left: 14px;
-      top: calc(50% - 12px);
-    }
-    input {
-      background: #f4f4f4;
-      border: none;
-      box-shadow: none;
-      border-radius: 14px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      padding-left: 42px;
-      font-size: 16px;
-      width: 100%;
-      box-sizing: border-box;
-    }
   }
 
   .chat-history-items {
