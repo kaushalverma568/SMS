@@ -26,6 +26,10 @@ export default {
         padding: 0 16px;
         width: 100%;
         box-sizing: border-box;
+
+        &:focus {
+            outline: none;
+        }
     }
 }
 </style>

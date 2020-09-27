@@ -46,6 +46,8 @@
                 </div>
             </div>
         </div>
+
+        <Button big transparent fullWidth fullRounded>Save changes</Button>
     </div>
   </div>
 </template>
