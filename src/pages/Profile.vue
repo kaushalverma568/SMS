@@ -13,14 +13,14 @@
         <div class="email">sophia.alcocar@gmail.com</div>
       </div>
       <div class="see-details">
-          <router-link to="/profile-details">
-            <Button transparent>Details</Button>
-          </router-link>
+        <router-link to="/profile-details">
+          <Button transparent>Details</Button>
+        </router-link>
       </div>
     </div>
 
     <div class="profile-actions">
-      <div class="row">
+      <div class="row" @click="modalReferal = true">
         <div class="col">
           <img src="../assets/ref.svg" class="action-icon" />
           Referal code
@@ -52,17 +52,45 @@
 
       <Button danger fullWidth big fullRounded>Log out</Button>
     </div>
+
+    <Modal v-if="modalReferal">
+      <ModalContent close="right" rounded @close="modalReferal = false">
+        <div class="form-referal">
+          <div class="header">
+            <h2>Referal code</h2>
+          </div>
+          <div class="form-group">
+            <Input placeholder="Write code" />
+          </div>
+          <div class="apply-button">
+            <Button big transparent fullWidth fullRounded>Apply</Button>
+          </div>
+        </div>
+      </ModalContent>
+    </Modal>
   </div>
 </template>
 
 <script>
-import Button from '../components/atoms/Button'
+import Button from "../components/atoms/Button";
+import Modal from "../components/atoms/Modal";
+import ModalContent from "../components/atoms/ModalContent";
+import Input from "../components/atoms/Input";
+
 export default {
-    name: 'Profile',
-    components: {
-        Button
-    }
-}
+  name: "Profile",
+  data() {
+    return {
+      modalReferal: false,
+    };
+  },
+  components: {
+    Button,
+    Modal,
+    ModalContent,
+    Input,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -124,6 +152,21 @@ export default {
 
     .action-icon {
       margin-right: 20px;
+    }
+  }
+
+  .form-referal {
+    padding: 24px;
+    width: 391px;
+    box-sizing: border-box;
+    h2 {
+      font-size: 24px;
+      margin: 0;
+      margin-bottom: 28px;
+    }
+
+    .apply-button{
+        margin-top: 24px;
     }
   }
 }
