@@ -51,6 +51,12 @@ export default {
     position: absolute;
     top: 34px;
     left: 24px;
+    cursor: pointer;
+    opacity: 0.8;
+
+    &:hover {
+        opacity: 1;
+    }
   }
 }
 </style>

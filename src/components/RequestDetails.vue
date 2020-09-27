@@ -12,7 +12,7 @@
       </div>
       <div class="request-status">
         <Button small>Processing</Button>
-        <img src="../assets/chat-filled.svg" @click="conversationModalOpen = true" />
+        <img class="chat-icon" src="../assets/chat-filled.svg" @click="conversationModalOpen = true" />
       </div>
     </div>
     <div class="request-infos">
@@ -116,6 +116,10 @@ export default {
     width: 100%;
     display: flex;
     justify-content: space-between;
+  }
+
+  .chat-icon {
+    cursor: pointer;
   }
 
   .request-infos {
