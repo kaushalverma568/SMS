@@ -33,7 +33,7 @@ export default {
 <style lang="scss" scoped>
 .conversation-messages {
   overflow: scroll;
-  max-height: 100%;
+  max-height: calc(100vh - 401px);
   padding: 20px;
 }
 

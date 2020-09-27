@@ -17,7 +17,8 @@
     "express": "^4.17.1",
     "vue": "^2.6.11",
     "vue-router": "^3.4.3",
-    "vue2-touch-events": "^2.3.2"
+    "vue2-touch-events": "^2.3.2",
+    "vuejs-datepicker": "^1.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

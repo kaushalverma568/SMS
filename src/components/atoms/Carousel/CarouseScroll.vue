@@ -36,13 +36,13 @@ export default {
     },
     computed: {
         itemWidth () {
-            return (95 / this.perPage) + "%"
+            return (85 / this.perPage) + "%"
         },
         width() {
-            return (this.$slots.default.length * (95 / this.perPage)) + "%"
+            return (this.$slots.default.length * (85 / this.perPage)) + "%"
         },
         left() {
-            return "-" + ((this.page - 1) * this.perPage *  (95 / this.perPage)) + "%"
+            return "-" + ((this.page - 1) * this.perPage *  (85 / this.perPage)) + "%"
         }
     }
 }

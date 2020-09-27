@@ -1,12 +1,18 @@
 <template>
   <div class="request-details">
+    <Modal v-if="conversationModalOpen">
+      <ModalContent @close="conversationModalOpen = false">
+        <Conversation inModal />
+      </ModalContent>
+    </Modal>
+
     <div class="details-header">
       <div class="timeline">
         <Timeline :items="items" />
       </div>
       <div class="request-status">
         <Button small>Processing</Button>
-        <img src="../assets/chat-filled.svg" />
+        <img src="../assets/chat-filled.svg" @click="conversationModalOpen = true" />
       </div>
     </div>
     <div class="request-infos">
@@ -50,11 +56,15 @@
 <script>
 import Button from "./atoms/Button";
 import Timeline from "./atoms/Timeline";
+import Modal from "./atoms/Modal";
+import ModalContent from "./atoms/ModalContent";
+import Conversation from './Conversation'
 
 export default {
   name: "RequestDetails",
   data() {
     return {
+      conversationModalOpen: false,
       items: [
         {
           label: 'Step 1',
@@ -75,7 +85,10 @@ export default {
   },
   components: {
     Button,
-    Timeline
+    Timeline,
+    Modal,
+    ModalContent,
+    Conversation
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="conversation" :class="{ border }">
+  <div class="conversation" :class="{ border, inModal }">
     <Modal v-if="callStarted">
       <CallModal @ended="callStarted = false" @videoSwitch="handleVideoSwitch" :video="videoCallStarted" />
     </Modal>
@@ -44,13 +44,14 @@ import CallModal from './organisms/CallModal'
 export default {
   name: "Conversation",
   props: {
-    border: Boolean
+    border: Boolean,
+    inModal: Boolean
   },
   data() {
     return {
       attachement: false,
       callStarted: false,
-      videoCallStarted: false
+      videoCallStarted: false,
     };
   },
   methods: {
@@ -73,7 +74,6 @@ export default {
   align-items: center;
   border-radius: 24px;
   width: 643px;
-  max-width: 95%;
   position: relative;
   max-height: calc(100vh - 180px);
   overflow: hidden;
@@ -84,8 +84,14 @@ export default {
   }
 
   .conversation-list {
-    height: calc(100% - 210px);
+    height: calc(100vh - 210px);
     padding: 0 4px 4px 0;
+  }
+
+  &.inModal {
+     .conversation-header {
+       padding-left: 75px;
+     }
   }
 
   .conversation-header {
@@ -98,7 +104,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     justify-content: space-between;
-    padding: 0 24px;
+    padding: 24px;
 
     .conversation-header-col.inline {
       img {
