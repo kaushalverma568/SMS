@@ -18,16 +18,19 @@
         </section>
 
         <section>
-          <Badge active>
-            <img alt="consultation icon" src="../assets/notification.svg" />
+          <Badge active @click="notificationsOpen = !notificationsOpen">
+            <img alt="notifications icon" src="../assets/notification.svg" />
           </Badge>
-           <router-link to="/profile">
+          <router-link to="/profile">
             <Button circle>
               <img alt="profile icon" src="../assets/account.svg" />
             </Button>
-           </router-link>
+          </router-link>
         </section>
       </div>
+    </div>
+    <div class="notificaitons-wrapper" v-if="notificationsOpen">
+      <Notifications />
     </div>
   </div>
 </template>
@@ -35,12 +38,19 @@
 <script>
 import Button from "./atoms/Button";
 import Badge from "./atoms/Badge";
+import Notifications from "./Notifications";
 
 export default {
   name: "Header",
   components: {
     Button,
     Badge,
+    Notifications,
+  },
+  data() {
+    return {
+      notificationsOpen: true,
+    };
   },
 };
 </script>
@@ -64,20 +74,34 @@ export default {
     }
 
     &:hover {
-     img {
-      opacity: 1;
+      img {
+        opacity: 1;
+      }
     }
-    }
+  }
+
+  .notificaitons-wrapper {
+    position: absolute;
+    right: calc((100% - 979px) / 2);
+    top: 100%;
+    z-index: 1;
   }
 
   .header-content {
     width: 100%;
     max-width: 979px;
     margin: auto;
-
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: white;
+    height: 80px;
+    z-index: 2;
+
+    > * {
+      z-index: 2;
+    }
 
     .header-right-side {
       display: flex;

@@ -25,7 +25,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
   margin-bottom: 80px;
-  color: #131416
+  color: #131416;
 }
 
 body {
@@ -40,20 +40,20 @@ a {
 
 /* Let's get this party started */
 ::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
- 
+
 /* Track */
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: transparent; 
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
+  -webkit-box-shadow: transparent;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 4px;
-    border-radius: 8px;
-    background: #E2E2E4 ; 
+  -webkit-border-radius: 4px;
+  border-radius: 8px;
+  background: #e2e2e4;
 }
 </style>
