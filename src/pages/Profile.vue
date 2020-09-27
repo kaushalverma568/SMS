@@ -30,7 +30,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" @click="modalLanguages = true">
         <div class="col">
           <img src="../assets/language.svg" class="action-icon" />
           Language
@@ -68,6 +68,8 @@
         </div>
       </ModalContent>
     </Modal>
+
+    <ModalLanguages v-if="modalLanguages" @close="modalLanguages = false" />
   </div>
 </template>
 
@@ -75,6 +77,7 @@
 import Button from "../components/atoms/Button";
 import Modal from "../components/atoms/Modal";
 import ModalContent from "../components/atoms/ModalContent";
+import ModalLanguages from '../components/ModalLanguages'
 import Input from "../components/atoms/Input";
 
 export default {
@@ -82,6 +85,7 @@ export default {
   data() {
     return {
       modalReferal: false,
+      modalLanguages: false
     };
   },
   components: {
@@ -89,6 +93,7 @@ export default {
     Modal,
     ModalContent,
     Input,
+    ModalLanguages
   },
 };
 </script>
@@ -142,6 +147,7 @@ export default {
       justify-content: space-between;
       align-items: center;
       margin-bottom: 24px;
+      cursor: pointer;
 
       .col {
         display: flex;
@@ -165,8 +171,8 @@ export default {
       margin-bottom: 28px;
     }
 
-    .apply-button{
-        margin-top: 24px;
+    .apply-button {
+      margin-top: 24px;
     }
   }
 }
