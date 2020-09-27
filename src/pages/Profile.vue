@@ -13,7 +13,9 @@
         <div class="email">sophia.alcocar@gmail.com</div>
       </div>
       <div class="see-details">
-          <Button transparent>Details</Button>
+          <router-link to="/profile-details">
+            <Button transparent>Details</Button>
+          </router-link>
       </div>
     </div>
 
