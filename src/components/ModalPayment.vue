@@ -15,7 +15,7 @@
         </div>
         <div class="form-group">
           <div class="label">Card type</div>
-          <Input value="" />
+          <Select :options="cardOptions" @change="handleCardSelect" />
         </div>
         <Button big transparent fullWidth fullRounded>Save changes</Button>
       </div>
@@ -28,6 +28,7 @@ import Modal from "../components/atoms/Modal";
 import ModalContent from "../components/atoms/ModalContent";
 import Button from "../components/atoms/Button";
 import Input from "../components/atoms/Input";
+import Select from "../components/atoms/Select";
 
 export default {
   name: "ModalPayment",
@@ -36,11 +37,35 @@ export default {
     Input,
     Modal,
     ModalContent,
+    Select
+  },
+  data() {
+      return {
+          cardOptions: [
+              {
+                  label: 'Visa',
+                  value: 'VISA',
+                  selected: true
+              },
+              {
+                  label: 'Master Card',
+                  value: 'MASTER_CARD'
+              }
+          ],
+      }
   },
   methods: {
     handleClose() {
       this.$emit("close");
     },
+    handleCardSelect(selectedOption) {
+        this.cardOptions =  this.cardOptions.map(e => {
+            return {
+                ...e,
+                selected: e.value === selectedOption.value
+            }
+        })
+    }
   },
 };
 </script>
