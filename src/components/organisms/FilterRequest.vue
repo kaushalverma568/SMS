@@ -39,12 +39,15 @@ import Button from "../atoms/Button";
 
 export default {
   name: "FilterRequest",
+  props: {
+      filters: Object
+  },
   data() {
     return {
       activePage: 1,
-      activeService: undefined,
-      startDate: undefined,
-      endDate: undefined,
+      activeService: this.filters?.activeService,
+      startDate: this.filters?.startDate,
+      endDate: this.filters?.endDate,
     };
   },
   components: {

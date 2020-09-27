@@ -2,7 +2,7 @@
   <div class="request-list">
     <Modal v-if="filterModalOpen">
       <ModalContent @close="filterModalOpen = false" close="right" rounded>
-        <FilterRequest @apply="filterModalOpen = false" />
+        <FilterRequest @apply="applyFilter" :filters="filters" />
       </ModalContent>
     </Modal>
 
@@ -17,7 +17,10 @@
     </div>
     <div class="search-filters" v-if="selectedTab === 1">
       <SearchInput />
-      <Button big transparent dropdown @click="filterModalOpen = true"> Filter </Button>
+      <Button big transparent dropdown @click="filterModalOpen = true">
+        <img src="../assets/check-circle.svg" v-if="filters" />
+        Filter
+      </Button>
     </div>
     <div class="list">
       <div class="item" v-for="n in 4" :key="n" :class="{ active: n === 1 }">
@@ -54,8 +57,15 @@ export default {
     return {
       selectedTab: 1,
       filterModalOpen: false,
+      filters: undefined
     };
   },
+  methods: {
+      applyFilter(filters) {
+          this.filters = filters
+          this.filterModalOpen = false
+      }
+  }
 };
 </script>
 
