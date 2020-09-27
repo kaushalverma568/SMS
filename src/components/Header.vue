@@ -21,9 +21,11 @@
           <Badge active>
             <img alt="consultation icon" src="../assets/notification.svg" />
           </Badge>
-          <Button circle>
-            <img alt="consultation icon" src="../assets/account.svg" />
-          </Button>
+           <router-link to="/profile">
+            <Button circle>
+              <img alt="profile icon" src="../assets/account.svg" />
+            </Button>
+           </router-link>
         </section>
       </div>
     </div>

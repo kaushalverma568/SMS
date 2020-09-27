@@ -107,7 +107,7 @@ button {
   }
 
   &.fullRounded {
-    border-radius: 5000;
+    border-radius: 5000px;
   }
 
   &.transparentBlack {
