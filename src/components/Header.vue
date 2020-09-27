@@ -18,8 +18,8 @@
         </section>
 
         <section>
-          <Badge active @click="notificationsOpen = !notificationsOpen">
-            <img alt="notifications icon" src="../assets/notification.svg" />
+          <Badge active>
+            <img @click="notificationsOpen = !notificationsOpen" alt="notifications icon" src="../assets/notification.svg" />
           </Badge>
           <router-link to="/profile">
             <Button circle>
@@ -38,7 +38,7 @@
 <script>
 import Button from "./atoms/Button";
 import Badge from "./atoms/Badge";
-import Notifications from "./Notifications";
+import Notifications from "./organisms/Notifications";
 
 export default {
   name: "Header",
@@ -49,7 +49,7 @@ export default {
   },
   data() {
     return {
-      notificationsOpen: true,
+      notificationsOpen: false,
     };
   },
 };

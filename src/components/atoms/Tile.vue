@@ -1,5 +1,5 @@
 <template>
-  <div class="tile" :style="{ background, height }">
+  <div class="tile" :style="{ background, height }" :class="{ centred }">
     <div class="tile-content">
       <slot></slot>
     </div>
@@ -12,6 +12,7 @@ export default {
   props: {
     image: String,
     height: String,
+    centred: Boolean,
   },
   computed: {
     background() {
@@ -34,6 +35,11 @@ export default {
   justify-content: flex-end;
   padding: 16px;
   box-sizing: border-box;
+
+  &.centred {
+    justify-content: center;
+    align-items: center;
+  }
 
   .tile-content {
     position: relative;

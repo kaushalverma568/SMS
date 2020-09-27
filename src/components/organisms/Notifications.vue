@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import Tile from "./atoms/Tile";
+import Tile from "../atoms/Tile";
 
 export default {
   name: "Notifications",

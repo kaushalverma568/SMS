@@ -82,6 +82,10 @@
       </CarouseScroll>
     </Carousel>
 
+    <div class="live-now-section">
+      <LiveNow />
+    </div>
+
     <div class="items">
       <div class="item">
         <h2>Exlusive items</h2>
@@ -128,6 +132,8 @@ import Button from "./atoms/Button";
 import Title from "./atoms/Title";
 import Container from "./atoms/Container";
 
+import LiveNow from './organisms/LiveNow'
+
 export default {
   name: "Promoation",
   data() {
@@ -142,7 +148,8 @@ export default {
     CarouselPins,
     Button,
     Title,
-    Container
+    Container,
+    LiveNow
   },
   methods: {
     handleCarouselChange(e) {
@@ -170,6 +177,10 @@ export default {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+  }
+
+  .live-now-section {
+    margin-top: 45px;
   }
 
   .items {
