@@ -20,8 +20,14 @@
     </Carousel>
 
     <div class="dates-pickers">
-      <datepicker placeholder="Select Date" v-model="startDate"></datepicker>
-      <datepicker placeholder="Select Date" v-model="endDate"></datepicker>
+      <div class="data-holder">
+        <datepicker placeholder="Select Date" v-model="startDate"></datepicker>
+        <img src="../../assets/arrow-down-carrot.svg" class="arrow-down-icon" />
+      </div>
+      <div class="data-holder">
+        <datepicker placeholder="Select Date" v-model="endDate"></datepicker>
+        <img src="../../assets/arrow-down-carrot.svg" class="arrow-down-icon" />
+      </div>
     </div>
 
     <div class="apply-filter">
@@ -40,7 +46,7 @@ import Button from "../atoms/Button";
 export default {
   name: "FilterRequest",
   props: {
-      filters: Object
+    filters: Object,
   },
   data() {
     return {
@@ -66,8 +72,12 @@ export default {
       this.activePage = newPage >= 1 ? newPage : 1;
     },
     handleApply() {
-        this.$emit('apply', { startDate: this.startDate, endDate: this.endDate, service: this.activeService})
-    }
+      this.$emit("apply", {
+        startDate: this.startDate,
+        endDate: this.endDate,
+        service: this.activeService,
+      });
+    },
   },
 };
 </script>
@@ -112,6 +122,15 @@ export default {
 .dates-pickers {
   margin-top: 24px;
 
+  .data-holder {
+    position: relative;
+    .arrow-down-icon {
+      position: absolute;
+      right: 16px;
+      top: 17px;
+    }
+  }
+
   input,
   select {
     background: #f4f4f4;
@@ -127,7 +146,7 @@ export default {
     box-sizing: border-box;
   }
 
-  .vdp-datepicker{
+  .vdp-datepicker {
     margin-bottom: 16px;
   }
 }
