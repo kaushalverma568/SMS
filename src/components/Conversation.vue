@@ -1,16 +1,32 @@
 <template>
   <div class="conversation" :class="{ border, inModal }">
     <Modal v-if="callStarted">
-      <CallModal @ended="callStarted = false" @videoSwitch="handleVideoSwitch" :video="videoCallStarted" />
+      <CallModal
+        @ended="callStarted = false"
+        @videoSwitch="handleVideoSwitch"
+        :video="videoCallStarted"
+      />
     </Modal>
     <div class="conversation-header">
       <div class="conversation-header-col">
-        <h1>Consultation</h1>
+        <h1>{{ title || "Consultation" }}</h1>
         <div class="conversation-date">June 22, 2020</div>
       </div>
-      <div class="conversation-header-col inline">
-        <img @click="callStarted = true; videoCallStarted = true" src="../assets/camera.svg" />
-        <img @click="callStarted = true; videoCallStarted = false" src="../assets/phone.svg" />
+      <div class="conversation-header-col inline" v-if="!noCalls">
+        <img
+          @click="
+            callStarted = true;
+            videoCallStarted = true;
+          "
+          src="../assets/camera.svg"
+        />
+        <img
+          @click="
+            callStarted = true;
+            videoCallStarted = false;
+          "
+          src="../assets/phone.svg"
+        />
       </div>
     </div>
 
@@ -38,14 +54,16 @@
 
 <script>
 import ConversationMessages from "./organisms/ConversationMessages";
-import Modal from './atoms/Modal'
-import CallModal from './organisms/CallModal'
+import Modal from "./atoms/Modal";
+import CallModal from "./organisms/CallModal";
 
 export default {
   name: "Conversation",
   props: {
     border: Boolean,
-    inModal: Boolean
+    inModal: Boolean,
+    noCalls: Boolean,
+    title: String,
   },
   data() {
     return {
@@ -62,7 +80,7 @@ export default {
   components: {
     ConversationMessages,
     Modal,
-    CallModal
+    CallModal,
   },
 };
 </script>
@@ -89,9 +107,9 @@ export default {
   }
 
   &.inModal {
-     .conversation-header {
-       padding-left: 75px;
-     }
+    .conversation-header {
+      padding-left: 75px;
+    }
   }
 
   .conversation-header {

@@ -6,6 +6,7 @@ import Chat from './pages/Chat'
 import Request from './pages/Request'
 import Profile from './pages/Profile'
 import ProfileDetails from './pages/ProfileDetails'
+import LiveStream from './pages/LiveStream'
 
 import App from './App'
 import Vue2TouchEvents from 'vue2-touch-events'
@@ -20,6 +21,7 @@ const routes = [
   { path: '/request', component: Request },
   { path: '/profile', component: Profile },
   { path: '/profile-details', component: ProfileDetails },
+  { path: '/live-stream', component: LiveStream }
 ]
 
 const router = new VueRouter({
