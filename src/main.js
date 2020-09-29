@@ -9,6 +9,7 @@ import ProfileDetails from './pages/ProfileDetails'
 import LiveStream from './pages/LiveStream'
 import ExclusiveItems from './pages/ExclusiveItems'
 import BuyAndSale from './pages/BuyAndSale'
+import Item from './pages/Item'
 
 import App from './App'
 import Vue2TouchEvents from 'vue2-touch-events'
@@ -26,6 +27,8 @@ const routes = [
   { path: '/live-stream', component: LiveStream },
   { path: '/exclusive-items', component: ExclusiveItems },
   { path: '/buy-sale', component: BuyAndSale },
+  { path: '/item', component: Item },
+
 ]
 
 const router = new VueRouter({
