@@ -1,7 +1,7 @@
 <template>
   <div class="exlusive-items-wrapper">
     <div class="exlusive-items">
-      <header>
+      <header class="page-header">
         <h1>{{ title }}</h1>
         <div class="sell-btn" v-if="sellButton">
           <Button dark fullWidth>Sell item</Button>
@@ -110,7 +110,7 @@ export default {
     max-width: 100%;
   }
 
-  header {
+  .page-header {
     margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
