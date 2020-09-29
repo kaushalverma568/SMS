@@ -1,7 +1,7 @@
 <template>
   <button
     @click="onClick"
-    :class="{ circle, white, small, transparent, fullRounded, big, fullWidth, transparentBlack, danger }"
+    :class="{ circle, white, dark, small, transparent, fullRounded, big, fullWidth, transparentBlack, danger, spaceBetween }"
     :style="{ color }"
   >
     <slot></slot>
@@ -15,6 +15,7 @@ export default {
   props: {
     circle: Boolean,
     white: Boolean,
+    dark: Boolean,
     color: String,
     small: Boolean,
     big: Boolean,
@@ -23,7 +24,8 @@ export default {
     fullWidth: Boolean,
     transparentBlack: Boolean,
     danger: Boolean,
-    dropdown: Boolean
+    dropdown: Boolean,
+    spaceBetween: Boolean
   },
   methods: {
     onClick() {
@@ -84,6 +86,11 @@ button {
     background-color: white;
   }
 
+  &.dark {
+    background: #6063EB;
+    color: white;
+  }
+
   &.small {
     font-size: 12px;
     padding: 0 12px;
@@ -118,6 +125,11 @@ button {
   &.danger {
     background: #EF3F3F;
     color: white;
+  }
+
+  &.spaceBetween {
+    display: flex;
+    justify-content: space-between;
   }
 }
 </style>

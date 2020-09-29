@@ -1,5 +1,5 @@
 <template>
-    <div class="input">
+    <div class="input" :class="{ big } ">
         <input :placeholder="placeholder" :value="value" />
     </div>
 </template>
@@ -9,7 +9,8 @@ export default {
     name: 'Input',
     props: {
         placeholder: String,
-        value: String
+        value: String,
+        big: Boolean
     }
 }
 </script>
