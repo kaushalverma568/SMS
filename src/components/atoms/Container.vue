@@ -6,7 +6,7 @@
 
 <style lang="scss" scoped>
 .container {
-width: 100%;
+  width: 100%;
   max-width: 979px;
   margin: auto;
 }

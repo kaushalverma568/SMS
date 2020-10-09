@@ -1,6 +1,8 @@
 <template>
   <div class="notifications">
-    <h1>Notifications</h1>
+
+    <h1>{{ NotificationTitle }}</h1>
+
     <div class="notifications-list">
       <div class="notifications-list-scroll">
         <div
@@ -25,6 +27,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -33,71 +36,58 @@ import Tile from "../atoms/Tile";
 
 export default {
   name: "Notifications",
+  data: function () {
+    return {
+      NotificationTitle: 'Notifications'
+    }
+  },
   components: {
     Tile,
   },
 };
 </script>
 
-<style lang="scss" scoped>
-.notifications {
-  background: white;
-  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.230769);
-  border-radius: 0px 0px 26px 26px;
-  width: 375px;
-  padding: 26px 0 0 0;
-  overflow: hidden;
-
-  h1 {
-    margin: 0;
-    font-size: 24px;
-    margin-bottom: 14px;
-    margin-left: 16px;
-  }
-
-  .notifications-list {
-    max-height: 60vh;
-    overflow: scroll;
-  }
-
-  .notification-item {
-    padding: 12px 16px;
-    display: flex;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #fafafa;
-    }
-
-    .notification-badge {
-      background: #ed7c16;
-      height: 6px;
-      width: 6px;
-      border-radius: 50%;
-      margin-right: 9px;
-      position: relative;
-      top: 4px;
-    }
-
-    .notification-content {
-      width: 100%;
-    }
-
-    .notification-title {
-      font-weight: 600;
-      font-size: 16px;
-      margin-bottom: 12px;
-    }
-
-    .notification-date {
-      font-size: 14px;
-      opacity: 0.5;
-    }
-
-    .notification-tile {
-      width: 100%;
-      margin-top: 12px;
-    }
-  }
-}
+<style lang="sass" scoped>
+.notifications
+  background: white
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.230769)
+  border-radius: 0px 0px 26px 26px
+  width: 375px
+  padding: 26px 0 0 0
+  overflow: hidden
+  height: 570px
+  h1
+    margin: 0
+    font-size: 24px
+    margin-bottom: 14px
+    margin-left: 16px
+  .notifications-list
+    max-height: 60vh
+    overflow-y: scroll
+  .notification-item
+    padding: 12px 16px
+    display: flex
+    cursor: pointer
+    &:hover
+      background-color: #fafafa
+    .notification-badge
+      background: #ed7c16
+      height: 6px
+      width: 6px
+      border-radius: 50%
+      margin-right: 9px
+      position: relative
+      top: 4px
+    .notification-content
+      width: 100%
+    .notification-title
+      font-weight: 600
+      font-size: 16px
+      margin-bottom: 12px
+    .notification-date
+      font-size: 14px
+      opacity: 0.5
+    .notification-tile
+      width: 100%
+      margin-top: 12px
 </style>

@@ -1,59 +1,23 @@
 <template>
-  <div id="app">
+  <v-app>
     <Header />
-    <router-view></router-view>
-  </div>
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
-
 export default {
-  name: "app",
+  name: 'App',
+
   components: {
-    Header,
+    Header
   },
+
+  data: () => ({
+    //
+  }),
 };
 </script>
-
-
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
-  margin-bottom: 80px;
-  color: #131416;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: inherit;
-  color: inherit;
-}
-
-/* Let's get this party started */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: transparent;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  -webkit-border-radius: 4px;
-  border-radius: 8px;
-  background: #e2e2e4;
-}
-</style>

@@ -2,7 +2,7 @@
   <div class="header">
     <div class="header-content">
       <router-link to="/">
-        <img alt="Website logo" src="../assets/logo.svg" />
+        <h3>Logo</h3>
       </router-link>
       <div class="header-right-side">
         <section>
@@ -55,73 +55,58 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0px -4px 36px rgba(0, 0, 0, 0.129753);
-  background: white;
-  z-index: 999;
+<style lang="sass" scoped>
+.header
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 80px
+  display: flex
+  align-items: center
+  box-shadow: 0px -4px 36px rgba(0, 0, 0, 0.129753)
+  background: white
+  z-index: 999
+  a
+    img
+      opacity: 0.8
+    &:hover
+      img
+        opacity: 1
+  .notificaitons-wrapper
+    position: absolute
+    right: calc((100% - 979px) / 2)
+    top: 100%
+    z-index: 1
 
-  a {
-    img {
-      opacity: 0.8;
-    }
 
-    &:hover {
-      img {
-        opacity: 1;
-      }
-    }
-  }
+  .header-content
+    width: 100%
+    max-width: 100%
+    margin: auto
+    position: relative
+    display: flex
+    justify-content: space-between
+    align-items: center
+    background: white
+    height: 80px
+    z-index: 2
+    // try to add some shadow on the notification popup
+    box-shadow: 0px -4px 36px rgba(0, 0, 0, 0.129753)
 
-  .notificaitons-wrapper {
-    position: absolute;
-    right: calc((100% - 979px) / 2);
-    top: 100%;
-    z-index: 1;
-  }
+    > *
+      z-index: 2
+    .header-right-side
+      display: flex
+      justify-content: space-between
+      align-items: center
 
-  .header-content {
-    width: 100%;
-    max-width: 979px;
-    margin: auto;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-    height: 80px;
-    z-index: 2;
-
-    > * {
-      z-index: 2;
-    }
-
-    .header-right-side {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      section {
-        display: flex;
-        align-items: center;
-        &:first-child {
-          margin-right: 120px;
-        }
-
-        > * {
-          &:first-child {
-            margin-right: 40px;
-          }
-        }
-      }
-    }
-  }
-}
+      section
+        display: flex
+        align-items: center
+        &:first-child
+          margin-right: 120px
+        > *
+          &:first-child
+            margin-right: 40px
 </style>

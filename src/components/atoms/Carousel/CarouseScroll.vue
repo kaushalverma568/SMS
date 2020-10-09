@@ -1,6 +1,6 @@
 <template>
     <div class="carousel-scroll" :style="{ width, left }">
-         <wrap-node :key="node" v-for='node of $slots.default' tag='div' :width="itemWidth"  :value='node' />
+         <wrap-node :key="node.id" v-for='node of $slots.default' tag='div' :width="itemWidth"  :value='node' />
     </div>
 </template>
 
