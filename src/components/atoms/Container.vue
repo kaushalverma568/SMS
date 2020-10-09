@@ -1,13 +1,13 @@
 <template>
-    <div class="container">
+    <div class="">
         <slot></slot>
         </div>
 </template>
 
-<style lang="scss" scoped>
-.container {
-  width: 100%;
-  max-width: 979px;
-  margin: auto;
-}
+<style lang="sass" scoped>
+// /* .container {
+//   width: 100%;
+//   max-width: 979px;
+//   margin: auto;
+// } */
 </style>

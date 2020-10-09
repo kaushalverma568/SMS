@@ -48,11 +48,10 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-    .carousel-scroll{
-        display: flex;
-        position: absolute;
-        top: 0;
-        transition: left .3s ease;
-    }
+<style scoped lang="sass">
+  .carousel-scroll
+    display: flex
+    position: absolute
+    top: 0
+    transition: left .3s ease
 </style>
