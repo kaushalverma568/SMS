@@ -1,5 +1,5 @@
 <template>
-  <v-app style="background-color: pink">
+  <v-app>
       <Header />
       <v-main class="px-16__custome">
         <router-view></router-view>
