@@ -13,10 +13,14 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.title {
-    h1 {
-        font-size: 24px;
-    }
-}
+<style lang="sass" scoped>
+.title
+  margin-bottom: 20px
+  @media (max-width: 767px)
+    margin-bottom: 8px
+  h1
+    font-size: 24px
+    font-weight: 900
+    @media (max-width: 767px)
+      font-size: 18px
 </style>

@@ -1,15 +1,19 @@
 <template>
   <Container>
     <div class="blog">
+
       <div class="blog-header">
         <Title text="Our blogs" />
         <Button transparent>See all</Button>
       </div>
-      <Carousel height="348px" v-touch:swipe.right="swipeRight" v-touch:swipe.left="swipeLeft">
+
+      <Carousel height="400px" v-touch:swipe.right="swipeRight" v-touch:swipe.left="swipeLeft">
+
         <CarouseScroll :page="activePage" :perPage="2">
-          <BlogArticle />
-          <BlogArticle />
-          <BlogArticle />
+            <BlogArticle  class="blogArt"/>
+            <BlogArticle  class="blogArt"/>
+            <BlogArticle  class="blogArt"/>
+            <BlogArticle  class="blogArt"/>
         </CarouseScroll>
       </Carousel>
     </div>
@@ -53,12 +57,21 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.blog {
-  margin-top: 40px;
-  .blog-header {
-    display: flex;
-    justify-content: space-between;
-  }
-}
+<style lang="sass" scoped>
+.blog
+  margin-top: 40px
+  .blog-header
+    display: flex
+    justify-content: space-between
+
+  .blogArt
+    @media (max-width: 767px)
+      // width: 100% !important
+      display: flex
+      flex-direction: column
+
+
+.carousel-item
+  @media (max-width: 767px)
+    margin-right: 100px
 </style>

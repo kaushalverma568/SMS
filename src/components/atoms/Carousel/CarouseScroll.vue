@@ -54,4 +54,11 @@ export default {
     position: absolute
     top: 0
     transition: left .3s ease
+
+
+    @media (max-width: 992px)
+      width: auto !important
+    div
+      @media (max-width: 992px)
+        width: 250px !important
 </style>

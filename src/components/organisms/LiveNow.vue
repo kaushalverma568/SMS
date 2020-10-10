@@ -39,47 +39,42 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.live-now {
-  h1 {
-    font-weight: 600;
-    font-size: 24px;
-    margin: 0 0 30px 0;
-  }
+<style lang="sass" scoped>
+.live-now
+  h1
+    font-weight: 900
+    font-size: 24px
+    margin: 0 0 21px 0
+    @media (max-width: 767px)
+      font-size: 18px
+      margin-bottom: 8px
+  a
+    text-decoration: none
+  .live-now-content
+    border: 1px solid #f0f0f1
+    border-radius: 24px
+    padding: 20px
+    display: flex
+    align-items: center
+    .thumb
+      width: 220px
+      margin-right: 24px
+    .name
+      display: flex
+      flex-direction: column
+      justify-content: flex-end
+      align-self: flex-end
+      margin-bottom: 8px
+      .video-tag
+        margin-bottom: 16px
 
-  .live-now-content {
-    border: 1px solid #f0f0f1;
-    border-radius: 24px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-
-    .thumb {
-      width: 220px;
-      margin-right: 24px;
-    }
-
-    .name {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-self: flex-end;
-      margin-bottom: 8px;
-
-      .video-tag {
-        margin-bottom: 16px;
-      }
-
-      h2 {
-        font-weight: 600;
-        font-size: 20px;
-        margin: 0;
-      }
-    }
-
-    .go-to-video {
-      margin-left: auto;
-    }
-  }
-}
+      h2
+        font-weight: 600
+        font-size: 20px
+        margin: 0
+        color: #000
+        @media (max-width: 767px)
+          font-size: 11px
+    .go-to-video
+      margin-left: auto
 </style>

@@ -1,6 +1,5 @@
 <template>
-  <v-app>
-
+  <v-app style="background-color: pink">
       <Header />
       <v-main class="px-16__custome">
         <router-view></router-view>
@@ -26,9 +25,9 @@ export default {
 
 <style lang="sass">
   .px-16__custome
-    padding-right: 64px
-    padding-left: 64px
+    padding-right: 64px !important
+    padding-left: 64px !important
     @media (max-width: 500px)
-      padding-right: 15px
-      padding-left: 15px
+      padding-right: 15px !important
+      padding-left: 15px !important
 </style>

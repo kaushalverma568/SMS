@@ -1,12 +1,17 @@
 <template>
   <Container>
+
     <div class="videos">
+
       <div class="videos-header">
         <Title text="Videos" />
         <Button transparent>See all</Button>
       </div>
-      <Carousel height="348px" v-touch:swipe.right="swipeRight" v-touch:swipe.left="swipeLeft">
+
+      <Carousel height="400px" v-touch:swipe.right="swipeRight" v-touch:swipe.left="swipeLeft">
         <CarouseScroll :page="activePage" :perPage="2">
+          <VideoPreview class="video__one" />
+          <VideoPreview />
           <VideoPreview />
           <VideoPreview />
           <VideoPreview />
@@ -53,14 +58,15 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
-.videos {
-  margin-top: 40px;
-  overflow: hidden;
+<style lang="sass" scoped>
+.videos
+  margin-top: 40px
+  overflow: hidden
+  .videos-header
+    display: flex
+    justify-content: space-between
 
-  .videos-header {
-    display: flex;
-    justify-content: space-between;
-  }
-}
+.video__one
+  @media (max-width: 992px)
+    // width: 500px
 </style>
