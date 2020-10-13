@@ -1,39 +1,34 @@
 <template>
-  <div class="pagination">
-    <img src="../../assets/arrow-left-pagination.svg" class="left-arrow" />
-    <div v-for="n in 5" class="page" :class="{ active: n === 1 }" :key="n">
-      {{ n }}
-    </div>
-    <div class="page dots">...</div>
-    <div class="page">72</div>
-    <img src="../../assets/arrow-right-pagination.svg" class="right-arrow" />
+  <div class="text-center">
+    <v-container>
+      <v-row justify="end">
+        <v-col cols="8" class="small_mobile">
+          <v-container class="max-width">
+            <v-pagination
+              v-model="page"
+              class="my-4"
+              :length="15"
+            ></v-pagination>
+          </v-container>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
-<style lang="scss" scoped>
-.pagination {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-
-  .left-arrow {
-    margin-right: 20px;
+<script>
+  export default {
+    data () {
+      return {
+        page: 1,
+      }
+    },
   }
+</script>
 
-  .right-arrow {
-    margin-left: 20px;
-  }
-
-  .page {
-    font-weight: 900;
-    font-size: 16px;
-    color: #bdbebf;
-    margin: 0 10px;
-    cursor: pointer;
-    &.active {
-      color: #131416;
-    }
-  }
-}
+<style lang="sass" scoped>
+  .small_mobile
+    @media (max-width: 400px)
+      // flex: 0
+      max-width: 100%
 </style>

@@ -54,6 +54,8 @@ export default {
 <style lang="scss" scoped>
 .dropdown-button {
   position: relative;
+  border: 1px solid #F0F0F1;
+border-radius: 14px;
 
   &.open {
     box-shadow: 0px 11px 21px rgba(0, 0, 0, 0.104922);
@@ -64,6 +66,7 @@ export default {
 
     .options {
       display: block;
+      z-index: 9999;
     }
   }
 

@@ -3,9 +3,7 @@
     <div class="item">
       <div class="flex">
         <div class="thumb">
-          <img
-            src="https://s3-alpha-sig.figma.com/img/e6a5/7dff/4c9ed6ec2f56b581d17fe6f897af8d30?Expires=1602460800&Signature=PPv~XlEo4d~30N~3mauVQcOmv14c4-0Iz0BlV-uy7QO9MohhrPAzreVFNS2wM3Gi~Z~53b2mV3ju4EFE13qA~e-qWtTl~6ZM1JZgu0alj4ctQS2hEAvyieuiO04LjFms~42~f2ZJaAew5phfezZY2qFzN8hYq65vTMKHf0pODakA8-N85B1XxaD7MoTYMr38pf2YGXS8Nk8wMMSvNCNmmkShE37qVnINXbO2d5vikdvIinmSKnoCb3To-0oAFdZ60zDcTdOD5IOhgChfryMhU9Z7ZNMLpWxH0PrzdP6jGm2G-0P1eg4TTacrgFL4SVt0zYMK~rpdH3F5UQ77Hj~sDQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-          />
+          <img :src="productIMG" />
         </div>
         <div class="infos">
           <h1>Title item of lorem ipsum dolor sit amet should be here</h1>
@@ -53,6 +51,17 @@
     </div>
   </div>
 </template>
+
+<script>
+import productIMG from '../assets/exitem.svg'
+export default {
+  data: function () {
+    return {
+      productIMG: productIMG
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .item-wrapper {
@@ -120,7 +129,7 @@
           height: 34px;
           display: flex;
           align-items: center;
-          
+
           &:first-child {
             border-left: none;
           }

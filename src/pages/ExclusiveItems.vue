@@ -4,6 +4,7 @@
 
 <script>
 import Store from "../components/Store";
+
 export default {
   name: "ExclusiveItems",
   components: {

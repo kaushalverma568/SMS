@@ -2,12 +2,14 @@
   <div class="cards__wrapper">
     <div class="wrap__cards_2">
 
-      <v-card class="Card">
-        <div class="conent">
-          <span class="title_card">Exclusive <br/> items</span>
-          <img :src="discount" alt="">
-        </div>
-      </v-card>
+    <router-link to="/exclusive-items">
+        <v-card class="Card">
+          <div class="conent">
+            <span class="title_card">Exclusive <br/> items</span>
+            <img :src="discount" alt="">
+          </div>
+        </v-card>
+      </router-link>
 
         <v-card class="Card">
         <div class="conent">
