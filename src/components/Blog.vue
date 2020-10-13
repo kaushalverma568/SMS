@@ -1,21 +1,29 @@
 <template>
   <Container>
     <div class="blog">
-
       <div class="blog-header">
         <Title text="Our blogs" />
         <!-- <Button transparent>See all</Button> -->
-         <CarouselPins :pages="3" :activePage="activePage" @clicked="handleCarouselChange"></CarouselPins>
-
+        <CarouselPins
+          :pages="3"
+          :activePage="activePage"
+          @clicked="handleCarouselChange"
+        ></CarouselPins>
       </div>
 
-      <Carousel height="400px" v-touch:swipe.right="swipeRight" v-touch:swipe.left="swipeLeft">
-
+      <Carousel
+        height="400px"
+        v-touch:swipe.right="swipeRight"
+        v-touch:swipe.left="swipeLeft"
+      >
         <CarouseScroll :page="activePage" :perPage="2">
-            <BlogArticle  class="blogArt"/>
-            <BlogArticle  class="blogArt"/>
-            <BlogArticle  class="blogArt"/>
-            <BlogArticle  class="blogArt"/>
+          <BlogArticle class="blogArt" />
+          <BlogArticle class="blogArt" />
+          <BlogArticle class="blogArt" />
+          <BlogArticle class="blogArt" />
+          <BlogArticle class="blogArt" />
+          <BlogArticle class="blogArt" />
+
         </CarouseScroll>
       </Carousel>
     </div>
@@ -23,14 +31,13 @@
 </template>
 
 <script>
-import Title from "./atoms/Title"
+import Title from "./atoms/Title";
 // import Button from "./atoms/Button"
-import Container from "./atoms/Container"
-import Carousel from "./atoms/Carousel/Carousel"
-import CarouseScroll from "./atoms/Carousel/CarouseScroll"
-import BlogArticle from "./organisms/BlogArticle"
-import CarouselPins from "./atoms/Carousel/CarouselPins"
-
+import Container from "./atoms/Container";
+import Carousel from "./atoms/Carousel/Carousel";
+import CarouseScroll from "./atoms/Carousel/CarouseScroll";
+import BlogArticle from "./organisms/BlogArticle";
+import CarouselPins from "./atoms/Carousel/CarouselPins";
 
 export default {
   name: "Blog",
@@ -46,12 +53,12 @@ export default {
     BlogArticle,
     Carousel,
     CarouseScroll,
-    CarouselPins
+    CarouselPins,
   },
   methods: {
     handleCarouselChange(e) {
       this.activePage = e;
-      console.log(this.activePage)
+      console.log(this.activePage);
     },
     swipeLeft() {
       const newPage = this.activePage + 1;
