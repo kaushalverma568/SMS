@@ -11,13 +11,16 @@
         </v-card>
       </router-link>
 
+    <router-link to="/exclusive-items">
         <v-card class="Card">
-        <div class="conent">
-          <span class="title_card">Exclusive <br/> items</span>
-          <img :src="discount" alt="">
-        </div>
-      </v-card>
+          <div class="conent">
+            <span class="title_card">Exclusive <br/> items</span>
+            <img :src="discount" alt="">
+          </div>
+        </v-card>
+      </router-link>
 
+    <router-link to="/exclusive-items">
       <div class="disapple__card">
         <v-card class="Card" disabled>
           <div class="conent">
@@ -27,7 +30,9 @@
         </v-card>
         <span class="coming__soon">Coming soon</span>
       </div>
+    </router-link>
 
+    <router-link to="/exclusive-items">
       <div class="disapple__card">
         <v-card class="Card" disabled>
           <div class="conent">
@@ -37,6 +42,9 @@
         </v-card>
         <span class="coming__soon">Coming soon</span>
       </div>
+    </router-link>
+
+
 
     </div>
   </div>
