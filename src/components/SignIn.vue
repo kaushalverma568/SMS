@@ -1,139 +1,172 @@
 <template>
-  <div class="text-center">
-    <v-dialog v-model="dialogs" width="500">
+  <v-row justify="center">
+    <v-dialog v-model="dialog" persistent max-width="391px">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn dark v-bind="attrs" v-on="on"> SignIn </v-btn>
+        <v-btn dark v-bind="attrs" v-on="on"> Singin </v-btn>
       </template>
 
-      <v-card class="mx-auto" style="max-width: 500px">
-        <v-system-bar color="deep-purple darken-4" dark>
-          <v-spacer></v-spacer>
-          <v-icon small> mdi-square </v-icon>
-          <v-icon class="ml-1" small> mdi-circle </v-icon>
-          <v-icon class="ml-1" small> mdi-triangle </v-icon>
-        </v-system-bar>
-        <v-toolbar color="deep-purple accent-4" cards dark flat>
-          <v-btn icon>
-            <v-icon>mdi-arrow-left</v-icon>
+      <v-card>
+        <v-card-title>
+          <span class="headline">Log in</span>
+          <v-btn color="" text @click="dialog = false">
+            <img :src="close" alt="close icon">
           </v-btn>
-          <v-card-title class="title font-weight-regular">
-            Sign up
-          </v-card-title>
-          <v-spacer></v-spacer>
-          <v-btn icon>
-            <v-icon>mdi-magnify</v-icon>
-          </v-btn>
-          <v-btn icon>
-            <v-icon>mdi-dots-vertical</v-icon>
-          </v-btn>
-        </v-toolbar>
-        <v-form ref="form" v-model="form" class="pa-4 pt-6">
-          <v-text-field
-            v-model="password"
-            :rules="[rules.password, rules.length(6)]"
-            filled
-            color="deep-purple"
-            counter="6"
-            label="Password"
-            style="min-height: 96px"
-            type="password"
-          ></v-text-field>
-          <v-text-field
-            v-model="phone"
-            filled
-            color="deep-purple"
-            label="Phone number"
-          ></v-text-field>
-          <v-text-field
-            v-model="email"
-            :rules="[rules.email]"
-            filled
-            color="deep-purple"
-            label="Email address"
-            type="email"
-          ></v-text-field>
-          <v-textarea
-            v-model="bio"
-            auto-grow
-            filled
-            color="deep-purple"
-            label="Bio"
-            rows="1"
-          ></v-textarea>
-          <v-checkbox
-            v-model="agreement"
-            :rules="[rules.required]"
-            color="deep-purple"
-          >
-            <template v-slot:label>
-              I agree to the&nbsp;
-              <a href="#" @click.stop.prevent="dialog = true"
-                >Terms of Service</a
-              >
-              &nbsp;and&nbsp;
-              <a href="#" @click.stop.prevent="dialog = true">Privacy Policy</a
-              >*
-            </template>
-          </v-checkbox>
-        </v-form>
-        <v-divider></v-divider>
-        <v-card-actions>
-          <v-btn text @click="$refs.form.reset()"> Clear </v-btn>
-          <v-spacer></v-spacer>
-          <v-btn
-            :disabled="!form"
-            :loading="isLoading"
-            class="white--text"
-            color="deep-purple accent-4"
-            depressed
-          >
-            Submit
-          </v-btn>
-        </v-card-actions>
-        <v-dialog v-model="dialog" absolute max-width="400" persistent>
-        </v-dialog>
+
+        </v-card-title>
+        <v-card-text>
+
+            <v-row>
+
+
+              <form>
+                <v-col  sm="12">
+                <v-text-field
+                  v-model="password"
+                  :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                  :rules="[rules.required, rules.min]"
+                  :type="show1 ? 'text' : 'password'"
+                  name="input-10-1"
+                  placeholder="Password"
+
+                  hint="At least 8 characters"
+                  counter
+                  @click:append="show1 = !show1"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="12">
+                <v-text-field
+                  v-model="email"
+                  :error-messages="emailErrors"
+                  required
+                  @input="$v.email.$touch()"
+                  @blur="$v.email.$touch()"
+                  placeholder="Email"
+                ></v-text-field>
+              </v-col>
+              <div class="wrap_button">
+                 <v-btn class="mr-4" @click="submit"> Log in </v-btn>
+                <v-btn class="mr-4" @click="submit"> Sign up </v-btn>
+              </div>
+              </form>
+            </v-row>
+
+        </v-card-text>
+
       </v-card>
     </v-dialog>
-  </div>
+  </v-row>
 </template>
 
+
+
 <script>
+import { validationMixin } from "vuelidate"
+import { required, maxLength, email } from "vuelidate/lib/validators"
+import close from '../assets/close.svg'
+
+
 export default {
-  data: () => ({
-    agreement: false,
-    bio:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts",
-    dialog: false,
-    email: undefined,
-    form: false,
-    isLoading: false,
-    password: undefined,
-    phone: undefined,
-    dialogs: false,
-    rules: {
-      email: (v) => !!(v || "").match(/@/) || "Please enter a valid email",
-      length: (len) => (v) =>
-        (v || "").length >= len || `Invalid character length, required ${len}`,
-      password: (v) =>
-        !!(v || "").match(
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/
-        ) ||
-        "Password must contain an upper case letter, a numeric character, and a special character",
-      required: (v) => !!v || "This field is required",
+  mixins: [validationMixin],
+
+  validations: {
+    name: { required, maxLength: maxLength(10) },
+    email: { required, email },
+    select: { required },
+    checkbox: {
+      checked(val) {
+        return val;
+      },
     },
+  },
+
+  data: () => ({
+    email: "",
+    password: "",
+    close: close,
+
+    rules: {
+      required: (value) => !!value || "Required.",
+      min: (v) => v.length >= 8 || "Min 8 characters",
+      emailMatch: () => "The email and password you entered don't match",
+    },
+
+    dialog: false,
+    show1: false,
   }),
+
+  computed: {
+    selectErrors() {
+      const errors = [];
+      if (!this.$v.select.$dirty) return errors;
+      !this.$v.select.required && errors.push("Item is required");
+      return errors;
+    },
+
+    emailErrors() {
+      const errors = [];
+      if (!this.$v.email.$dirty) return errors;
+      !this.$v.email.email && errors.push("Must be valid e-mail");
+      !this.$v.email.required && errors.push("E-mail is required");
+      return errors;
+    },
+  },
+
+  methods: {
+    submit() {
+      this.$v.$touch();
+    },
+  },
 };
 </script>
 
-<style lang="sass" scoped>
-    // remvoe shadow && bg from button
-.theme--dark.v-btn:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined)
-  background-color: transparent
-  color: blue
-  margin-left: 20px
-.v-btn--contained
-  box-shadow: none
 
-.v-btn:not(.v-btn--round).v-size--default
-  padding: 0 5px
+<style lang="sass" >
+.v-dialog
+  width: 391px
+  height: 402px
+  border-radius: 27px !important
+  border: 1px solid #979797
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.230769) !important
+  background: #fff
+  .v-sheet.v-card:not(.v-sheet--outlined)
+    box-shadow: none
+  .v-card__title
+    position: relative
+    .headline
+      font-size: 24px
+      font-weight: bold
+    .v-btn
+      position: absolute
+      top: 9px
+    .v-btn:not(.v-btn--round).v-size--default
+      padding: 0
+      bottom: 0
+      right: 23px
+      width: 28px !important
+      min-width: 28px !important
+
+      height: 28px !important
+      background:  #E9E9EA
+      border-radius: 14px
+
+  form
+    width: 100%
+    .wrap_button
+      display: flex
+      flex-direction: column
+      button
+        background-color: transparent !important
+        height: 46px !important
+        border-radius: 24px
+      button:nth-child(1)
+        margin-bottom: 23px
+        opacity: 0.5
+        border: 1px solid #BDBEBF
+      button:nth-child(2)
+        &::before
+          background-color: transparent !important
+          // font-size: 100px
+      .v-btn--contained
+        box-shadow: none
+
 </style>
