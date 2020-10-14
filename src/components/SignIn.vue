@@ -2,13 +2,13 @@
   <v-row justify="center">
     <v-dialog v-model="dialog" persistent max-width="391px">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn dark v-bind="attrs" v-on="on"> Singin </v-btn>
+        <v-btn  class="sign__btn" v-bind="attrs" v-on="on"> Sing in </v-btn>
       </template>
 
       <v-card>
         <v-card-title>
           <span class="headline">Log in</span>
-          <v-btn color="" text @click="dialog = false">
+          <v-btn  text @click="dialog = false">
             <img :src="close" alt="close icon">
           </v-btn>
 
@@ -44,8 +44,10 @@
                 ></v-text-field>
               </v-col>
               <div class="wrap_button">
-                 <v-btn class="mr-4" @click="submit"> Log in </v-btn>
-                <v-btn class="mr-4" @click="submit"> Sign up </v-btn>
+                 <v-btn class="" @click="submit"> Log in </v-btn>
+                  <router-link  class="sign_up_btn" to="/sign-up" style="text-decoration: none">
+                      <v-btn class="" @click="submit"> Sign up </v-btn>
+                  </router-link>
               </div>
               </form>
             </v-row>
@@ -123,11 +125,12 @@ export default {
 <style lang="sass" >
 .v-dialog
   width: 391px
-  height: 402px
+  height: 410px
   border-radius: 27px !important
   border: 1px solid #979797
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.230769) !important
   background: #fff
+
   .v-sheet.v-card:not(.v-sheet--outlined)
     box-shadow: none
   .v-card__title
@@ -162,11 +165,23 @@ export default {
         margin-bottom: 23px
         opacity: 0.5
         border: 1px solid #BDBEBF
-      button:nth-child(2)
-        &::before
-          background-color: transparent !important
-          // font-size: 100px
+      .sign_up_btn
+        button
+          border: none
+          width: 100%
+          &::before
+            background-color: transparent !important
+            // font-size: 100px
       .v-btn--contained
         box-shadow: none
 
+
+
+.sign__btn
+  background-color: transparent !important
+  margin-top: 20px
+.v-btn--contained
+  box-shadow: none !important
+  &::before
+    background-color: transparent !important
 </style>

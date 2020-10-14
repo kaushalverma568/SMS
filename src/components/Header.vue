@@ -24,13 +24,49 @@
             <img @click="notificationsOpen = !notificationsOpen" alt="notifications icon" src="../assets/notification.svg" />
           </Badge>
 
+
+            <!-- menu__drop -->
+
+           <v-menu offset-y class="navs__button">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  v-bind="attrs"
+                  v-on="on"
+                  class="btn__nav"
+                  circle
+                >
+                 <img alt="profile icon" src="../assets/account.svg" />
+                    <!-- <Button  class="btn_profil">
+
+                      </Button> -->
+                </v-btn>
+              </template>
+              <v-list class="navs__button__list">
+                <v-list-item class="adjust_position">
+
+                  <v-list-item-title>
+                    <router-link to="/profile" class="link__profile__drop">
+                     <v-btn class="profile_drop">
+                       Profile
+                      </v-btn>
+                    </router-link>
+                  </v-list-item-title>
+
+                  <v-list-item-title>
+                    <SignIn />
+                  </v-list-item-title>
+
+                </v-list-item>
+              </v-list>
+            </v-menu>
+
+            <!-- menu_end -->
             <!-- // profile -->
-          <router-link to="/profile">
+          <!-- <router-link to="/profile">
             <Button circle class="btn_profil">
               <img alt="profile icon" src="../assets/account.svg" />
             </Button>
-          </router-link>
-            <SignIn />
+          </router-link> -->
         </div>
 
       </div>
@@ -86,6 +122,7 @@ export default {
     @media (max-width: 500px)
       padding-right: 15px
       padding-left: 15px
+
 
   a
     img
@@ -159,4 +196,43 @@ export default {
             width: 15px
             heigth: 15px
 
+
+
+.btn__nav
+  background: transparent
+  box-shadow: none
+  width: 40px !important
+  min-width: 40px !important
+  height: 40px !important
+  background-color: #F2F2F2 !important
+  border-radius: 40px
+  position: relative
+
+  &::focus
+    background: transparent !important
+    box-shadow: none !important
+.theme--light.v-btn:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined)
+  background: transparent
+  &::before
+    background: transparent
+
+
+
+
+.adjust_position
+  display: flex
+  flex-direction: column
+
+.v-menu__content
+  top: 80px !important
+  left: 0
+
+
+.link__profile__drop
+  text-decoration: none
+  .profile_drop
+    margin-top: 25px
+
+    height: auto
+    background: transparent
 </style>

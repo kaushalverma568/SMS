@@ -8,6 +8,7 @@ import LiveStream from './pages/LiveStream'
 import ExclusiveItems from './pages/ExclusiveItems'
 import BuyAndSale from './pages/BuyAndSale'
 import Item from './pages/Item'
+import SignUp from './pages/SignUP'
 
 // define__routes
 export const routes = [
@@ -21,5 +22,6 @@ export const routes = [
   { path: '/exclusive-items', component: ExclusiveItems },
   { path: '/buy-sale', component: BuyAndSale },
   { path: '/item', component: Item },
+  { path: '/sign-up', component: SignUp },
 
 ]
