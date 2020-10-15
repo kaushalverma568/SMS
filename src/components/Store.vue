@@ -1,41 +1,31 @@
 <template>
   <div class="exlusive-items-wrapper">
-
     <div class="exlusive-items">
-
       <header class="page-header">
         <h1>{{ title }}</h1>
-          <!-- <SellItem /> -->
+        <!-- <SellItem /> -->
         <router-link to="/buy-sale">
-        <div class="sell-btn" >
-          <Button dark fullWidth>
-              Sell
-          </Button>
-        </div>
+          <div class="sell-btn">
+            <Button dark fullWidth> Sell </Button>
+          </div>
         </router-link>
-
       </header>
 
-
       <div class="exlusive-items-content">
-
-
         <div class="categories-wrapper">
           <div class="categories">
-
-          <!-- category-checkList here -->
+            <!-- category-checkList here -->
             <h2>Categories</h2>
             <div class="row" v-for="n in 6" :key="n.id">
               <v-checkbox
-              class="customize--checkbox"
-              label="Category name here"
+                class="customize--checkbox"
+                label="Category name here"
               >
               </v-checkbox>
               <!-- <div class="category-name">Category name here</div> -->
             </div>
           </div>
         </div>
-
 
         <div class="items-list-wrapper">
           <header class="search__checklist">
@@ -54,37 +44,34 @@
           </header>
 
           <content>
-
-            <router-link to="/item" v-for="n in 10" :key="n.id">
-
-
+            <router-link
+              to="/item"
+              v-for="productinfo in productsData"
+              :key="productinfo.id"
+            >
               <div class="item">
                 <v-sheet
-                v-if="show"
-
-                :color="`grey ${theme.isDark ? 'darken-2' : 'lighten-4'}`"
-                class="pa-3 re_position"
-              >
-                <v-skeleton-loader
-                  class="mx-auto"
-                  max-width="300"
-                  type="card"
-                ></v-skeleton-loader>
-              </v-sheet>
+                  v-if="show"
+                  :color="`grey ${theme.isDark ? 'darken-2' : 'lighten-4'}`"
+                  class="pa-3 re_position"
+                >
+                  <v-skeleton-loader
+                    class="mx-auto"
+                    max-width="300"
+                    type="card"
+                  ></v-skeleton-loader>
+                </v-sheet>
 
                 <div class="thumb">
-                  <img :src="productIMG"/>
+                  <!-- productImg -->
+                  <img :src="productIMG" :alt="productinfo.title" />
                 </div>
-                <h2 class="title_product">Title item of lorem ipsum dolor sit amet here</h2>
-                <div class="item-price">Rp 150.000</div>
+                <h2 class="title_product">{{ productinfo.title }}</h2>
+                <div class="item-price">{{ productinfo.popularity }}</div>
               </div>
-
             </router-link>
-
           </content>
-
         </div>
-
       </div>
       <Pagination />
     </div>
@@ -97,9 +84,14 @@ import SearchInput from "../components/atoms/SearchInput";
 import DropdownButton from "../components/atoms/DropdownButton";
 import Pagination from "../components/atoms/Pagination";
 import Button from "../components/atoms/Button";
-
-import productIMG from '../assets/exitem.svg'
+import productIMG from "../assets/exitem.svg";
 // import SellItem from '../components/atoms/SellItem'
+// import axios from "axios"
+// import { puplic_key } from "../data.js"
+
+// const POSTER_PATH = "http://image.tmdb.org/t/p/w154"
+
+// Key: http://www.omdbapi.com/?i=tt3896198&apikey=1c267267
 
 export default {
   name: "ExlusiveItems",
@@ -136,31 +128,48 @@ export default {
         value: "newest",
       },
       productIMG: productIMG,
-      show: true
+      show: true,
+      productsData: [],
     };
+  },
+  mounted() {
+    this.showArticle();
+    this.fetchData();
   },
   methods: {
     handleSortChange(option) {
       this.selectedSort = option;
     },
-    showArticle () {
-      setTimeout (() => {
-        this.show = false
-      }, 3000)
-    }
-  },
-  mounted () {
-    this.showArticle()
+    showArticle() {
+      setTimeout(() => {
+        this.show = false;
+      }, 3000);
+    },
+
+    // fethc__dummy_data__from-movie-db
+    fetchData: async function () {
+      try {
+        const res = await fetch(
+          "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.descmovie/550&api_key=3f3b341e1928f82512c99387ebeafc9d"
+        );
+        const productsData = await res.json();
+        this.productsData = productsData.results;
+        console.log(productsData);
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
   inject: {
-      theme: {
-        default: { isDark: false },
-      },
-    }
+    theme: {
+      default: { isDark: false },
+    },
+  },
 };
 </script>
 
 <style lang="sass" scoped>
+
 .exlusive-items-wrapper
   padding: 120px 0
   display: flex
@@ -226,20 +235,20 @@ export default {
       .dropdown-button
         width: 222px
     content
-      display: flex
-      flex-wrap: wrap
-      justify-content: space-between
-      @media (max-width: 400px)
-        justify-content: center
-      a
-        text-decoration: none
-      .item
-        margin: 0
-        margin-bottom: 40px
-        width: 307px
-        position: relative
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
         @media (max-width: 400px)
-          width: auto
+          justify-content: center
+        a
+          text-decoration: none
+        .item
+          margin: 0
+          margin-bottom: 40px
+          width: 307px
+          position: relative
+          @media (max-width: 400px)
+            width: auto
         .re_position
           position: absolute
           top: 0

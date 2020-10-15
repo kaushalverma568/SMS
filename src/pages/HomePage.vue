@@ -21,8 +21,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.homepage {
-  margin-top: 80px;
-}
+<style lang="sass" scoped>
+.homepage
+  margin-top: 80px
+
 </style>

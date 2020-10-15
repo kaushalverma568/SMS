@@ -6,7 +6,7 @@
          <CarouselPins :pages="3" :activePage="activePage" @clicked="handleCarouselChange"></CarouselPins>
       </div>
 
-      <Carousel height="400px" v-touch:swipe.right="swipeRight" v-touch:swipe.left="swipeLeft">
+      <Carousel height="400px">
         <CarouseScroll :page="activePage" :perPage="2">
           <VideoPreview class="video__one" />
           <VideoPreview />
@@ -50,16 +50,8 @@ export default {
     handleCarouselChange(e) {
       this.activePage = e;
       console.log(this.activePage)
-    },
-    swipeLeft() {
-      const newPage = this.activePage + 1;
-      this.activePage = newPage <= 3 ? newPage : 3;
-    },
-    swipeRight() {
-      const newPage = this.activePage - 1;
-      this.activePage = newPage >= 1 ? newPage : 1;
-    },
-  },
+    }
+  }
 };
 </script>
 

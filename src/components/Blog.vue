@@ -13,8 +13,7 @@
 
       <Carousel
         height="400px"
-        v-touch:swipe.right="swipeRight"
-        v-touch:swipe.left="swipeLeft"
+
       >
         <CarouseScroll :page="activePage" :perPage="2">
           <BlogArticle class="blogArt" />
@@ -60,14 +59,7 @@ export default {
       this.activePage = e;
       console.log(this.activePage);
     },
-    swipeLeft() {
-      const newPage = this.activePage + 1;
-      this.activePage = newPage <= 3 ? newPage : 3;
-    },
-    swipeRight() {
-      const newPage = this.activePage - 1;
-      this.activePage = newPage >= 1 ? newPage : 1;
-    },
+
   },
 };
 </script>
