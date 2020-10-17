@@ -51,4 +51,14 @@ export default {
 
 .theme--light.v-label
   color: #000 !important
+
+
+// change the sahpe of the scroll....
+::-webkit-scrollbar-track
+  border-radius: 10px
+::-webkit-scrollbar
+  width: 8px
+::-webkit-scrollbar-thumb
+  border-radius: 10px
+  background-color: #e2e2e4
 </style>

@@ -12,7 +12,7 @@
         :class="{ active: option.value === selected.value }"
       >
         <img src="../../assets/option-checked.svg" v-if="option.value === selected.value" />
-        {{ option.label }}
+        {{ option.value }}
       </div>
     </div>
   </div>
@@ -96,6 +96,7 @@ border-radius: 14px;
 
         &.active {
             color: #131416;
+
         }
     }
   }

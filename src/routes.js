@@ -21,7 +21,7 @@ export const routes = [
   { path: '/live-stream', component: LiveStream },
   { path: '/exclusive-items', component: ExclusiveItems },
   { path: '/buy-sale', component: BuyAndSale },
-  { path: '/item', component: Item },
+  { path: '/product/:id', component: Item },
   { path: '/sign-up', component: SignUp },
 
 ]

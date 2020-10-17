@@ -6,7 +6,7 @@
         <!-- <SellItem /> -->
         <router-link to="/buy-sale">
           <div class="sell-btn">
-            <Button dark fullWidth> Sell </Button>
+            <Button dark fullWidth> Sell Item</Button>
           </div>
         </router-link>
       </header>
@@ -39,37 +39,20 @@
                 :label="selectedSort.value"
                 :options="sortOptions"
                 :selected="selectedSort"
-              />
+
+              >
+
+              </DropdownButton>
             </div>
           </header>
 
           <content>
-            <router-link
-              to="/item"
-              v-for="productinfo in productsData"
-              :key="productinfo.id"
+            <div
+              v-for="product in products"
+              :key="product.id"
             >
-              <div class="item">
-                <v-sheet
-                  v-if="show"
-                  :color="`grey ${theme.isDark ? 'darken-2' : 'lighten-4'}`"
-                  class="pa-3 re_position"
-                >
-                  <v-skeleton-loader
-                    class="mx-auto"
-                    max-width="300"
-                    type="card"
-                  ></v-skeleton-loader>
-                </v-sheet>
-
-                <div class="thumb">
-                  <!-- productImg -->
-                  <img :src="productIMG" :alt="productinfo.title" />
-                </div>
-                <h2 class="title_product">{{ productinfo.title }}</h2>
-                <div class="item-price">{{ productinfo.popularity }}</div>
-              </div>
-            </router-link>
+              <Product :product="product" />
+            </div>
           </content>
         </div>
       </div>
@@ -85,6 +68,7 @@ import DropdownButton from "../components/atoms/DropdownButton";
 import Pagination from "../components/atoms/Pagination";
 import Button from "../components/atoms/Button";
 import productIMG from "../assets/exitem.svg";
+import Product from "../components/atoms/Product";
 // import SellItem from '../components/atoms/SellItem'
 // import axios from "axios"
 // import { puplic_key } from "../data.js"
@@ -92,6 +76,8 @@ import productIMG from "../assets/exitem.svg";
 // const POSTER_PATH = "http://image.tmdb.org/t/p/w154"
 
 // Key: http://www.omdbapi.com/?i=tt3896198&apikey=1c267267
+
+import arrow from '../assets/option-checked.svg'
 
 export default {
   name: "ExlusiveItems",
@@ -102,6 +88,8 @@ export default {
     Pagination,
     Button,
     // SellItem
+    Product,
+
   },
   props: {
     title: String,
@@ -109,66 +97,70 @@ export default {
   },
   data() {
     return {
+      arrow: arrow,
       sortOptions: [
         {
           label: "Newest",
-          value: "newest",
+          value: "Newset",
         },
         {
           label: "Oldest",
           value: "oldest",
         },
         {
-          label: "Price",
-          value: "price",
+          label: "Descending",
+          value: "Descending",
+        },
+        {
+          label: "Ascending",
+          value: "Ascending",
+        },
+        {
+          label: "Hightst price",
+          value: "Hightst price",
+        },
+        {
+          label: "Lowest price",
+          value: "Lowest price",
         },
       ],
       selectedSort: {
-        label: "Newest",
-        value: "newest",
+        label: "Sellect Item",
+        value: 'Sellect Item',
+        // img: require('../assets/option-checked.svg')
+
       },
       productIMG: productIMG,
-      show: true,
-      productsData: [],
+
+      products: [],
     };
   },
-  mounted() {
-    this.showArticle();
-    this.fetchData();
-  },
+
   methods: {
     handleSortChange(option) {
       this.selectedSort = option;
     },
-    showArticle() {
-      setTimeout(() => {
-        this.show = false;
-      }, 3000);
-    },
 
-    // fethc__dummy_data__from-movie-db
     fetchData: async function () {
       try {
         const res = await fetch(
           "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.descmovie/550&api_key=3f3b341e1928f82512c99387ebeafc9d"
         );
-        const productsData = await res.json();
-        this.productsData = productsData.results;
-        console.log(productsData);
+        const products = await res.json();
+        this.products = products.results;
+        console.log(products);
       } catch (error) {
         console.log(error);
       }
     },
   },
-  inject: {
-    theme: {
-      default: { isDark: false },
-    },
+  created: function () {
+    this.fetchData();
   },
 };
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 
 .exlusive-items-wrapper
   padding: 120px 0
@@ -270,6 +262,8 @@ export default {
             height: 200px
           img
             width: 100%
+            height: 250px
+            border-radius: 25px
         .title_product
           font-size: 18px
           margin: 0 0 20px 0
@@ -283,7 +277,4 @@ export default {
           color: #000
           @media (max-width: 767px)
             font-size: 16px
-
-
-
 </style>
