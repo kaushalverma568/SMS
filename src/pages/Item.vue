@@ -20,7 +20,12 @@
 
               <div class="action hold__report__item" @click.stop="dialog = true">
 
-                <img :src="Report" alt="report icon"/>
+
+                  <svg width="22" height="22" viewBox="0 0 22 22"  xmlns="http://www.w3.org/2000/svg" class="report__icon">
+                  <path d="M19.5236 12.9518L16.012 7.33334L19.557 1.66101C19.6277 1.54771 19.6314 1.40544 19.5669 1.28884C19.502 1.17224 19.3795 1.10001 19.246 1.10001H2.96603V0.366675C2.96603 0.163908 2.0127 0.163908 2.0127 0.366675V1.46667V12.1V13.2V21.6333C2.0127 21.8361 2.96603 21.8361 2.96603 21.6333V13.5667H19.246C19.4561 13.5667 19.62 13.4028 19.62 13.2C19.62 13.1043 19.5834 13.0174 19.5236 12.9518Z" fill="#E2E2E4"/>
+                  </svg>
+
+
 
                    <v-dialog max-width="475px" max-height="490px" class="v-dialog__height__width" v-model="dialog"
                   style="overflow-y: hidden"
@@ -37,22 +42,22 @@
                     <v-list>
                       <v-list-item>
                         <div>Reason 1</div>
-                        <v-checkbox></v-checkbox>
+                        <v-checkbox id="checked1" @click="enabled(this)"></v-checkbox>
                       </v-list-item>
 
                       <v-list-item>
                         <div>Reason 2</div>
-                        <v-checkbox></v-checkbox>
+                        <v-checkbox id="checked1" @click="enabled(this)"></v-checkbox>
                       </v-list-item>
 
                       <v-list-item>
                         <div>Reason 3</div>
-                          <v-checkbox></v-checkbox>
+                          <v-checkbox id="checked1" @click="enabled(this)"></v-checkbox>
                       </v-list-item>
 
                       <v-list-item>
                         <div>Other</div>
-                        <v-checkbox @click="typeReason = !typeReason"></v-checkbox>
+                        <v-checkbox  @click="typeReason = !typeReason"></v-checkbox>
                       </v-list-item>
 
                       <transition name="fade">
@@ -66,8 +71,11 @@
 
                       <v-list-item class="hold__input">
                         <button
+                        id="DDL"
                         @click="closeModal"
-                        class="close_show_report_message">
+                        class="close_show_report_message"
+                        disabled="disabled"
+                        >
                           Submit
                         </button>
                       </v-list-item>
@@ -142,6 +150,7 @@ export default {
   },
   created: function () {
     this.fetchData();
+    this.enabled();
   },
 
   methods: {
@@ -161,13 +170,22 @@ export default {
       }
     },
 
-
-
     closeModal: function () {
+
       this.dialog = false;
       setTimeout(() => {
         this.showReport = true;
+          document.querySelector(".report__icon").classList.add("add_height")
       }, 1000)
+    },
+    enabled: function () {
+      const ddl  = document.getElementById('DDL')
+      const checked1 =  document.getElementById('checked1')
+      ddl.disabled = checked1.checked ? true : false
+      // if(!ddl.disabled) {
+      //   ddl.focus()
+      // }
+      console.log('wroking')
     }
   },
   computed: {
@@ -321,6 +339,9 @@ export default {
       height: 28px
       border-radius: 28px
       // background: pink
+    .report__icon.add_height path
+      fill: #EF3F3F
+
 
 // change the height of the report popup menu
 .v-dialog,.v-dialog--active
@@ -374,6 +395,7 @@ export default {
       height: 46px
       outline: none
       color: #BDBEBF
+      font-weight: bold
   .v-btn:not(.v-btn--round).v-size--default
     min-width: 28px
 
