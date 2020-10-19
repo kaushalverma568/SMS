@@ -13,9 +13,12 @@
               <div class="action">
                 <img :src="Phone" alt="phone icon" />
               </div>
-              <div class="action">
+
+              <productChat />
+              <!-- <div class="action">
                 <img :src="Chat" alt="chat icon" />
               </div>
+               -->
               <div class="action __text">Request an admin</div>
 
               <div class="action hold__report__item" @click.stop="dialog = true">
@@ -65,7 +68,7 @@
                         class="hold__input"
                         v-if="typeReason"
                         >
-                        <input type="text" placeholder="Write your reason...">
+                        <input type="text" placeholder="Write your reason..." id="checked1" @click="enabled(this)">
                       </v-list-item>
                       </transition>
 
@@ -123,6 +126,7 @@
 </template>
 
 <script>
+import ProductChat from '../components/atoms/ProductChat'
 import productIMG from "../assets/exitem.svg";
 import Chat from "../assets/chat-prod.svg";
 import Phone from "../assets/phone.svg";
@@ -147,6 +151,9 @@ export default {
       typeReason: false,
       showReport: false
     };
+  },
+  components: {
+    ProductChat
   },
   created: function () {
     this.fetchData();
