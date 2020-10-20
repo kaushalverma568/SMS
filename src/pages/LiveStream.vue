@@ -89,129 +89,120 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.live-stream-wrapper {
-  padding: 120px 0;
-  display: flex;
-  justify-content: center;
+<style lang="sass" scoped>
+.live-stream-wrapper
+  padding: 120px 0
+  display: flex
+  justify-content: center
 
-  .live-stream {
-    header {
-      margin-bottom: 24px;
-      h1 {
-        font-size: 30px;
-        font-weight: bold;
-        margin: 0;
-      }
-    }
-  }
+  .live-stream
+    header
+      margin-bottom: 24px
+      h1
+        font-size: 30px
+        font-weight: bold
+        margin: 0
 
-  .live-stream-content {
-    display: flex;
-    border: 1px solid #f0f0f1;
-    border-radius: 20px;
-    overflow: hidden;
-    min-height: calc(100vh - 240px);
+  .live-stream-content
+    display: flex
+    border: 1px solid #f0f0f1
+    border-radius: 20px
+    overflow: hidden
+    min-height: calc(100vh - 240px)
+    @media (max-width: 992px)
+      flex-direction: column
+    .live-stream-player
+      width: 300px
+      @media (max-width: 992px)
+        width: 100%
+        height: 250px
 
-    .live-stream-player {
-      width: 300px;
-    }
-  }
+  .live-stream-comments
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    header
+      display: flex
+      justify-content: space-between
+      margin-bottom: 24px
+      padding: 30px 30px 0 30px
 
-  .live-stream-comments {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 24px;
-      padding: 30px 30px 0 30px;
+      h2
+        font-size: 18px
+        margin: 0
+        color: #25282b
 
-      h2 {
-        font-size: 18px;
-        margin: 0;
-        color: #25282b;
-      }
+      .chat-icon
+        cursor: pointer
 
-      .chat-icon {
-        cursor: pointer;
-      }
-    }
-  }
+  .comments-list
+    padding: 0 30px
+    @media (max-width: 500px)
+      padding: 0 10px
 
-  .comments-list {
-    padding: 0 30px;
-  }
+  .comment-item
+    margin-bottom: 24px
+    display: flex
+    max-width: 343px
+    margin-right: 100px
+    @media (max-width: 500px)
+      width: 100%
+    .avatar
+      height: 38px
+      width: 38px
+      background: #6063eb
+      border-radius: 50%
+      margin-right: 16px
 
-  .comment-item {
-    margin-bottom: 24px;
-    display: flex;
-    max-width: 343px;
-    margin-right: 100px;
+    .name-date
+      display: flex
+      margin-bottom: 8px
 
-    .avatar {
-      height: 38px;
-      width: 38px;
-      background: #6063eb;
-      border-radius: 50%;
-      margin-right: 16px;
-    }
+      .name
+        font-size: 14px
+        font-weight: bold
+        margin-right: 8px
+        @media (max-width: 500px)
+          font-size: 11px
 
-    .name-date {
-      display: flex;
-      margin-bottom: 8px;
 
-      .name {
-        font-size: 14px;
-        font-weight: bold;
-        margin-right: 8px;
-      }
+      .date
+        opacity: 0.5
+        font-size: 14px
 
-      .date {
-        opacity: 0.5;
-        font-size: 14px;
-      }
-    }
+    p
+      font-size: 14px
+      font-weight: bold
+      margin: 0
+      @media (max-width: 500px)
+        font-size: 11px
+        font-weight: normal
 
-    p {
-      font-size: 14px;
-      font-weight: bold;
-      margin: 0;
-    }
-  }
+  .new-message-actions
+    width: 100%
+    display: flex
+    align-items: center
+    align-items: center
+    height: 80px
+    border-top: solid 1px #f0f0f1
+    padding: 0 30px
+    box-sizing: border-box
 
-  .new-message-actions {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    align-items: center;
-    height: 80px;
-    border-top: solid 1px #f0f0f1;
-    padding: 0 30px;
-    box-sizing: border-box;
+    .input
+      flex: 1
 
-    .input {
-      flex: 1;
-    }
-
-    .send-btn {
-      background-color: #6063eb;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border: none;
-      box-shadow: none;
-      cursor: pointer;
-      margin-left: 20px;
-
-      &:focus {
-        outline: none;
-      }
-    }
-  }
-}
+    .send-btn
+      background-color: #6063eb
+      border-radius: 50%
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 40px
+      height: 40px
+      border: none
+      box-shadow: none
+      cursor: pointer
+      margin-left: 20px
+      &:focus
+        outline: none
 </style>

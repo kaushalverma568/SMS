@@ -45,7 +45,7 @@
               </v-col>
               <div class="wrap_button">
                  <v-btn class="" @click="submit"> Log in </v-btn>
-                  <v-btn class="" @click="submit"> Sign up </v-btn>
+                  <v-btn> Sign up </v-btn>
               </div>
               </form>
             </v-row>
@@ -114,6 +114,7 @@ export default {
   methods: {
     submit() {
       this.$v.$touch();
+      this.dialog = false
     },
   },
 };
