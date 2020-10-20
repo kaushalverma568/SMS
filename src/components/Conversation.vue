@@ -95,6 +95,8 @@ export default {
   position: relative
   max-height: calc(100vh - 180px)
   overflow: hidden
+  @media (max-width: 1080px)
+    width: auto
 
   &.border
     border: 1px solid #f0f0f1
@@ -132,9 +134,6 @@ export default {
 
         &:hover
           opacity: 1
-
-
-
 
     h1
       font-size: 22px

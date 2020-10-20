@@ -30,35 +30,39 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.conversation-messages {
-  overflow: scroll;
-  max-height: calc(100vh - 401px);
-  padding: 20px;
-}
+<style lang="sass" scoped>
+.conversation-messages
+  overflow: scroll
+  max-height: calc(100vh - 401px)
+  padding: 20px
 
-.message {
-  display: flex;
-  margin: 20px 0;
 
-  .message-avatar {
-      margin-right: 10px;
-  }
+.message
+  display: flex
+  margin: 20px 0
 
-  .message-content-header{
-      display: flex;
-      margin-bottom: 8px;
+  .message-avatar
+      margin-right: 10px
+      button
+        width: 34px
+        border-radius: 50%
 
-      .message-username {
-          font-size: 16px;
-          font-weight: 600;
-          margin-right: 8px;
-      }
 
-      .message-date{
-          font-size: 14px;
-          opacity: 0.5;
-      }
-  }
-}
+
+  .message-content-header
+      display: flex
+      margin-bottom: 8px
+
+      .message-username
+          font-size: 16px
+          font-weight: 600
+          margin-right: 8px
+
+
+      .message-date
+          font-size: 14px
+          opacity: 0.5
+
+
+
 </style>
