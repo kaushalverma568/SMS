@@ -45,9 +45,7 @@
               </v-col>
               <div class="wrap_button">
                  <v-btn class="" @click="submit"> Log in </v-btn>
-                  <router-link  class="sign_up_btn" to="/sign-up" style="text-decoration: none">
-                      <v-btn class="" @click="submit"> Sign up </v-btn>
-                  </router-link>
+                  <v-btn class="" @click="submit"> Sign up </v-btn>
               </div>
               </form>
             </v-row>

@@ -61,4 +61,6 @@ export default {
 ::-webkit-scrollbar-thumb
   border-radius: 10px
   background-color: #e2e2e4
+.v-dialog
+  height: auto !important
 </style>

@@ -10,6 +10,7 @@
           <div class="price">$120</div>
           <div>
             <div class="actions">
+
               <div class="action">
                 <img :src="Phone" alt="phone icon" />
               </div>
@@ -19,7 +20,9 @@
                 <img :src="Chat" alt="chat icon" />
               </div>
                -->
-              <div class="action __text">Request an admin</div>
+              <div class="action __text">
+                <RequestAdmin />
+              </div>
 
               <div class="action hold__report__item" @click.stop="dialog = true">
 
@@ -30,7 +33,7 @@
 
 
 
-                   <v-dialog max-width="475px" max-height="490px" class="v-dialog__height__width" v-model="dialog"
+                   <v-dialog max-width="475px" height="auto" class="v-dialog__height__width" v-model="dialog"
                   style="overflow-y: hidden"
                    >
                   <v-card>
@@ -127,6 +130,7 @@
 
 <script>
 import ProductChat from '../components/atoms/ProductChat'
+import RequestAdmin from "../components/atoms/RequestAdmin"
 import productIMG from "../assets/exitem.svg";
 import Chat from "../assets/chat-prod.svg";
 import Phone from "../assets/phone.svg";
@@ -153,7 +157,8 @@ export default {
     };
   },
   components: {
-    ProductChat
+    ProductChat,
+    RequestAdmin
   },
   created: function () {
     this.fetchData();
@@ -205,7 +210,7 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 
 .item-wrapper
   padding: 120px 0
@@ -351,7 +356,7 @@ export default {
 
 
 // change the height of the report popup menu
-.v-dialog,.v-dialog--active
+.v-dialog
   height: 500px !important
   position: relative
   .button___exit
@@ -414,4 +419,7 @@ export default {
 .fade-enter,.fade-leave-to
   opacity: 0
   transform: translateY(10px)
+
+.v-dialog
+  height: auto
 </style>
