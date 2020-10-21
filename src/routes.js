@@ -10,6 +10,8 @@ import BuyAndSale from './pages/BuyAndSale'
 import Item from './pages/Item'
 import SignUp from './pages/SignUP'
 
+import OurVideos from './pages/OurVideos.vue'
+
 // define__routes
 export const routes = [
   { path: '/', component: HomePage },
@@ -23,5 +25,6 @@ export const routes = [
   { path: '/buy-sale', component: BuyAndSale },
   { path: '/product/:id', component: Item },
   { path: '/sign-up', component: SignUp },
+  {path: '/our-videos', component: OurVideos}
 
 ]

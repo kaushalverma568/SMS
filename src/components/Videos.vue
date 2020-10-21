@@ -3,7 +3,17 @@
     <div class="videos">
       <div class="videos-header">
         <Title text="Videos" />
-         <CarouselPins :pages="3" :activePage="activePage" @clicked="handleCarouselChange"></CarouselPins>
+
+         <div class="show__big_screen">
+           <CarouselPins :pages="3" :activePage="activePage" @clicked="handleCarouselChange"></CarouselPins>
+         </div>
+
+         <div class="show_small_screen">
+          <router-link to="our-videos">
+            <button class="see__all">See all</button>
+          </router-link>
+         </div>
+
       </div>
 
       <Carousel height="400px">
@@ -13,7 +23,11 @@
           <VideoPreview />
           <VideoPreview />
           <VideoPreview />
+          <router-link to="our-videos">
+            <button class="see__all">See all</button>
+          </router-link>
         </CarouseScroll>
+
       </Carousel>
     </div>
   </Container>
@@ -63,8 +77,27 @@ export default {
   .videos-header
     display: flex
     justify-content: space-between
+  .see__all
+    font-size: 16px
+    font-weight: bold
+    outline: none
+    margin-top: 100px
+    width: 87px
+    height: 34px
+    border: 1px solid #F0F0F8
+    color: #000
+    border-radius: 15px
 
-.video__one
-  @media (max-width: 992px)
+  .show__big_screen
+    @media (max-width: 767px)
+      display: none
+  .show_small_screen
+    display: none
+    button
+      margin-top: 0
+    @media (min-width: 100px) and (max-width: 767px)
+      display: block
+// .video__one
+  // @media (max-width: 992px)
     // width: 500px
 </style>

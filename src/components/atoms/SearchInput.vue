@@ -1,7 +1,7 @@
 <template>
     <div class="search">
       <img src="../../assets/search.svg" />
-      <input placeholder="Search" />
+      <input placeholder="Search" autofocus="true" />
     </div>
 </template>
 

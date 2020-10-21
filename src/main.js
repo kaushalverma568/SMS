@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App'
 import Vue2TouchEvents from 'vue2-touch-events'
-import vuetify from './plugins/vuetify';
+import vuetify from './plugins/vuetify'
 //  inport {routes} from routes file
 import { routes } from './routes'
 Vue.use(VueRouter)

@@ -146,7 +146,7 @@ export default {
     max-width: 343px
     margin-right: 100px
     @media (max-width: 500px)
-      width: 100%
+    padding: 0 10px
     .avatar
       height: 38px
       width: 38px
