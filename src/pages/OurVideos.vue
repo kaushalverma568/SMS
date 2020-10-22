@@ -7,8 +7,18 @@
         <router-link to="">
           <div class="sell-btn">
             <span>
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20.9258 3.5H7.05231C6.76559 3.5 6.5332 3.73238 6.5332 4.01911V23.461C6.5326 23.8506 6.75038 24.2075 7.09672 24.3853C7.44326 24.5633 7.86017 24.5323 8.1763 24.3048L13.9891 20.1382L19.8018 24.305C20.1184 24.5317 20.5349 24.5625 20.8812 24.3847C21.2274 24.2069 21.4451 23.8504 21.4451 23.461V4.01911C21.4451 3.73238 21.2125 3.5 20.9258 3.5V3.5Z" stroke="#25282B" stroke-width="2"/>
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 28 28"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.9258 3.5H7.05231C6.76559 3.5 6.5332 3.73238 6.5332 4.01911V23.461C6.5326 23.8506 6.75038 24.2075 7.09672 24.3853C7.44326 24.5633 7.86017 24.5323 8.1763 24.3048L13.9891 20.1382L19.8018 24.305C20.1184 24.5317 20.5349 24.5625 20.8812 24.3847C21.2274 24.2069 21.4451 23.8504 21.4451 23.461V4.01911C21.4451 3.73238 21.2125 3.5 20.9258 3.5V3.5Z"
+                  stroke="#25282B"
+                  stroke-width="2"
+                />
               </svg>
             </span>
           </div>
@@ -42,74 +52,88 @@
                 :label="selectedSort.value"
                 :options="sortOptions"
                 :selected="selectedSort"
-
               >
-
               </DropdownButton>
             </div>
           </header>
           <!-- upcoming__videos -->
           <div class="upcoming">
-              <h3 class="video_title_upcoming">
-                Upcoming lives
-              </h3>
-              <div class="upcoming_video_wrap">
-                <div v-for="vid in 3" :key="vid.id" class="upcoming_vid">
-                <div class="video__content">
-                  <h5>Title video lorem dol…</h5>
-                  <div class="video__date">
-                    <span>August 29th</span>
+            <h3 class="video_title_upcoming">Upcoming lives</h3>
+            <!-- dialooo -->
+            <v-dialog v-model="dialog" persistent max-width="475">
+
+              <template v-slot:activator="{ on, attrs }">
+                <div class="upcoming_video_wrap" v-bind="attrs" v-on="on">
+                  <div v-for="vid in 3" :key="vid.id" class="upcoming_vid">
+                    <div class="video__content">
+                      <h5>Title video lorem dol…</h5>
+                      <div class="video__date">
+                        <span>August 29th</span>
+                      </div>
+                    </div>
                   </div>
-              </div>
-            </div>
-              </div>
+                </div>
+              </template>
+
+              <v-card>
+                <v-btn text @click="dialog = false">
+                  <img :src="close" alt="">
+                </v-btn>
+                <v-card-text class="wrapper__upcoming__video__popup">
+                  <div class="wrap_img">
+
+                  </div>
+                  <h4>Live video title here</h4>
+                  <p>Title video lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor More…</p>
+                  <span>22 June 2020, 15:30</span>
+                </v-card-text>
+                <button>Buy video/series</button>
+              </v-card>
+            </v-dialog>
+            <!-- end dialoog -->
           </div>
 
           <!-- end upcoming__videos -->
           <content>
             <div class="video-preview">
-            <div class="video-thumb">
-              <img src="../assets/video-thumb.png" />
-              <div class="video-duration">13:24</div>
-            </div>
-            <div
-              class="video-title"
-            >{{ VideoTitle }}</div>
-            <div class="video-infos">
-              <div class="views_info">
-                <div class="vues-count">
-                  <img src="../assets/star.svg" /> 4.5 - 45 views
-                </div>
-                <div class="video-premiem">Premieum</div>
+              <div class="video-thumb">
+                <img src="../assets/video-thumb.png" />
+                <div class="video-duration">13:24</div>
               </div>
-              <Button transparent fullRounded>
-                <img src="../assets/heart.svg" />
-                18
-              </Button>
+              <div class="video-title">{{ VideoTitle }}</div>
+              <div class="video-infos">
+                <div class="views_info">
+                  <div class="vues-count">
+                    <img src="../assets/star.svg" /> 4.5 - 45 views
+                  </div>
+                  <div class="video-premiem">Premieum</div>
+                </div>
+                <Button transparent fullRounded>
+                  <img src="../assets/heart.svg" />
+                  18
+                </Button>
+              </div>
             </div>
-          </div>
 
-          <div class="video-preview">
-            <div class="video-thumb">
-              <img src="../assets/video-thumb.png" />
-              <div class="video-duration">13:24</div>
-            </div>
-            <div
-              class="video-title"
-            >{{ VideoTitle }}</div>
-            <div class="video-infos">
-              <div class="views_info">
-                <div class="vues-count">
-                  <img src="../assets/star.svg" /> 4.5 - 45 views
-                </div>
-                <div class="video-premiem">Premieum</div>
+            <div class="video-preview">
+              <div class="video-thumb">
+                <img src="../assets/video-thumb.png" />
+                <div class="video-duration">13:24</div>
               </div>
-              <Button transparent fullRounded>
-                <img src="../assets/heart.svg" />
-                18
-              </Button>
+              <div class="video-title">{{ VideoTitle }}</div>
+              <div class="video-infos">
+                <div class="views_info">
+                  <div class="vues-count">
+                    <img src="../assets/star.svg" /> 4.5 - 45 views
+                  </div>
+                  <div class="video-premiem">Premieum</div>
+                </div>
+                <Button transparent fullRounded>
+                  <img src="../assets/heart.svg" />
+                  18
+                </Button>
+              </div>
             </div>
-          </div>
           </content>
         </div>
       </div>
@@ -122,25 +146,21 @@
 import SearchInput from "../components/atoms/SearchInput";
 import DropdownButton from "../components/atoms/DropdownButton";
 import Pagination from "../components/atoms/Pagination";
+import arrow from "../assets/option-checked.svg";
+import close from "../assets/close-modal.svg";
 
-
-import arrow from '../assets/option-checked.svg'
 // import bookmark from '../assets/bookmark.svg'
 
 export default {
   name: "ExlusiveItems",
-  components: {
-    SearchInput,
-    DropdownButton,
-    Pagination,
-
-  },
-
   data() {
     return {
       arrow: arrow,
       title: "Our videos",
-      VideoTitle: "Title video lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor…",
+      VideoTitle:
+        "Title video lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor…",
+      dialog: false,
+      close,
       sortOptions: [
         {
           label: "Newest",
@@ -169,17 +189,20 @@ export default {
       ],
       selectedSort: {
         label: "Sellect Item",
-        value: 'Sellect Item',
-
-      }
+        value: "Sellect Item",
+      },
     };
   },
-
+  components: {
+    SearchInput,
+    DropdownButton,
+    Pagination,
+  },
   methods: {
     handleSortChange(option) {
       this.selectedSort = option;
     },
-  }
+  },
 };
 </script>
 
@@ -311,7 +334,7 @@ export default {
       display: flex
       @media (max-width: 1200px)
         flex-wrap: wrap
-      margin-top: 20px
+        margin-top: 20px
     .upcoming_vid
       width: 228px
       height: 128px
@@ -333,18 +356,6 @@ export default {
           color: #fff
         .video__date
           position: relative
-          &:before
-            content: ''
-            position: absolute
-            background: #ffffff
-            top: 0
-            left:0
-            right: 0
-            bottom: 0
-            width: 98px
-            height: 27px
-            opacity: .3
-            border-radius: 9px
           font-weight: bold
           width: 98px
           height: 27px
@@ -352,12 +363,25 @@ export default {
           text-align: center
           line-height: 27px
           margin-top: 17px
+          &:before
+            content: ''
+            position: absolute
+            background: #ffffff
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            width: 98px
+            height: 27px
+            opacity: .3
+            border-radius: 9px
+
 
           span
             font-size: 14px
             color: #fff
             opacity: 1
-          // z-index: 100
+
 
   .video-preview
     margin-right: 30px
@@ -437,8 +461,11 @@ export default {
         align-items: center
         @media (max-width: 769px)
 
-
-
-
-
+// popup__coming_videos
+.wrapper__upcoming__video__popup
+    .wrap_img
+      width: 427px
+      height: 249px
+      border-radius: 24px
+      background: #000
 </style>
