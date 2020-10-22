@@ -25,16 +25,16 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-    .request-wrapper {
-        display: flex;
-        justify-content: center;
-        min-height: 100vh;
-        padding: 120px 0;
-
-        .request {
-            display: flex;
-            min-height: calc(100vh - 240px);
-        }
-    }
+<style lang="sass" scoped>
+    .request-wrapper
+        display: flex
+        justify-content: center
+        min-height: 100vh
+        padding: 120px 0
+        .request
+            display: flex
+            min-height: calc(100vh - 240px)
+            @media (max-width: 767px)
+                flex-direction: column
+                width: 100%
 </style>

@@ -60,7 +60,7 @@
           <div class="upcoming">
             <h3 class="video_title_upcoming">Upcoming lives</h3>
             <!-- dialooo -->
-            <v-dialog v-model="dialog" persistent max-width="475">
+            <v-dialog v-model="dialog" persistent max-width="475" class="v__dialog">
 
               <template v-slot:activator="{ on, attrs }">
                 <div class="upcoming_video_wrap" v-bind="attrs" v-on="on">
@@ -75,10 +75,10 @@
                 </div>
               </template>
 
-              <v-card>
-                <v-btn text @click="dialog = false">
+              <v-card class="card__wrapper">
+                <a @click="dialog = false">
                   <img :src="close" alt="">
-                </v-btn>
+                </a>
                 <v-card-text class="wrapper__upcoming__video__popup">
                   <div class="wrap_img">
 
@@ -86,8 +86,8 @@
                   <h4>Live video title here</h4>
                   <p>Title video lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor More…</p>
                   <span>22 June 2020, 15:30</span>
+                  <button>Buy video/series</button>
                 </v-card-text>
-                <button>Buy video/series</button>
               </v-card>
             </v-dialog>
             <!-- end dialoog -->
@@ -462,10 +462,77 @@ export default {
         @media (max-width: 769px)
 
 // popup__coming_videos
-.wrapper__upcoming__video__popup
-    .wrap_img
-      width: 427px
-      height: 249px
-      border-radius: 24px
-      background: #000
+.v__dialog
+  overflow: hidden !important
+.card__wrapper
+  a
+    display: block
+    margin-top: 20px
+    margin-bottom: 16px
+    margin-left: 23px
+    text-decoration: none
+    width: 40px
+    height: 40px
+    @media (max-width: 500px)
+      margin-left: 9px
+      margin-bottom:0
+  .wrapper__upcoming__video__popup
+      .wrap_img
+        width: 427px
+        height: 249px
+        border-radius: 24px
+        background: url('../assets/thumb.png')
+        @media (max-width: 500px)
+          width: 100%
+          height: 150px
+      h4
+        font-size: 18px
+        font-weight: bold
+        color:  #1B1D25
+        margin-top: 25px
+      p
+        font-size: 16px
+        font-weight: bold
+        color:  #1B1D25
+        margin-top: 25px
+        @media (max-width: 500px)
+          margin-top: 10px
+          font-weight: normal
+      span
+        position: relative
+        width: 160px
+        height: 31px
+        display: block
+        color: #6063eb
+        text-align: center
+        line-height: 31px
+        margin-bottom: 24px
+        @media (max-width: 500px)
+          margin-bottom: 10px
+        &:before
+          content: ''
+          position: absolute
+          top: 0
+          left: 0
+          botttom: 0
+          right: 0
+          width: 160px
+          height: 31px
+          background: #6063EB
+          opacity: 0.1
+          border-radius: 9px
+      button
+        width: 427px
+        height: 46px
+        border-radius: 24px
+        border: 1px solid #999a9c
+        outline: none
+        color: #1B1D25
+        font-size: 16px
+        @media (max-width: 500px)
+          width: 100%
+
+@media (max-width: 500px)
+  .v-dialog > .v-card > .v-card__text
+    padding: 0 10px 30px
 </style>

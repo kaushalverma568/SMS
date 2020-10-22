@@ -233,7 +233,6 @@ export default {
   padding-left: 20px
   padding-right: 20px
   margin-top: 11px
-  .load__icon__hole
   .hold_input_conv
     input
       width: 331px

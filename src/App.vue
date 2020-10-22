@@ -63,4 +63,5 @@ export default {
   background-color: #e2e2e4
 .v-dialog
   height: auto !important
+  overflow: hidden
 </style>

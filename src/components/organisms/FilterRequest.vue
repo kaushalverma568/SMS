@@ -83,71 +83,59 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
-.filter-request {
-  width: 392px;
-  padding: 24px;
+<style lang="sass" scoped>
+.filter-request
+  width: 392px
+  padding: 24px
+  @media (max-width: 767px)
+    width: 100%
 
-  h2 {
-    margin: 0 0 22px 0;
-  }
+  h2
+    margin: 0 0 22px 0
 
-  .apply-filter {
-    margin-top: 24px;
-  }
-}
+  .apply-filter
+    margin-top: 24px
 
-.service-ctg {
-  border: 1px solid #f0f0f1;
-  border-radius: 12px;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  color: #25282b;
-  font-weight: 600;
-  margin-right: 16px;
-  opacity: 0.4;
+.service-ctg
+  border: 1px solid #f0f0f1
+  border-radius: 12px
+  height: 34px
+  display: flex
+  align-items: center
+  justify-content: center
+  font-size: 14px
+  color: #25282b
+  font-weight: 600
+  margin-right: 16px
+  opacity: 0.4
 
-  &.active {
-    background: #25282b;
-    color: white;
-    opacity: 1;
-  }
-}
-</style>
+  &.active
+    background: #25282b
+    color: white
+    opacity: 1
 
-<style lang="scss">
-.dates-pickers {
-  margin-top: 24px;
+.dates-pickers
+  margin-top: 24px
 
-  .data-holder {
-    position: relative;
-    .arrow-down-icon {
-      position: absolute;
-      right: 16px;
-      top: 17px;
-    }
-  }
-
+  .data-holder
+    position: relative
+    .arrow-down-icon
+      position: absolute
+      right: 16px
+      top: 17px
   input,
-  select {
-    background: #f4f4f4;
-    border: none;
-    box-shadow: none;
-    border-radius: 14px;
-    height: 46px;
-    display: flex;
-    align-items: center;
-    padding-left: 16px;
-    font-size: 16px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .vdp-datepicker {
-    margin-bottom: 16px;
-  }
-}
+  select
+    background: #f4f4f4
+    border: none
+    box-shadow: none
+    border-radius: 14px
+    height: 46px
+    display: flex
+    align-items: center
+    padding-left: 16px
+    font-size: 16px
+    width: 100%
+    box-sizing: border-box
+  .vdp-datepicker
+    margin-bottom: 16px
 </style>

@@ -69,69 +69,55 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.request-list {
-  width: 366px;
-  padding-right: 30px;
+<style lang="sass" scoped>
+.request-list
+  width: 366px
+  padding-right: 30px
+  @media (max-width: 1000px)
+    width: 100%
 
-  h1 {
-    font-size: 30px;
-    color: #25282b;
-    margin-bottom: 24px;
-  }
+  h1
+    font-size: 30px
+    color: #25282b
+    margin-bottom: 24px
+  .list-tabs
+    display: flex
+    margin-bottom: 24px
+    > button
+      margin-right: 20px
+  .search-filters
+    display: flex
+    button
+      margin-left: 20px
+  .list
+    .item
+      display: flex
+      align-items: center
+      opacity: 0.3
+      margin-bottom: 24px
+      &.active
+        opacity: 1
 
-  .list-tabs {
-    display: flex;
-    margin-bottom: 24px;
+      .thumb
+        background: #6063eb
+        height: 50px
+        width: 50px
+        border-radius: 12px
+        margin-right: 16px
 
-    > button {
-      margin-right: 20px;
-    }
-  }
 
-  .search-filters {
-    display: flex;
-    button {
-      margin-left: 20px;
-    }
-  }
+      .item-infos
+        h2
+          font-size: 16px
+          color: #131416
+          margin: 0 0 12px 0
 
-  .list {
-    .item {
-      display: flex;
-      align-items: center;
-      opacity: 0.3;
-      margin-bottom: 24px;
 
-      &.active {
-        opacity: 1;
-      }
+        .item-date
+          font-size: 14px
+          opacity: 0.5
 
-      .thumb {
-        background: #6063eb;
-        height: 50px;
-        width: 50px;
-        border-radius: 12px;
-        margin-right: 16px;
-      }
+      .item-status
+        margin-left: auto
 
-      .item-infos {
-        h2 {
-          font-size: 16px;
-          color: #131416;
-          margin: 0 0 12px 0;
-        }
-
-        .item-date {
-          font-size: 14px;
-          opacity: 0.5;
-        }
-      }
-
-      .item-status {
-        margin-left: auto;
-      }
-    }
-  }
-}
 </style>

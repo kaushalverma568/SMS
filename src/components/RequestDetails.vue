@@ -12,7 +12,11 @@
       </div>
       <div class="request-status">
         <Button small>Processing</Button>
-        <img class="chat-icon" src="../assets/chat-filled.svg" @click="conversationModalOpen = true" />
+        <img
+          class="chat-icon"
+          src="../assets/chat-filled.svg"
+          @click="conversationModalOpen = true"
+        />
       </div>
     </div>
     <div class="request-infos">
@@ -58,7 +62,7 @@ import Button from "./atoms/Button";
 import Timeline from "./atoms/Timeline";
 import Modal from "./atoms/Modal";
 import ModalContent from "./atoms/ModalContent";
-import Conversation from './Conversation'
+import Conversation from "./Conversation";
 
 export default {
   name: "RequestDetails",
@@ -67,114 +71,99 @@ export default {
       conversationModalOpen: false,
       items: [
         {
-          label: 'Step 1',
-          done: true
+          label: "Step 1",
+          done: true,
         },
         {
-          label: 'Step 2',
-          active: true
+          label: "Step 2",
+          active: true,
         },
         {
-          label: 'Step 3'
+          label: "Step 3",
         },
         {
-          label: 'Step 4',
-        }
-      ]
-    }
+          label: "Step 4",
+        },
+      ],
+    };
   },
   components: {
     Button,
     Timeline,
     Modal,
     ModalContent,
-    Conversation
+    Conversation,
   },
 };
 </script>
 
-<style lang="scss" scoped>
-.request-details {
-  width: 560px;
-  border: 1px solid #f0f0f1;
-  border-radius: 24px;
-  box-sizing: border-box;
-  display: flex;
-   flex-direction: column;
+<style lang="sass" scoped>
+.request-details
+  width: 560px
+  border: 1px solid #f0f0f1
+  border-radius: 24px
+  box-sizing: border-box
+  display: flex
+  flex-direction: column
+  @media (max-width: 992px)
+    width: 100%
 
-  .details-header {
-    padding: 26px 32px;
-    border-bottom: solid 1px #f0f0f1;
-    margin-bottom: 32px;
-  }
+  .details-header
+    padding: 26px 32px
+    border-bottom: solid 1px #f0f0f1
+    margin-bottom: 32px
 
-  .timeline{
-    margin-bottom: 20px;
-  }
+  .timeline
+    margin-bottom: 20px
 
-  .request-status {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
+  .request-status
+    width: 100%
+    display: flex
+    justify-content: space-between
 
-  .chat-icon {
-    cursor: pointer;
-  }
+  .chat-icon
+    cursor: pointer
 
-  .request-infos {
-    padding: 0 32px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 24px;
+  .request-infos
+    padding: 0 32px
+    display: flex
+    align-items: center
+    margin-bottom: 24px
 
-    img {
-      margin-right: 16px;
-    }
+    img
+      margin-right: 16px
 
-    .request-name {
-      color: #131416;
-      h2 {
-        opacity: 0.5;
-        font-size: 14px;
-        margin: 0 0 12px 0;
-      }
+    .request-name
+      color: #131416
+      h2
+        opacity: 0.5
+        font-size: 14px
+        margin: 0 0 12px 0
 
-      p {
-        font-size: 16px;
-        font-weight: bold;
-        margin: 0;
-      }
-    }
-  }
+      p
+        font-size: 16px
+        font-weight: bold
+        margin: 0
 
-  .request-values {
-    padding: 0 32px;
-    margin-bottom: 95px;
+  .request-values
+    padding: 0 32px
+    margin-bottom: 95px
+    h3
+      font-size: 16px
+      margin: 24px 0 16px 0
 
-    h3 {
-      font-size: 16px;
-      margin: 24px 0 16px 0;
-    }
+    .values-row
+      display: flex
+      justify-content: space-between
+      margin-bottom: 16px
+      .values-col
+        font-size: 14px
+        font-weight: 600
+        opacity: 0.5
+        &.bold
+          opacity: 1
 
-    .values-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 16px;
-      .values-col {
-        font-size: 14px;
-        font-weight: 600;
-        opacity: 0.5;
-        &.bold {
-          opacity: 1;
-        }
-      }
-    }
-  }
-
-  .payment-action {
-    padding: 0 32px;
-    margin-bottom: 32px;
-  }
-}
+  .payment-action
+    padding: 0 32px
+    margin-bottom: 32px
 </style>

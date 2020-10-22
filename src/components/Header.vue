@@ -14,19 +14,22 @@
               Consultation
             </Button>
           </router-link>
+
           <router-link to="/chat">
             <img alt="consultation icon" src="../assets/chat.svg" />
+          </router-link>
+
+          <router-link to="/request" class="ext__arrow">
+            <img src="../assets/exchange-arrows.svg" alt="">
           </router-link>
         </div>
 
         <div class="button_wrapper">
+
           <Badge active>
             <img @click="notificationsOpen = !notificationsOpen" alt="notifications icon" src="../assets/notification.svg" />
           </Badge>
-
-
             <!-- menu__drop -->
-
            <v-menu offset-y class="navs__button">
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
@@ -36,9 +39,6 @@
                   circle
                 >
                  <img alt="profile icon" src="../assets/account.svg" />
-                    <!-- <Button  class="btn_profil">
-
-                      </Button> -->
                 </v-btn>
               </template>
               <v-list class="navs__button__list">
@@ -172,8 +172,12 @@ export default {
       div.button_wrapper
         display: flex
         align-items: center
+        .ext__arrow
+          margin-left: 40px
+          @media (max-width: 767px)
+            margin-left: 13px
         &:first-child
-          margin-right: 120px
+          margin-right: 43px
           @media (max-width: 767px)
             margin-right: 10px
         > *
@@ -194,7 +198,7 @@ export default {
               height: 15px
           img
             width: 15px
-            heigth: 15px
+            height: 15px
 
 
 
