@@ -95,45 +95,48 @@
 
           <!-- end upcoming__videos -->
           <content>
-            <div class="video-preview">
-              <div class="video-thumb">
-                <img src="../assets/video-thumb.png" />
-                <div class="video-duration">13:24</div>
-              </div>
-              <div class="video-title">{{ VideoTitle }}</div>
-              <div class="video-infos">
-                <div class="views_info">
-                  <div class="vues-count">
-                    <img src="../assets/star.svg" /> 4.5 - 45 views
-                  </div>
-                  <div class="video-premiem">Premieum</div>
+            <router-link to="/details">
+              <div class="video-preview">
+                <div class="video-thumb">
+                  <img src="../assets/video-thumb.png" />
+                  <div class="video-duration">13:24</div>
                 </div>
-                <Button transparent fullRounded>
-                  <img src="../assets/heart.svg" />
-                  18
-                </Button>
-              </div>
-            </div>
-
-            <div class="video-preview">
-              <div class="video-thumb">
-                <img src="../assets/video-thumb.png" />
-                <div class="video-duration">13:24</div>
-              </div>
-              <div class="video-title">{{ VideoTitle }}</div>
-              <div class="video-infos">
-                <div class="views_info">
-                  <div class="vues-count">
-                    <img src="../assets/star.svg" /> 4.5 - 45 views
+                <div class="video-title">{{ VideoTitle }}</div>
+                <div class="video-infos">
+                  <div class="views_info">
+                    <div class="vues-count">
+                      <img src="../assets/star.svg" /> 4.5 - 45 views
+                    </div>
+                    <div class="video-premiem">Premieum</div>
                   </div>
-                  <div class="video-premiem">Premieum</div>
+                  <Button transparent fullRounded>
+                    <img src="../assets/heart.svg" />
+                    18
+                  </Button>
                 </div>
-                <Button transparent fullRounded>
-                  <img src="../assets/heart.svg" />
-                  18
-                </Button>
               </div>
-            </div>
+          </router-link>
+            <router-link to="/details">
+              <div class="video-preview">
+                <div class="video-thumb">
+                  <img src="../assets/video-thumb.png" />
+                  <div class="video-duration">13:24</div>
+                </div>
+                <div class="video-title">{{ VideoTitle }}</div>
+                <div class="video-infos">
+                  <div class="views_info">
+                    <div class="vues-count">
+                      <img src="../assets/star.svg" /> 4.5 - 45 views
+                    </div>
+                    <div class="video-premiem">Premieum</div>
+                  </div>
+                  <Button transparent fullRounded>
+                    <img src="../assets/heart.svg" />
+                    18
+                  </Button>
+                </div>
+              </div>
+          </router-link>
           </content>
         </div>
       </div>
@@ -419,6 +422,7 @@ export default {
       font-size: 18px
       font-weight: 600
       margin-top: 20px
+      color: #000
       @media (max-width: 769px)
         font-size: 14px
     .video-infos
@@ -426,6 +430,7 @@ export default {
       display: flex
       align-items: center
       justify-content: space-between
+      color: #000
       @media (max-width: 769px)
         margin-top: 0
 

@@ -70,18 +70,19 @@ export default {
 .v-sheet.v-toolbar:not(.v-sheet--outlined)
   box-shadow: none
 
-.v-tabs-slider
-    background: transparent
-    height: 0 !important
+// .v-tabs-slider
+//     background: transparent
+//     height: 0 !important
 .v-tab--active.v-tab:not(:focus)::before
   display: none
 
 // remove all the background-color that appear on all buttons
-.v-ripple__container
-  display: none
+// .v-ripple__container
+//   display: none
 
 
 
-
-
+// global__style__for_link
+a
+  text-decoration: none
 </style>

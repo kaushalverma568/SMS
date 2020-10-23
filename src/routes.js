@@ -11,6 +11,8 @@ import Item from './pages/Item'
 import SignUp from './pages/SignUP'
 import OurVideos from './pages/OurVideos.vue'
 import MyVideos from './pages/MyVideos.vue'
+import Details from './pages/Details.vue'
+
 
 
 
@@ -28,6 +30,7 @@ export const routes = [
   { path: '/product/:id', component: Item },
   { path: '/sign-up', component: SignUp },
   {path: '/our-videos', component: OurVideos},
-  {path: '/my-videos', component: MyVideos}
+  {path: '/my-videos', component: MyVideos},
+  {path: '/details', component: Details}
 
 ]

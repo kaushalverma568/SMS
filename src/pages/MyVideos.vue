@@ -2,7 +2,9 @@
 <div class="wrapper">
   <div class="request-list">
 
-    <h1 class="book_mark_title">{{ TitleBookmarkVid }}</h1>
+    <router-link to="/our-videos">
+          <h1 class="book_mark_title">{{ TitleBookmarkVid }}</h1>
+    </router-link>
     <div class="list-tabs">
       <Button :transparent="selectedTab === 1" @click="selectedTab = 0"
         >Ongoing</Button
@@ -168,5 +170,9 @@ export default {
               top: -4px
     button
       margin-left: 20px
+
+// global
+a
+  text-decoration: none
 
 </style>
