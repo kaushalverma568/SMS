@@ -61,7 +61,27 @@ export default {
 ::-webkit-scrollbar-thumb
   border-radius: 10px
   background-color: #e2e2e4
+  color: #000
 .v-dialog
   height: auto !important
   overflow: hidden
+
+
+.v-sheet.v-toolbar:not(.v-sheet--outlined)
+  box-shadow: none
+
+.v-tabs-slider
+    background: transparent
+    height: 0 !important
+.v-tab--active.v-tab:not(:focus)::before
+  display: none
+
+// remove all the background-color that appear on all buttons
+.v-ripple__container
+  display: none
+
+
+
+
+
 </style>

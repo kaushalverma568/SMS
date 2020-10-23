@@ -127,11 +127,14 @@ export default {
     padding: 24px
 
     .conversation-header-col.inline
+      @media (max-width: 767px)
+        margin-top: -6px
       img
         margin-right: 30px
         cursor: pointer
         opacity: 0.8
-
+        @media (max-width: 767px)
+          margin-right: 10px
         &:hover
           opacity: 1
 
@@ -143,6 +146,8 @@ export default {
       @media(max-width: 767px)
         font-size: 16px
         margin-bottom: 0
+      @media (max-width: 300px)
+        font-size: 14px
     .conversation-date
       font-size: 16px
       font-weight: 500

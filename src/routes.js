@@ -9,8 +9,10 @@ import ExclusiveItems from './pages/ExclusiveItems'
 import BuyAndSale from './pages/BuyAndSale'
 import Item from './pages/Item'
 import SignUp from './pages/SignUP'
-
 import OurVideos from './pages/OurVideos.vue'
+import MyVideos from './pages/MyVideos.vue'
+
+
 
 // define__routes
 export const routes = [
@@ -25,6 +27,7 @@ export const routes = [
   { path: '/buy-sale', component: BuyAndSale },
   { path: '/product/:id', component: Item },
   { path: '/sign-up', component: SignUp },
-  {path: '/our-videos', component: OurVideos}
+  {path: '/our-videos', component: OurVideos},
+  {path: '/my-videos', component: MyVideos}
 
 ]

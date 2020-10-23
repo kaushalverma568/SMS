@@ -4,7 +4,7 @@
       <header class="page-header">
         <h1>{{ title }}</h1>
         <!-- <SellItem /> -->
-        <router-link to="">
+        <router-link to="my-videos">
           <div class="sell-btn">
             <span>
               <svg
