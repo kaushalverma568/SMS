@@ -80,8 +80,8 @@ export default {
 // .v-ripple__container
 //   display: none
 
-
-
+.v-tabs, .theme--light
+  border-bottom: 1px solid #f8f8fa
 // global__style__for_link
 a
   text-decoration: none
