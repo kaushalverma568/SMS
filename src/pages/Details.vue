@@ -5,7 +5,7 @@
       <div class="info__vid">
         <p>Title video lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor…</p>
         <div class="shar_icon_bookmark_vid">
-          <div class="share_vid"></div>
+          <Share />
           <div class="bookmark_vid"></div>
           <div class="like__vid">18</div>
         </div>
@@ -33,10 +33,7 @@
           <v-tab href="#tab-3">
             Downloadbles
           </v-tab>
-
-
         </v-tabs>
-
         <v-tabs-items v-model="tab">
           <v-tab-item
             :value="'tab-1'"
@@ -48,7 +45,13 @@
                 <a @click="showContent = !showContent">{{showContent ? 'less' : 'more...'}}</a>
                 </v-card-text>
                 <div class="owned__vid owned__vid_borders">
-                  <button class="see__all">See all</button>
+                  <!-- open__dialog__one -->
+                    <SellAllpopup
+                      title="All Series"
+                      tutNumber="Tutorial 1"
+                      VideoPlay="this video"
+                      />
+                  <!-- end diallog -->
                   <div class="wrapper__vid__content" v-for="n in 3" :key="n.id">
                     <div class="thumb" />
                     <div class="about_vid">
@@ -60,15 +63,20 @@
                     </div>
                   </div>
               </div>
+
               <div class="owned__vid">
-                <h2 class="owned_vid_title">
+                <SellAllpopup
+                  title="Related videos"
+                  tutNumber="Tutorial 1"
+                  VideoPlay="this video"
+                  />
+                <!-- <h2 class="owned_vid_title">
                   Related videos
                 </h2>
-                  <button class="see__all">See all</button>
+                  <button class="see__all">See all</button> -->
                   <div class="wrapper__vid__content" v-for="n in 3" :key="n.id">
                     <div class="thumb" />
                     <div class="about_vid">
-                      <div class="when">Tutorial 2</div>
                       <div class="title__vid">Title video lorem ipsum dolor sit amet lorem ipsum</div>
                       <span class="views__vid">4.5 <b>.</b> 43 views</span>
                     </div>
@@ -79,15 +87,20 @@
           </v-tab-item>
 
           <!-- v-iteme__two -->
-              <v-tab-item
-            :value="'tab-2'"
-          >
+          <v-tab-item :value="'tab-2'">
             <v-card>
               <div>
                 <Comment />
               </div>
             </v-card>
+          </v-tab-item>
 
+          <v-tab-item :value="'tab-3'">
+            <v-card>
+              <div>
+                <downloadTab />
+              </div>
+            </v-card>
           </v-tab-item>
         </v-tabs-items>
       </v-card>
@@ -97,16 +110,24 @@
 
 <script>
 import Comment from '../components/atoms/Comment'
-  export default {
+import downloadTab from '../components/atoms/downloadTab'
+import SellAllpopup from '../components/atoms/SellAll'
+import Share from '../components/atoms/Share'
+
+export default {
     data() {
       return {
         tab: null,
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur',
-        showContent: false
+        showContent: false,
+        dialog: false,
       }
     },
     components: {
-      Comment
+      Comment,
+      downloadTab,
+      SellAllpopup,
+      Share
     }
   }
 </script>
@@ -169,12 +190,7 @@ import Comment from '../components/atoms/Comment'
           @media (max-width: 767px)
             width: 100%
             justify-content: start
-          .share_vid
-            background-image: url('../assets/share.svg')
-            width: 20px
-            height: 21px
-            @media (max-width: 767px)
-              margin-right: 10px
+
           .bookmark_vid
             background-image: url('../assets/bookmark.svg')
             width: 28px
@@ -277,6 +293,7 @@ import Comment from '../components/atoms/Comment'
     top: -78px
     right: 23px
     cursor: pointer
+    z-index: 1000
 
   .wrapper__vid__content
     margin-bottom: 30px
