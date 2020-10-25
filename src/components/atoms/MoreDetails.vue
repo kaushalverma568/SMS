@@ -39,7 +39,13 @@
           </div>
         </v-card-text>
         <v-card-actions class="button_action">
-          <button class="more__button__call_action">Download now</button>
+          <router-link to="purchase-confirmation">
+          <button
+            class="more__button__call_action"
+            @click="dialog = false"
+          >
+          Download now</button>
+          </router-link>
         </v-card-actions>
       </v-card>
     </v-dialog>

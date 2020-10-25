@@ -8,7 +8,9 @@
           <MoreDetails />
         </div>
       </div>
-      <div class="download__vid">Download</div>
+      <router-link to="purchase-confirmation">
+        <div class="download__vid">Download</div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -48,4 +50,6 @@ import MoreDetails from './MoreDetails'
       text-align: center
       line-height: 34px
       cursor: pointer
+      color: #000
+
 </style>

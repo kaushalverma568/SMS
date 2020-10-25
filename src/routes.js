@@ -12,7 +12,7 @@ import SignUp from './pages/SignUP'
 import OurVideos from './pages/OurVideos.vue'
 import MyVideos from './pages/MyVideos.vue'
 import Details from './pages/Details.vue'
-
+import PurchaseConfirmation from './pages/PurchaseConfirmation.vue'
 
 
 
@@ -31,6 +31,7 @@ export const routes = [
   { path: '/sign-up', component: SignUp },
   {path: '/our-videos', component: OurVideos},
   {path: '/my-videos', component: MyVideos},
-  {path: '/details', component: Details}
+  {path: '/details', component: Details},
+  {path: '/purchase-confirmation', component: PurchaseConfirmation}
 
 ]
