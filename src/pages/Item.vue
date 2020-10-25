@@ -10,32 +10,42 @@
           <div class="price">$120</div>
           <div>
             <div class="actions">
-
               <div class="action">
                 <img :src="Phone" alt="phone icon" />
               </div>
 
-              <productChat />
-              <!-- <div class="action">
-                <img :src="Chat" alt="chat icon" />
+              <div class="action">
+                <productChat />
               </div>
-               -->
+
               <div class="action __text">
                 <RequestAdmin />
               </div>
 
-              <div class="action hold__report__item" @click.stop="dialog = true">
+              <div
+                class="action hold__report__item"
+                @click.stop="dialog = true"
+              >
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 22 22"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="report__icon"
+                >
+                  <path
+                    d="M19.5236 12.9518L16.012 7.33334L19.557 1.66101C19.6277 1.54771 19.6314 1.40544 19.5669 1.28884C19.502 1.17224 19.3795 1.10001 19.246 1.10001H2.96603V0.366675C2.96603 0.163908 2.0127 0.163908 2.0127 0.366675V1.46667V12.1V13.2V21.6333C2.0127 21.8361 2.96603 21.8361 2.96603 21.6333V13.5667H19.246C19.4561 13.5667 19.62 13.4028 19.62 13.2C19.62 13.1043 19.5834 13.0174 19.5236 12.9518Z"
+                    fill="#E2E2E4"
+                  />
+                </svg>
 
-
-                  <svg width="22" height="22" viewBox="0 0 22 22"  xmlns="http://www.w3.org/2000/svg" class="report__icon">
-                  <path d="M19.5236 12.9518L16.012 7.33334L19.557 1.66101C19.6277 1.54771 19.6314 1.40544 19.5669 1.28884C19.502 1.17224 19.3795 1.10001 19.246 1.10001H2.96603V0.366675C2.96603 0.163908 2.0127 0.163908 2.0127 0.366675V1.46667V12.1V13.2V21.6333C2.0127 21.8361 2.96603 21.8361 2.96603 21.6333V13.5667H19.246C19.4561 13.5667 19.62 13.4028 19.62 13.2C19.62 13.1043 19.5834 13.0174 19.5236 12.9518Z" fill="#E2E2E4"/>
-                  </svg>
-
-
-
-                   <v-dialog max-width="475px" height="auto" class="v-dialog__height__width" v-model="dialog"
+                <v-dialog
+                  max-width="475px"
+                  height="auto"
+                  class="v-dialog__height__width"
+                  v-model="dialog"
                   style="overflow-y: hidden"
-                   >
+                >
                   <v-card>
                     <v-card-title class="headline">
                       Report this list
@@ -48,56 +58,63 @@
                     <v-list>
                       <v-list-item>
                         <div>Reason 1</div>
-                        <v-checkbox id="checked1" @click="enabled(this)"></v-checkbox>
+                        <v-checkbox
+                          id="checked1"
+                          @click="enabled(this)"
+                        ></v-checkbox>
                       </v-list-item>
 
                       <v-list-item>
                         <div>Reason 2</div>
-                        <v-checkbox id="checked1" @click="enabled(this)"></v-checkbox>
+                        <v-checkbox
+                          id="checked1"
+                          @click="enabled(this)"
+                        ></v-checkbox>
                       </v-list-item>
 
                       <v-list-item>
                         <div>Reason 3</div>
-                          <v-checkbox id="checked1" @click="enabled(this)"></v-checkbox>
+                        <v-checkbox
+                          id="checked1"
+                          @click="enabled(this)"
+                        ></v-checkbox>
                       </v-list-item>
 
                       <v-list-item>
                         <div>Other</div>
-                        <v-checkbox  @click="typeReason = !typeReason"></v-checkbox>
+                        <v-checkbox
+                          @click="typeReason = !typeReason"
+                        ></v-checkbox>
                       </v-list-item>
 
                       <transition name="fade">
-                        <v-list-item
-                        class="hold__input"
-                        v-if="typeReason"
-                        >
-                        <input type="text" placeholder="Write your reason..." id="checked1" @click="enabled(this)">
-                      </v-list-item>
+                        <v-list-item class="hold__input" v-if="typeReason">
+                          <input
+                            type="text"
+                            placeholder="Write your reason..."
+                            id="checked1"
+                            @click="enabled(this)"
+                          />
+                        </v-list-item>
                       </transition>
 
                       <v-list-item class="hold__input">
                         <button
-                        id="DDL"
-                        @click="closeModal"
-                        class="close_show_report_message"
-                        disabled="disabled"
+                          id="DDL"
+                          @click="closeModal"
+                          class="close_show_report_message"
+                          disabled="disabled"
                         >
                           Submit
                         </button>
                       </v-list-item>
                     </v-list>
 
-
-                      <v-btn
-                        class="button___exit"
-                        @click="dialog = false"
-                      >
-                        <img :src="close" alt="">
-                      </v-btn>
-
+                    <v-btn class="button___exit" @click="dialog = false">
+                      <img :src="close" alt="" />
+                    </v-btn>
                   </v-card>
                 </v-dialog>
-
               </div>
             </div>
           </div>
@@ -129,8 +146,8 @@
 </template>
 
 <script>
-import ProductChat from '../components/atoms/ProductChat'
-import RequestAdmin from "../components/atoms/RequestAdmin"
+import ProductChat from "../components/atoms/ProductChat";
+import RequestAdmin from "../components/atoms/RequestAdmin";
 import productIMG from "../assets/exitem.svg";
 import Chat from "../assets/chat-prod.svg";
 import Phone from "../assets/phone.svg";
@@ -153,12 +170,12 @@ export default {
       checkbox: false,
       close,
       typeReason: false,
-      showReport: false
+      showReport: false,
     };
   },
   components: {
     ProductChat,
-    RequestAdmin
+    RequestAdmin,
   },
   created: function () {
     this.fetchData();
@@ -183,22 +200,21 @@ export default {
     },
 
     closeModal: function () {
-
       this.dialog = false;
       setTimeout(() => {
         this.showReport = true;
-          document.querySelector(".report__icon").classList.add("add_height")
-      }, 1000)
+        document.querySelector(".report__icon").classList.add("add_height");
+      }, 1000);
     },
     enabled: function () {
-      const ddl  = document.getElementById('DDL')
-      const checked1 =  document.getElementById('checked1')
-      ddl.disabled = checked1.checked ? true : false
+      const ddl = document.getElementById("DDL");
+      const checked1 = document.getElementById("checked1");
+      ddl.disabled = checked1.checked ? true : false;
       // if(!ddl.disabled) {
       //   ddl.focus()
       // }
-      console.log('wroking')
-    }
+      console.log("wroking");
+    },
   },
   computed: {
     styles() {

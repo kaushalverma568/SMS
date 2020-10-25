@@ -5,7 +5,7 @@
         <div class="icon" />
         <div class="download_title_vid">
           <h4>Graphic Design Template 1</h4>
-          <a>Details</a>
+          <MoreDetails />
         </div>
       </div>
       <div class="download__vid">Download</div>
@@ -14,9 +14,12 @@
 </template>
 
 <script>
+import MoreDetails from './MoreDetails'
   export default {
     data: function () {
-
+    },
+    components: {
+      MoreDetails
     }
   }
 </script>

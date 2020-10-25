@@ -14,7 +14,7 @@
         <v-card-title class="headline">
           <h5>{{title}}</h5>
             <button @click="dialog = false">
-              <img src="../../assets/close-modal.svg" alt="close-modal">
+              <img src="../../assets/close-modal.svg" alt="close-modal" />
           </button>
         </v-card-title>
 

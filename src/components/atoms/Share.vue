@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center">
+  <div>
     <v-dialog v-model="dialog" persistent max-width="475">
       <template v-slot:activator="{ on, attrs }">
         <button class="share_vid" v-bind="attrs" v-on="on"></button>
@@ -88,7 +88,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-  </v-row>
+  </div>
 </template>
 
 
@@ -147,6 +147,8 @@ export default {
       color: #000
       font-weight: bold
       font-size: 14px
+      outline: none
+
       @media (max-width: 767px)
         font-size: 12px
 

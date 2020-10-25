@@ -6,7 +6,9 @@
         <p>Title video lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor…</p>
         <div class="shar_icon_bookmark_vid">
           <Share />
-          <div class="bookmark_vid"></div>
+          <router-link to="/saved">
+            <div class="bookmark_vid"></div>
+          </router-link>
           <div class="like__vid">18</div>
         </div>
       </div>
