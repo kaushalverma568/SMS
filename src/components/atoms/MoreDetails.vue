@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-dialog
+    class="adjust-height"
       v-model="dialog"
       persistent
       max-width="475"
@@ -37,7 +38,7 @@
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
           </div>
         </v-card-text>
-        <v-card-actions>
+        <v-card-actions class="button_action">
           <button class="more__button__call_action">Download now</button>
         </v-card-actions>
       </v-card>
@@ -104,6 +105,16 @@
       font-size: 16px
       font-weight: bold
       color: #6063EB
+  p
+    font-size: 16px
+    font-weight: bold
+    line-height: 26px
 button
   outline: none
+.v-dialog:not(.v-dialog--fullscreen)
+  height: 700px !important
+  max-height: 700px !important
+
+.button_action
+  padding: 0 20px
 </style>

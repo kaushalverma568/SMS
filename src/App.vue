@@ -92,4 +92,7 @@ export default {
 // global__style__for_link
 a
   text-decoration: none
+
+.v-dialog__content
+  height: auto !important
 </style>
