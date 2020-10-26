@@ -14,7 +14,7 @@ import MyVideos from './pages/MyVideos.vue'
 import Details from './pages/Details.vue'
 import PurchaseConfirmation from './pages/PurchaseConfirmation.vue'
 
-
+import LockedVideo from './pages/LockedVideo.vue'
 
 // define__routes
 export const routes = [
@@ -32,6 +32,7 @@ export const routes = [
   {path: '/our-videos', component: OurVideos},
   {path: '/my-videos', component: MyVideos},
   {path: '/details', component: Details},
-  {path: '/purchase-confirmation', component: PurchaseConfirmation}
+  {path: '/purchase-confirmation', component: PurchaseConfirmation},
+  {path: '/lock-vid', component: LockedVideo}
 
 ]

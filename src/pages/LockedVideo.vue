@@ -38,8 +38,8 @@
           <v-tab href="#tab-2">
             Comments
           </v-tab>
-          <v-tab href="#tab-3">
-            Downloadbles
+          <v-tab>
+            <lockvidpopup />
           </v-tab>
         </v-tabs>
         <v-tabs-items v-model="tab">
@@ -103,13 +103,13 @@
             </v-card>
           </v-tab-item>
 
-          <v-tab-item :value="'tab-3'">
+          <!-- <v-tab-item :value="'tab-3'">
             <v-card>
               <div>
                 <downloadTab />
               </div>
             </v-card>
-          </v-tab-item>
+          </v-tab-item> -->
         </v-tabs-items>
       </v-card>
     </div>
@@ -118,9 +118,10 @@
 
 <script>
 import Comment from '../components/atoms/Comment'
-import downloadTab from '../components/atoms/downloadTab'
+// import downloadTab from '../components/atoms/downloadTab'
 import SellAllpopup from '../components/atoms/SellAll'
 import Share from '../components/atoms/Share'
+import lockvidpopup from '../components/atoms/lockvidpopup'
 
 export default {
     data() {
@@ -133,9 +134,10 @@ export default {
     },
     components: {
       Comment,
-      downloadTab,
+      // downloadTab,
       SellAllpopup,
-      Share
+      Share,
+      lockvidpopup
     }
   }
 </script>
@@ -157,7 +159,7 @@ export default {
       @media (max-width: 992px)
         width: 100%
       .details__video
-        // background-image: url('../assets/detail-image.svg')
+        background-image: url('../assets/detail-image.svg')
         width: 811px
         height: 474px
         border-radius: 24px
@@ -171,9 +173,11 @@ export default {
           position: absolute
           top: 50%
           left: 50%
-          background-image: url('../assets/play.svg')
+          background-image: url('../assets/lockvidicon.svg')
           width: 36px
           height: 60px
+          opacity: .5
+          disabled: true
       .info__vid
         display: flex
         align-items: flex-end

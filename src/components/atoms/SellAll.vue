@@ -1,40 +1,53 @@
 <template>
-<div class="more__pad">
-
-    <v-dialog
-      v-model="dialog"
-      persistent
-      max-width="811"
-    >
+  <div class="more__pad">
+    <v-dialog v-model="dialog" persistent max-width="811">
       <template v-slot:activator="{ on, attrs }">
         <button class="see__all" v-bind="attrs" v-on="on">See all</button>
       </template>
 
       <v-card>
         <v-card-title class="headline">
-          <h5>{{title}}</h5>
-            <button @click="dialog = false">
-              <img src="../../assets/close-modal.svg" alt="close-modal" />
+          <h5>{{ title }}</h5>
+          <button @click="dialog = false">
+            <img src="../../assets/close-modal.svg" alt="close-modal" />
           </button>
         </v-card-title>
 
-
         <v-card-text class="vidd_wrap">
-            <div class="wrapper__vid__content" v-for="n in 200" :key="n.id">
-            <div class="thumb" />
-            <div class="about_vid">
-              <div class="when">
+          <div class="wrapper__vid__content" v-for="n in 50" :key="n.id">
+
+            <div class="fle__to__right">
+              <div class="thumb" />
+              <div class="about_vid">
+                <div class="when">
                   {{ tutNumber }}
                   <span> {{ VideoPlay }} </span>
                 </div>
-              <div class="title__vid">Title video lorem ipsum dolor sit amet lorem ipsum</div>
-              <span class="views__vid">4.5 <b>.</b> 43 views</span>
+                <div class="title__vid">
+                  Title video lorem ipsum dolor sit amet lorem ipsum
+                </div>
+                <span class="views__vid">4.5 <b>.</b> 43 views</span>
+              </div>
             </div>
+
+           <router-link to="/lock-vid">
+              <div class="fle__to__right">
+              <div class="thumb" />
+              <div class="about_vid">
+                <div class="when add__lock">
+                  {{ tutNumber }}
+                </div>
+                <div class="title__vid">
+                  Title video lorem ipsum dolor sit amet lorem ipsum
+                </div>
+                <span class="views__vid">4.5 <b>.</b> 43 views</span>
+              </div>
             </div>
+           </router-link>
+          </div>
         </v-card-text>
       </v-card>
     </v-dialog>
-
   </div>
 </template>
 <script>
@@ -45,10 +58,10 @@ export default {
     };
   },
   props: {
-    title:String,
+    title: String,
     tutNumber: String,
-    VideoPlay: String
-  }
+    VideoPlay: String,
+  },
 };
 </script>
 
@@ -76,6 +89,10 @@ export default {
   margin-bottom: 30px
   display: flex
   position: relative
+  flex-direction: column
+  .fle__to__right
+    display: flex
+    margin-bottom: 30px
   @media (max-width: 767px)
     flex-direction: column
   .dots__vid
@@ -125,7 +142,16 @@ export default {
           left: -15px
           width: 14px
           height: 14px
-
+    .add__lock
+      position: relative
+      &:before
+        content: ""
+        position: absolute
+        top: 7px
+        left: -20px
+        background-image: url('../../assets/block.svg')
+        width: 24px
+        height: 24px
     .premium
       display: block
       text-align: center
