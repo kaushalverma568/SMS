@@ -4,7 +4,9 @@
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="headline">
-            <h3>Confirmation</h3>
+            <router-link to="/lock-vid">
+              <h3>Confirmation</h3>
+            </router-link>
             <span>Item details</span>
           </v-list-item-title>
           <v-list-item-subtitle>
@@ -62,20 +64,22 @@ export default {};
   @media (max-width: 767px)
     width: 100%
   .headline
-    h3
-      font-size: 30px
-      font-weight: bold
-      position: relative
-      margin-left: 30px
-      margin-bottom: 24px
-      &:before
-        content: ""
-        position: absolute
-        top: 7px
-        left: -33px
-        width: 24px
-        height: 24px
-        background-image: url(../assets/arrow-left-big.svg)
+    a
+      color: #000
+      h3
+        font-size: 30px
+        font-weight: bold
+        position: relative
+        margin-left: 30px
+        margin-bottom: 24px
+        &:before
+          content: ""
+          position: absolute
+          top: 7px
+          left: -33px
+          width: 24px
+          height: 24px
+          background-image: url(../assets/arrow-left-big.svg)
     span
       font-size: 16px
       font-weight: bold
@@ -137,6 +141,8 @@ export default {};
     border-radius: 24px
     margin-bottom: 20px
     outline: none
+    color: #000
+    font-weight: bold
 .v-sheet.v-card:not(.v-sheet--outlined)
   box-shadow: none
 </style>

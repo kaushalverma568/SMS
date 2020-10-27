@@ -41,7 +41,6 @@ import MoreDetails from './MoreDetails'
         width: 56px
         height: 56px
         margin-right: 20px
-      .download_title_vid
     .download__vid
       width: 108px
       height: 34px

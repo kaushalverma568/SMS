@@ -2,11 +2,20 @@
   <div class="details__vid">
     <div class="details_wrapper_vid">
       <div class="details__video">
-        <video width="100%" height="100%" controls>
-        <source src="https://www.youtube.com/watch?v=WTJSt4wP2ME&list=RDWTJSt4wP2ME&start_radio=1&ab_channel=KnaanVEVO" type="video/mp4">
-        <source src="https://www.youtube.com/watch?v=WTJSt4wP2ME&list=RDWTJSt4wP2ME&start_radio=1&ab_channel=KnaanVEVO" type="video/ogg">
-        Your browser does not support HTML video.
-      </video>
+        <Media
+          class="vid_player"
+          :kind="'video'"
+          :isMuted="(false)"
+          :src="['https://www.w3schools.com/html/mov_bbb.mp4']"
+          :autoplay="false"
+          :controls="true"
+          :loop="true"
+          :ref="'fish'"
+          :style="{width: '100%', height: '100%'}"
+          @pause="handle()"
+          disabled="true"
+        >
+        </Media>
       </div>
       <div class="info__vid">
         <p>Title video lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor…</p>
@@ -121,6 +130,7 @@ import Comment from '../components/atoms/Comment'
 import downloadTab from '../components/atoms/downloadTab'
 import SellAllpopup from '../components/atoms/SellAll'
 import Share from '../components/atoms/Share'
+import Media from '@dongido/vue-viaudio'
 
 export default {
     data() {
@@ -135,14 +145,16 @@ export default {
       Comment,
       downloadTab,
       SellAllpopup,
-      Share
+      Share,
+      Media
+
     }
   }
 </script>
 
 <style lang="sass" scoped>
   .details__vid
-    margin-top: 40px !important
+    margin-top: 50px !important
     display: flex
     justify-content: center
     align-items: start
@@ -159,7 +171,7 @@ export default {
       .details__video
         // background-image: url('../assets/detail-image.svg')
         width: 811px
-        height: 474px
+        // height: 474px
         border-radius: 24px
         position: relative
         cursor: pointer
@@ -171,9 +183,13 @@ export default {
           position: absolute
           top: 50%
           left: 50%
+          transform: translate(-50%, -50%)
           background-image: url('../assets/play.svg')
           width: 36px
           height: 60px
+        .vid_player
+          outline: none !important
+          border-radius: 20px !important
       .info__vid
         display: flex
         align-items: flex-end

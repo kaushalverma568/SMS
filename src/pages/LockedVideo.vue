@@ -2,16 +2,32 @@
   <div class="details__vid">
     <div class="details_wrapper_vid">
       <div class="details__video">
-        <video width="100%" height="100%" controls>
+        <!-- <video width="100%" height="100%" controls>
         <source src="https://www.youtube.com/watch?v=WTJSt4wP2ME&list=RDWTJSt4wP2ME&start_radio=1&ab_channel=KnaanVEVO" type="video/mp4">
         <source src="https://www.youtube.com/watch?v=WTJSt4wP2ME&list=RDWTJSt4wP2ME&start_radio=1&ab_channel=KnaanVEVO" type="video/ogg">
         Your browser does not support HTML video.
-      </video>
+      </video> -->
+        <Media
+          class="vid_player"
+          :kind="'video'"
+          :isMuted="(false)"
+          :src="['https://www.w3schools.com/html/mov_bbb.mp4']"
+          :autoplay="false"
+          :controls="false"
+          :loop="true"
+          :ref="'fish'"
+          :style="{width: '100%', height: '100%'}"
+          @pause="handle()"
+          disabled="true"
+        >
+        </Media>
       </div>
       <div class="info__vid">
         <p>Title video lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor…</p>
         <div class="shar_icon_bookmark_vid">
-          <Share />
+          <div class="share">
+            <Share />
+          </div>
           <router-link to="/saved">
             <div class="bookmark_vid"></div>
           </router-link>
@@ -38,9 +54,9 @@
           <v-tab href="#tab-2">
             Comments
           </v-tab>
-          <v-tab>
+          <button class="go_to_download_btn">
             <lockvidpopup />
-          </v-tab>
+          </button>
         </v-tabs>
         <v-tabs-items v-model="tab">
           <v-tab-item
@@ -122,6 +138,8 @@ import Comment from '../components/atoms/Comment'
 import SellAllpopup from '../components/atoms/SellAll'
 import Share from '../components/atoms/Share'
 import lockvidpopup from '../components/atoms/lockvidpopup'
+import Media from '@dongido/vue-viaudio'
+
 
 export default {
     data() {
@@ -137,14 +155,15 @@ export default {
       // downloadTab,
       SellAllpopup,
       Share,
-      lockvidpopup
+      lockvidpopup,
+      Media
     }
   }
 </script>
 
 <style lang="sass" scoped>
   .details__vid
-    margin-top: 40px !important
+    margin-top: 50px !important
     display: flex
     justify-content: center
     align-items: start
@@ -159,10 +178,10 @@ export default {
       @media (max-width: 992px)
         width: 100%
       .details__video
-        background-image: url('../assets/detail-image.svg')
+        // background-image: url('../assets/detail-image.svg')
         width: 811px
-        height: 474px
-        border-radius: 24px
+        // height: 474px
+        // border-radius: 24px
         position: relative
         cursor: pointer
         @media (max-width: 992px)
@@ -173,11 +192,16 @@ export default {
           position: absolute
           top: 50%
           left: 50%
+          transform: translate(-50%, -50%)
           background-image: url('../assets/lockvidicon.svg')
           width: 36px
           height: 60px
           opacity: .5
           disabled: true
+        .vid_player
+          // border-radius: 24px !important
+          outline: none
+          border-radius: 20px !important
       .info__vid
         display: flex
         align-items: flex-end
@@ -203,7 +227,8 @@ export default {
           @media (max-width: 767px)
             width: 100%
             justify-content: start
-
+          .share
+            margin-top: 5px
           .bookmark_vid
             background-image: url('../assets/bookmark.svg')
             width: 28px
@@ -408,6 +433,11 @@ export default {
 .comment_details_downloads_tabs_vid
   width: 100%
   margin-top: 45px
+  .go_to_download_btn
+    color: #000
+    font-weight: bold
+    opacity: .3
+    margin-left: 27px
 
 
 

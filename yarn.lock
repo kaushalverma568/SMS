@@ -861,6 +861,14 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@dongido/vue-viaudio@^0.3.5":
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/@dongido/vue-viaudio/-/vue-viaudio-0.3.5.tgz#041b3d0d82028c55381e27df33cbe0b5ec95eb4f"
+  integrity sha512-VAjt2UTTQfdl48N5vEuADUvo+ydRbbp9RvTHpgo8XhTCKeNmZxX6f1V/7pn8La4TiPAGLtKhv2iQ/MXbjF6lag==
+  dependencies:
+    core-js "^2.6.5"
+    vue "^2.6.10"
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -2752,6 +2760,11 @@ core-js-compat@^3.6.2, core-js-compat@^3.6.5:
   dependencies:
     browserslist "^4.8.5"
     semver "7.0.0"
+
+core-js@^2.6.5:
+  version "2.6.11"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
+  integrity sha512-5wjnpaT/3dV+XB4borEsnAYQchn00XSgTAWKDkEqv+K8KevjbzmofK6hfJ9TZIlpj2N0xQpazy7PiRQiWHqzWg==
 
 core-js@^3.6.5:
   version "3.6.5"
@@ -8769,7 +8782,7 @@ vue2-touch-events@^2.3.2:
   resolved "https://registry.yarnpkg.com/vue2-touch-events/-/vue2-touch-events-2.3.2.tgz#585941bda540da3a1e251507fa92d9c41354d661"
   integrity sha512-OTXYvgzZsvlDFlB0WqaDXIiZulJpvf+Gp9hdGO9hZUb8j5uo0SIJbr4xQ78rPZPg7rvsXWYLmUvLVro7wy3zJw==
 
-vue@^2.6.11:
+vue@^2.6.10, vue@^2.6.11:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==

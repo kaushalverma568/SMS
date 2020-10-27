@@ -36,7 +36,7 @@
             @click="dialog = false"
             class="card__action__btn_down"
            >
-           But now
+           Buy now
            </button>
 
           </router-link>

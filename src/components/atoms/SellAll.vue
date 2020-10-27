@@ -30,9 +30,12 @@
               </div>
             </div>
 
-           <router-link to="/lock-vid">
+            <!-- go to video__locked -->
+
               <div class="fle__to__right">
-              <div class="thumb" />
+              <router-link to="/lock-vid">
+                  <div class="thumb thumb_blocked" />
+              </router-link>
               <div class="about_vid">
                 <div class="when add__lock">
                   {{ tutNumber }}
@@ -43,7 +46,8 @@
                 <span class="views__vid">4.5 <b>.</b> 43 views</span>
               </div>
             </div>
-           </router-link>
+
+
           </div>
         </v-card-text>
       </v-card>
@@ -105,11 +109,17 @@ export default {
     width: 222px
     height: 159px
     border-radius: 24px
+
     @media (max-width: 767px)
       width: 100%
     &:nth-child(1)
       @media (max-width: 767px)
         margin-top: 36px
+  .thumb_blocked
+    transition: all .4s ease-in-out
+    &:hover
+      transform: scale(1.1)
+      transition: all .4s ease-in-out
   .about_vid
     margin-left: 30px
     margin-top: 46px
