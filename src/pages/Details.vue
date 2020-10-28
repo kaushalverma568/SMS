@@ -21,11 +21,14 @@
         <p>Title video lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor…</p>
         <div class="shar_icon_bookmark_vid">
           <Share />
-          <router-link to="/saved">
-            <div class="bookmark_vid"></div>
-          </router-link>
+            <button class="bookmark_vid"  @click="saved">
+              <svg  class="highlight_bookmark" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.9258 3.5H7.05231C6.76559 3.5 6.5332 3.73238 6.5332 4.01911V23.461C6.5326 23.8506 6.75038 24.2075 7.09672 24.3853C7.44326 24.5633 7.86017 24.5323 8.1763 24.3048L13.9891 20.1382L19.8018 24.305C20.1184 24.5317 20.5349 24.5625 20.8812 24.3847C21.2274 24.2069 21.4451 23.8504 21.4451 23.461V4.01911C21.4451 3.73238 21.2125 3.5 20.9258 3.5V3.5Z" stroke="#25282B" stroke-width="2"/>
+              </svg>
+            </button>
           <div class="like__vid">18</div>
         </div>
+       
       </div>
       <div class="views_buy_vid">
         <div class="views_vid">
@@ -35,7 +38,16 @@
           <button> <span class="price">$25.30</span> Buy now</button>
         </div>
       </div>
+    <!-- bokmark -->
+    
+    <transition name="fade">
+      <div class="center__button__bookmark" v-if="bookmarked">
+          <button class="video_saved">Added to my videos</button>
+      </div>
+    </transition>
+     
     </div>
+    
     <div class="comment_details_downloads_tabs_vid">
       <v-card>
         <v-tabs v-model="tab">
@@ -51,6 +63,7 @@
             Downloadbles
           </v-tab>
         </v-tabs>
+
         <v-tabs-items v-model="tab">
           <v-tab-item
             :value="'tab-1'"
@@ -139,6 +152,7 @@ export default {
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur',
         showContent: false,
         dialog: false,
+        bookmarked: false
       }
     },
     components: {
@@ -148,6 +162,13 @@ export default {
       Share,
       Media
 
+    },
+    methods: {
+      saved () {
+        console.log('clicked')
+        this.bookmarked =! this.bookmarked
+        document.querySelector(".highlight_bookmark").classList.toggle("fill_bookmark");
+      }
     }
   }
 </script>
@@ -166,6 +187,7 @@ export default {
     .details_wrapper_vid
       display: flex
       flex-direction: column
+      position: relative
       @media (max-width: 992px)
         width: 100%
       .details__video
@@ -217,9 +239,12 @@ export default {
             justify-content: start
 
           .bookmark_vid
-            background-image: url('../assets/bookmark.svg')
-            width: 28px
-            height: 28px
+            // background-image: url('../assets/bookmark.svg')
+            // width: 28px
+            // height: 28px
+            outline: none
+            .highlight_bookmark.fill_bookmark
+              fill: #000
             @media (max-width: 767px)
               margin-right: 10px
           .like__vid
@@ -289,7 +314,20 @@ export default {
                 height: 25px
                 line-height: 25px
                 margin-right: 8px
-
+      .center__button__bookmark
+        position: absolute
+        bottom: 68px
+        left: 305px
+        background: #666
+        color: #fff
+        border-radius: 14px
+        .video_saved
+          width: 169px
+          height: 42px
+          font-size: 14px
+          font-weight: bold
+          outline: none
+          
 
 .owned__vid
   display: flex
@@ -436,4 +474,13 @@ export default {
 
 .v-sheet.v-card:not(.v-sheet--outlined)
   box-shadow: none
+
+
+.fade-enter-active,
+.fade-leave-active
+  transition: opacity .4s ease-in-out
+
+.fade-enter, 
+.fade-leave-to
+   opacity: 0
 </style>

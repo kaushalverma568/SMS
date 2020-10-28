@@ -7,7 +7,7 @@
       <v-card>
         <v-card-title class="headline">
           <h5>Share</h5>
-          <div class="exiet">
+          <div class="exit">
             <button class="button__exit" @click="dialog = false">
               <img src="../../assets/close-modal.svg" alt="close-modal" />
             </button>
@@ -117,6 +117,9 @@ export default {
   outline: none
   display: flex
   justify-content: space-between
+  .exit
+    .button__exit
+      outline: none
 .actions__buttons
   display: flex
   justify-content: space-evenly
