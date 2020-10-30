@@ -96,4 +96,8 @@ a
 
 .v-dialog__content
   height: auto !important
+
+
+.VueCarousel-slide
+  flex-basis: auto !important
 </style>

@@ -1,66 +1,53 @@
 <template>
-  <Container>
     <div class="blog">
       <div class="blog-header">
-        <Title text="Our blogs" />
-        <!-- <Button transparent>See all</Button> -->
-        <CarouselPins
-          :pages="3"
-          :activePage="activePage"
-          @clicked="handleCarouselChange"
-        ></CarouselPins>
+        <h3> {{ Title }} </h3>
+        <router-link to="/blog">
+          <button class="see__all">See all</button>
+        </router-link>
       </div>
-
-      <Carousel
-        height="400px"
-
-      >
-        <CarouseScroll :page="activePage" :perPage="2">
+      <carousel :per-page="3">
+        <slide class="slide__wrap">
           <BlogArticle class="blogArt" />
+        </slide>
+        <slide class="slide__wrap">
           <BlogArticle class="blogArt" />
+        </slide>
+        <slide class="slide__wrap">
           <BlogArticle class="blogArt" />
+        </slide>
+        <slide class="slide__wrap">
           <BlogArticle class="blogArt" />
+        </slide>
+        <slide class="slide__wrap">
           <BlogArticle class="blogArt" />
+        </slide>
+        <slide class="slide__wrap">
           <BlogArticle class="blogArt" />
-
-        </CarouseScroll>
-      </Carousel>
+        </slide>
+        <slide class="slide__wrap">
+          <BlogArticle class="blogArt" />
+        </slide>
+      </carousel>
     </div>
-  </Container>
 </template>
 
 <script>
-import Title from "./atoms/Title";
-// import Button from "./atoms/Button"
-import Container from "./atoms/Container";
-import Carousel from "./atoms/Carousel/Carousel";
-import CarouseScroll from "./atoms/Carousel/CarouseScroll";
-import BlogArticle from "./organisms/BlogArticle";
-import CarouselPins from "./atoms/Carousel/CarouselPins";
+import BlogArticle from "./organisms/BlogArticle"
+import { Carousel, Slide } from "vue-carousel"
 
 export default {
   name: "Blog",
   data() {
     return {
-      activePage: 1,
+      Title: "Our blogs"
     };
   },
   components: {
-    Title,
-    Container,
-    // Button,
     BlogArticle,
     Carousel,
-    CarouseScroll,
-    CarouselPins,
-  },
-  methods: {
-    handleCarouselChange(e) {
-      this.activePage = e;
-      
-    },
-
-  },
+    Slide,
+  }
 };
 </script>
 
@@ -70,15 +57,25 @@ export default {
   .blog-header
     display: flex
     justify-content: space-between
-
-  .blogArt
+    margin-bottom: 30px
+    align-items: center
+    h3
+      font-size: 24px
+      font-weight: bold
+      color: #131416
+      @media(max-width: 767px)
+        font-size: 16px
+    .see__all
+      font-size: 16px
+      font-weight: bold
+      outline: none
+      width: 87px
+      height: 34px
+      border: 1px solid #F0F0F8
+      color: #000
+      border-radius: 15px
+  .slide__wrap
     @media (max-width: 767px)
-      // width: 100% !important
-      display: flex
-      flex-direction: column
-
-
-.carousel-item
-  @media (max-width: 767px)
-    margin-right: 100px
+      width: 100%
+      margin-right: 20px
 </style>

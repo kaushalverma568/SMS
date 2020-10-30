@@ -17,6 +17,11 @@ import LockedVideo from './pages/LockedVideo.vue'
 import Blog from './pages/Blogs.vue'
 import MyBlogs from './pages/MyBlogs.vue'
 
+import Carousel from './pages/Carousel'
+
+
+
+
 // define__routes
 export const routes = [
   { path: '/', component: HomePage },
@@ -36,6 +41,7 @@ export const routes = [
   {path: '/purchase-confirmation', component: PurchaseConfirmation},
   {path: '/lock-vid', component: LockedVideo},
   {path: '/blog', component: Blog},
-  {path: '/my-blogs', component: MyBlogs}
+  {path: '/my-blogs', component: MyBlogs},
+  {path: '/car', component: Carousel}
 
 ]
