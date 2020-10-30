@@ -179,6 +179,7 @@ export default {
 .sign__btn
   background-color: transparent !important
   margin-top: 20px
+  border-bottom: none
 .v-btn--contained
   box-shadow: none !important
   &::before

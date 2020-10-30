@@ -1,7 +1,6 @@
 <template>
 <div class="wrapper">
   <div class="request-list">
-
     <router-link to="/our-videos">
           <h1 class="book_mark_title">{{ TitleBookmarkVid }}</h1>
     </router-link>
@@ -58,9 +57,6 @@ export default {
       selectedTab: 0,
       TitleBookmarkVid: "My Videos"
     };
-  },
-  methods: {
-
   }
 };
 </script>

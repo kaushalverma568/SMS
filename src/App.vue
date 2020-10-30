@@ -84,11 +84,12 @@ export default {
   display: none
 
 // remove all the background-color that appear on all buttons
-// .v-ripple__container
-//   display: none
-
+.v-ripple__container
+  display: none
 .v-tabs, .theme--light
-  border-bottom: 1px solid #f8f8fa
+  border-bottom: none
+.v-tabs, .theme--light
+  border-bottom: none
 // global__style__for_link
 a
   text-decoration: none

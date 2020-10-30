@@ -2,13 +2,14 @@
   <div class="exlusive-items-wrapper">
     <div class="exlusive-items">
       <header class="page-header">
-        <h1>{{ title }}</h1>
-        <!-- <SellItem /> -->
-        <router-link to="/buy-sale">
+        <h1>{{ title }}</h1>  
           <div class="sell-btn">
-            <Button dark fullWidth> Sell Item</Button>
+            <router-link to="/my-blogs">
+              <button class="btn__bookmark">
+              <img src="../assets/bookmark.svg" alt="">
+            </button>
+            </router-link>               
           </div>
-        </router-link>
       </header>
 
       <div class="exlusive-items-content">
@@ -63,12 +64,11 @@
 
 <script>
 // import Checkbox from "../components/atoms/Checkbox";
-import SearchInput from "../components/atoms/SearchInput";
-import DropdownButton from "../components/atoms/DropdownButton";
-import Pagination from "../components/atoms/Pagination";
-import Button from "../components/atoms/Button";
-import productIMG from "../assets/exitem.svg";
-import Product from "../components/atoms/Product";
+import SearchInput from "../components/atoms/SearchInput"
+import DropdownButton from "../components/atoms/DropdownButton"
+import Pagination from "../components/atoms/Pagination"
+import productIMG from "../assets/exitem.svg"
+import Product from "../components/atoms/Product"
 // import SellItem from '../components/atoms/SellItem'
 // import axios from "axios"
 // import { puplic_key } from "../data.js"
@@ -81,23 +81,10 @@ import arrow from '../assets/option-checked.svg'
 
 export default {
   name: "ExlusiveItems",
-  components: {
-    // Checkbox,
-    SearchInput,
-    DropdownButton,
-    Pagination,
-    Button,
-    // SellItem
-    Product,
-
-  },
-  props: {
-    title: String,
-    sellButton: Boolean,
-  },
   data() {
     return {
       arrow: arrow,
+      title: "Our blogs",
       sortOptions: [
         {
           label: "Newest",
@@ -135,28 +122,20 @@ export default {
       products: [],
     };
   },
+  components: {
+    // Checkbox,
+    SearchInput,
+    DropdownButton,
+    Pagination,
 
+    Product,
+
+  },
   methods: {
     handleSortChange(option) {
       this.selectedSort = option;
-    },
-
-    fetchData: async function () {
-      try {
-        const res = await fetch(
-          "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.descmovie/550&api_key=3f3b341e1928f82512c99387ebeafc9d"
-        );
-        const products = await res.json();
-        this.products = products.results;
-        console.log(products);
-      } catch (error) {
-        console.log(error);
-      }
-    },
-  },
-  created: function () {
-    this.fetchData();
-  },
+    }
+  }
 };
 </script>
 
@@ -183,6 +162,8 @@ export default {
         font-size: 16px
     .sell-btn
       width: 137px
+      .btn__bookmark
+        outline: none
       @media (max-width: 400px)
         width: 70px
         .fullWidth

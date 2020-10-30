@@ -57,7 +57,7 @@ export default {
   methods: {
     handleCarouselChange(e) {
       this.activePage = e;
-      console.log(this.activePage);
+      
     },
 
   },

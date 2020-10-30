@@ -165,8 +165,9 @@ export default {
     },
     methods: {
       saved () {
-        console.log('clicked')
+        // toggle the visibility of the button__that_told_if_the_item_is_bookmarked_or_not
         this.bookmarked =! this.bookmarked
+        // toggle class that add background to svg element
         document.querySelector(".highlight_bookmark").classList.toggle("fill_bookmark");
       }
     }
@@ -206,7 +207,7 @@ export default {
           top: 50%
           left: 50%
           transform: translate(-50%, -50%)
-          background-image: url('../assets/play.svg')
+          // background-image: url('../assets/play.svg')
           width: 36px
           height: 60px
         .vid_player
