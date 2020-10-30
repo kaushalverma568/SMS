@@ -48,12 +48,28 @@
           </header>
 
           <content>
-            <div
-              v-for="product in products"
-              :key="product.id"
-            >
-              <Product :product="product" />
-            </div>
+           <div class="blog-article" v-for="b in 20" :key="b.id">
+            
+
+                <div class="article-thumb">
+                  <img src="../assets/thumb.png" />
+                </div>
+
+                <div class="article-infos">
+                  <div>
+                    <h2>Title</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit…</p>
+                  </div>
+                  <div class="article-actions">
+                    <div class="vues-count">43 views</div>
+                    <Button transparent fullRounded>
+                      <img src="../assets/heart.svg" />
+                      18
+                    </Button>
+                  </div>
+                </div>
+
+              </div>
           </content>
         </div>
       </div>
@@ -67,8 +83,6 @@
 import SearchInput from "../components/atoms/SearchInput"
 import DropdownButton from "../components/atoms/DropdownButton"
 import Pagination from "../components/atoms/Pagination"
-import productIMG from "../assets/exitem.svg"
-import Product from "../components/atoms/Product"
 // import SellItem from '../components/atoms/SellItem'
 // import axios from "axios"
 // import { puplic_key } from "../data.js"
@@ -117,9 +131,7 @@ export default {
         // img: require('../assets/option-checked.svg')
 
       },
-      productIMG: productIMG,
-
-      products: [],
+    
     };
   },
   components: {
@@ -128,7 +140,7 @@ export default {
     DropdownButton,
     Pagination,
 
-    Product,
+
 
   },
   methods: {
@@ -258,4 +270,56 @@ export default {
           color: #000
           @media (max-width: 767px)
             font-size: 16px
+
+
+  .blog-article
+    display: flex
+    width: 100%
+    box-sizing: border-box
+    border: 1px solid #e2e2e4
+    border-radius: 34px
+    padding: 24px
+    margin-bottom: 30px
+    @media (max-width: 767px)
+      padding: 0
+      margin-right: 0
+      width: 235px
+
+    .article-thumb
+      margin-right: 20px
+      border-radius: 24px
+      overflow: hidden
+      width: 124px
+      height: 148px
+
+      @media (max-width: 767px)
+        width: 100%
+        border-radius: 24px 24px 0 0
+
+        img
+          width: 100% !important
+      img
+        height: 148px
+        width:124px
+    .article-infos
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      height: 148px
+      width: calc(100% - 124px)
+
+      @media (max-width: 767px)
+        padding: 0 10px
+        width: 100%
+      h2
+        margin: 0 0 8px 0
+      .vues-count
+          font-weight: 600
+      .article-actions
+        display: flex
+        justify-content: space-between
+        justify-self: flex-end
+        align-items: center
+        @media (max-width: 767px)
+          margin-bottom: 10px
 </style>
