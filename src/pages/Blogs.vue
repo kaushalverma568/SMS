@@ -2,13 +2,13 @@
   <div class="exlusive-items-wrapper">
     <div class="exlusive-items">
       <header class="page-header">
-        <h1>{{ title }}</h1>  
+        <h1>{{ title }}</h1>
           <div class="sell-btn">
             <router-link to="/my-blogs">
               <button class="btn__bookmark">
               <img src="../assets/bookmark.svg" alt="">
             </button>
-            </router-link>               
+            </router-link>
           </div>
       </header>
 
@@ -18,12 +18,8 @@
             <!-- category-checkList here -->
             <h2>Categories</h2>
             <div class="row" v-for="n in 6" :key="n.id">
-              <v-checkbox
-                class="customize--checkbox"
-                label="Category name here"
-              >
-              </v-checkbox>
-              <!-- <div class="category-name">Category name here</div> -->
+              <CheckBoxCustom />
+              <div class="category-name">Category name here</div>
             </div>
           </div>
         </div>
@@ -47,17 +43,15 @@
             </div>
           </header>
 
-          <content>
+          <div class="warpper__myblogs">
            <div class="blog-article" v-for="b in 20" :key="b.id">
-            
-
                 <div class="article-thumb">
                   <img src="../assets/thumb.png" />
                 </div>
 
                 <div class="article-infos">
                   <div>
-                    <h2>Title</h2>
+                    <h3>Title blog lorem ipsum dolor sit amet</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit…</p>
                   </div>
                   <div class="article-actions">
@@ -70,7 +64,7 @@
                 </div>
 
               </div>
-          </content>
+          </div>
         </div>
       </div>
       <Pagination />
@@ -83,6 +77,7 @@
 import SearchInput from "../components/atoms/SearchInput"
 import DropdownButton from "../components/atoms/DropdownButton"
 import Pagination from "../components/atoms/Pagination"
+import CheckBoxCustom from "../components/atoms/CustomCheckbox"
 // import SellItem from '../components/atoms/SellItem'
 // import axios from "axios"
 // import { puplic_key } from "../data.js"
@@ -131,7 +126,7 @@ export default {
         // img: require('../assets/option-checked.svg')
 
       },
-    
+
     };
   },
   components: {
@@ -139,7 +134,7 @@ export default {
     SearchInput,
     DropdownButton,
     Pagination,
-
+    CheckBoxCustom
 
 
   },
@@ -219,10 +214,14 @@ export default {
 
       .dropdown-button
         width: 222px
-    content
+    .warpper__myblogs
         display: flex
         flex-wrap: wrap
         justify-content: space-between
+
+        @media (max-width: 767px)
+          flex-direction: column
+
         @media (max-width: 400px)
           justify-content: center
         a
@@ -281,9 +280,9 @@ export default {
     padding: 24px
     margin-bottom: 30px
     @media (max-width: 767px)
-      padding: 0
+      padding: 10px
       margin-right: 0
-      width: 235px
+      width: 100%
 
     .article-thumb
       margin-right: 20px
@@ -291,16 +290,23 @@ export default {
       overflow: hidden
       width: 124px
       height: 148px
-
-      @media (max-width: 767px)
-        width: 100%
-        border-radius: 24px 24px 0 0
-
-        img
-          width: 100% !important
       img
         height: 148px
         width:124px
+
+      @media (max-width: 767px)
+        width: 100%
+        border-radius: 24px
+
+      @media (max-width: 410px)
+        width: 100px
+        height: 60px
+        border-radius: 14px
+        margin-right: 10px
+        img
+          width: 100%
+          height: 100%
+
     .article-infos
       display: flex
       flex-direction: column
@@ -311,10 +317,22 @@ export default {
       @media (max-width: 767px)
         padding: 0 10px
         width: 100%
-      h2
-        margin: 0 0 8px 0
+      h3
+        font-size: 18px
+        font-weight: bold
+        color: #131416
+        @media (max-width: 767px)
+          font-size: 13px
+      p
+        font-size: 16px
+        font-weight: normal
+        color: #131416
+        @media (max-width: 767px)
+          font-size: 13px
       .vues-count
-          font-weight: 600
+        font-size: 13px
+        font-weight: normal
+        font-weight: 600
       .article-actions
         display: flex
         justify-content: space-between

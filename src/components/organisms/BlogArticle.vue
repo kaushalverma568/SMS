@@ -54,7 +54,7 @@ export default {
     width: 124px
     height: 148px
 
-    @media (max-width: 767px)
+    @media (max-width: 350px)
       width: 100px
       height: 60px
       border-radius: 14px

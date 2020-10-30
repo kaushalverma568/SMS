@@ -100,4 +100,10 @@ a
 
 .VueCarousel-slide
   flex-basis: auto !important
+
+
+
+// customize checkbox
+.theme--light.v-icon
+  color: #f0f0f8
 </style>
