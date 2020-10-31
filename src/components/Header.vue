@@ -10,7 +10,7 @@
             <router-link to="/consultation">
               <Button class="btn_consult">
                 <img alt="consultation icon" src="../assets/consultation.svg" />
-                Consultation
+                <span>Consultation</span>
               </Button>
             </router-link>
 
@@ -192,7 +192,7 @@ export default {
         };
       }
     },
-  
+
   },
   mounted: function () {
     this.addColor();
@@ -253,7 +253,7 @@ export default {
     z-index: 2
     // try to add some shadow on the notification popup
     box-shadow: 0px -4px 36px rgba(0, 0, 0, 0.129753)
-    
+
     a
       text-decoration: none
       .nav_title
@@ -281,6 +281,8 @@ export default {
         display: flex
         align-items: center
         justify-content: space-between
+        @media (max-width: 767px)
+          justify-content: space-around
         .ext__arrow
           // margin-left: 40px
           @media (max-width: 767px)
@@ -289,17 +291,31 @@ export default {
           // margin-right: 43px
           width: 350px
           @media (max-width: 767px)
+            width: 200px
             margin-right: 10px
+          @media (max-width: 350px)
+            width: 140px
         > *
           &:first-child
             // margin-right: 40px
             @media (max-width: 767px)
-              margin-right: 10px
+              // margin-right: 10px
         @media (max-width: 767px)
           .btn_consult
             width: 105px
             height: 30px
             font-size: 11px
+            @media (max-width: 767px)
+              padding: 0
+              width: 40px
+              height: 40px
+              border-radius: 50%
+              img
+                margin: 0
+                width: 20px
+                height: 20px
+              span
+                display: none
           .btn_profil
             width: 30px
             height: 30px
@@ -347,11 +363,11 @@ export default {
   .profile_drop
     margin-top: 25px
     border-bottom: none
-    
+
     height: auto
     background: transparent
 
-.addcolor 
+.addcolor
   svg
     fill: #6063eb !important
 
@@ -360,6 +376,11 @@ export default {
   width: 100%
   display: flex
   justify-content: space-around
+  @media (max-width: 767px)
+    width: 135px
+  @media (max-width: 350px)
+    .addHightlight
+      margin-left: 10px
 
 .navs__button__list
   height: 160px
