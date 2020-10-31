@@ -4,45 +4,42 @@
       <div class="videos-header">
         <Title text="Videos" />
 
-         <div class="show__big_screen">
-           <CarouselPins :pages="3" :activePage="activePage" @clicked="handleCarouselChange"></CarouselPins>
-         </div>
-
-         <div class="show_small_screen">
-          <router-link to="our-videos">
-            <button class="see__all">See all</button>
-          </router-link>
-         </div>
-
+         <router-link to="our-videos">
+          <button class="see__all">See all</button>
+        </router-link>
       </div>
 
-      <Carousel height="400px">
-        <CarouseScroll :page="activePage" :perPage="2">
+      <carousel :per-page="3">
+        <slide>
           <VideoPreview class="video__one" />
+        </slide>
+        <slide>
           <VideoPreview />
+        </slide>
+        <slide>
           <VideoPreview />
+        </slide>
+        <slide>
           <VideoPreview />
+        </slide>
+        <slide>
           <VideoPreview />
-          <router-link to="our-videos">
-            <button class="see__all">See all</button>
-          </router-link>
-        </CarouseScroll>
-
-      </Carousel>
+        </slide>
+        <slide>
+          <VideoPreview />
+        </slide>
+      </carousel>
     </div>
   </Container>
 </template>
 
 <script>
-import Title from "./atoms/Title"
+import Title from "./atoms/Title";
 // import Button from "./atoms/Button"
-import Container from "./atoms/Container"
-import VideoPreview from "./organisms/VideoPreview"
-import Carousel from "./atoms/Carousel/Carousel"
-import CarouseScroll from "./atoms/Carousel/CarouseScroll"
+import Container from "./atoms/Container";
+import VideoPreview from "./organisms/VideoPreview";
 
-import CarouselPins from "./atoms/Carousel/CarouselPins"
-
+import { Carousel, Slide } from "vue-carousel";
 
 export default {
   name: "Videos",
@@ -54,18 +51,16 @@ export default {
   components: {
     Title,
     Container,
-    // Button,
     VideoPreview,
     Carousel,
-    CarouseScroll,
-    CarouselPins
+    Slide,
   },
   methods: {
     handleCarouselChange(e) {
       this.activePage = e;
-      console.log(this.activePage)
-    }
-  }
+      console.log(this.activePage);
+    },
+  },
 };
 </script>
 
@@ -81,7 +76,6 @@ export default {
     font-size: 16px
     font-weight: bold
     outline: none
-    margin-top: 100px
     width: 87px
     height: 34px
     border: 1px solid #F0F0F8

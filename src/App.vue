@@ -98,8 +98,8 @@ a
   height: auto !important
 
 
-.VueCarousel-slide
-  flex-basis: auto !important
+// .VueCarousel-slide
+//   flex-basis: auto !important
 
 
 
