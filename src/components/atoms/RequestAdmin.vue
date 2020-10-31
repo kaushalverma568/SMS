@@ -310,8 +310,8 @@ export default {
         height: 46px
         font-size: 16px
         font-weight: bold
-        opacity: .5
-        border: 1px solid #25282B
+        outline: none
+        border: 1px solid #cbc9c9
         border-radius: 24px
 
 </style>
