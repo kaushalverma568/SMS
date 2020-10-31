@@ -14,7 +14,7 @@
     <router-link to="/exclusive-items">
         <v-card class="Card">
           <div class="conent">
-            <span class="title_card">Exclusive <br/> items</span>
+            <span class="title_card">Buy and <br/> Sell</span>
             <img :src="discount" alt="">
           </div>
         </v-card>
@@ -24,7 +24,7 @@
       <div class="disapple__card">
         <v-card class="Card" disabled>
           <div class="conent">
-            <span class="title_card">Exclusive <br/> items</span>
+            <span class="title_card">Service <br/> name</span>
             <img :src="discount" alt="">
           </div>
         </v-card>
@@ -36,7 +36,7 @@
       <div class="disapple__card">
         <v-card class="Card" disabled>
           <div class="conent">
-            <span class="title_card">Exclusive <br/> items</span>
+            <span class="title_card">Service <br/> name</span>
             <img :src="discount" alt="">
           </div>
         </v-card>

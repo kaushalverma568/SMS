@@ -16,13 +16,9 @@
           <div class="categories">
             <!-- category-checkList here -->
             <h2>Categories</h2>
-            <div class="row" v-for="n in 6" :key="n.id">
-              <v-checkbox
-                class="customize--checkbox"
-                label="Category name here"
-              >
-              </v-checkbox>
-              <!-- <div class="category-name">Category name here</div> -->
+              <div class="row" v-for="n in 6" :key="n.id">
+                <CheckBoxCustom />
+              <div class="category-name">Category name here</div>
             </div>
           </div>
         </div>
@@ -51,7 +47,7 @@
               v-for="product in products"
               :key="product.id"
             >
-              <Product :product="product" />
+              <Product />
             </div>
           </content>
         </div>
@@ -69,6 +65,8 @@ import Pagination from "../components/atoms/Pagination";
 import Button from "../components/atoms/Button";
 import productIMG from "../assets/exitem.svg";
 import Product from "../components/atoms/Product";
+import CheckBoxCustom from "./atoms/CustomCheckbox"
+
 // import SellItem from '../components/atoms/SellItem'
 // import axios from "axios"
 // import { puplic_key } from "../data.js"
@@ -89,6 +87,7 @@ export default {
     Button,
     // SellItem
     Product,
+    CheckBoxCustom
 
   },
   props: {
@@ -210,8 +209,11 @@ export default {
     .row
       display: flex
       margin-bottom: 24px
+      align-items: center
       .category-name
         margin-left: 14px
+        font-size: 16px
+        font-weight: bold
   .items-list-wrapper
     flex: 1
     .search__checklist

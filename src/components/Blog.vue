@@ -6,7 +6,7 @@
           <button class="see__all">See all</button>
         </router-link>
       </div>
-      <carousel :per-page="3">
+      <Carousel :per-page="3">
         <slide class="slide__wrap">
           <BlogArticle class="blogArt" />
         </slide>
@@ -28,7 +28,7 @@
         <slide class="slide__wrap">
           <BlogArticle class="blogArt" />
         </slide>
-      </carousel>
+      </Carousel>
     </div>
 </template>
 

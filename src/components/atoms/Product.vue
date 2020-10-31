@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link :to="productInformation">
+    <router-link to="/item">
       <div class="item">
         <v-sheet
           v-if="show"
@@ -16,32 +16,33 @@
 
         <div class="thumb">
           <!-- productImg -->
-          <img :src="posterImage" :alt="product.title" />
+          <img :src="productImg" alt="product img" />
         </div>
-        <h2 class="title_product">{{ product.title }}</h2>
-        <div class="item-price">{{ product.popularity }}</div>
+        <h2 class="title_product"> lorem ipsum lorem ipsum lorem ipsum </h2>
+        <div class="item-price"> $22.2 </div>
       </div>
     </router-link>
   </div>
 </template>
 
 <script>
-const POSTER_PATH = 'http://image.tmdb.org/t/p/w154/'
+import productImg from '../../assets/product-chat-photo.svg'
 export default {
   name: "Product",
-  props: ['product'],
+  // props: ['product'],
   data: function () {
     return {
-      show: true
+      show: true,
+      productImg
     }
   },
   computed: {
-    posterImage: function() {
-      return `${POSTER_PATH}/${this.product.poster_path}`;
-    },
-    productInformation: function() {
-      return `/product/${this.product.id}`;
-    }
+    // posterImage: function() {
+    //   return `${POSTER_PATH}/${this.product.poster_path}`;
+    // },
+    // productInformation: function() {
+    //   return `/product/${this.product.id}`;
+    // }
   },
   mounted() {
     this.showArticle();

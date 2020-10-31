@@ -16,9 +16,7 @@ import PurchaseConfirmation from './pages/PurchaseConfirmation.vue'
 import LockedVideo from './pages/LockedVideo.vue'
 import Blog from './pages/Blogs.vue'
 import MyBlogs from './pages/MyBlogs.vue'
-
 import Carousel from './pages/Carousel'
-
 import BlogDetail from './pages/BlogDetails'
 
 
@@ -33,7 +31,7 @@ export const routes = [
   { path: '/live-stream', component: LiveStream },
   { path: '/exclusive-items', component: ExclusiveItems },
   { path: '/buy-sale', component: BuyAndSale },
-  { path: '/product/:id', component: Item },
+  { path: '/item', component: Item },
   { path: '/sign-up', component: SignUp },
   {path: '/our-videos', component: OurVideos},
   {path: '/my-videos', component: MyVideos},
