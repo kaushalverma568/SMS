@@ -44,7 +44,8 @@
           </header>
 
           <div class="warpper__myblogs">
-           <div class="blog-article" v-for="b in 20" :key="b.id">
+            <router-link to="/blog-detail">
+               <div class="blog-article" v-for="b in 20" :key="b.id">
                 <div class="article-thumb">
                   <img src="../assets/thumb.png" />
                 </div>
@@ -64,6 +65,7 @@
                 </div>
 
               </div>
+            </router-link>
           </div>
         </div>
       </div>
@@ -198,8 +200,11 @@ export default {
     .row
       display: flex
       margin-bottom: 24px
+      align-items: center
       .category-name
         margin-left: 14px
+        font-size: 16px
+        font-weight: bold
   .items-list-wrapper
     flex: 1
     .search__checklist
@@ -218,6 +223,8 @@ export default {
         display: flex
         flex-wrap: wrap
         justify-content: space-between
+        a
+          color: #131416
 
         @media (max-width: 767px)
           flex-direction: column
@@ -330,9 +337,11 @@ export default {
         @media (max-width: 767px)
           font-size: 13px
       .vues-count
-        font-size: 13px
+        font-size: 16px
         font-weight: normal
         font-weight: 600
+        @media (max-width: 767px)
+          font-size: 13px
       .article-actions
         display: flex
         justify-content: space-between

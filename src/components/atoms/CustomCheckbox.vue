@@ -1,18 +1,11 @@
 <template>
 <div class="grid">
-
-
-
-
-
     <label class="checkbox bounce">
         <input type="checkbox" />
         <svg viewBox="0 0 21 21">
             <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
         </svg>
     </label>
-
-
 </div>
 
 </template>
@@ -45,6 +38,7 @@
         background: #f7f7fa;
         border: 1px solid #f0f0f8;
         /* border: none; */
+        border-radius: 6px;
         margin: 0;
         padding: 0;
         cursor: pointer;
@@ -119,6 +113,5 @@
         transform: scale(1);
     }
 }
-
 
 </style>
