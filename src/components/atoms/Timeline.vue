@@ -42,11 +42,11 @@ export default {
         content: ' ';
         position: absolute;
         height: 4px;
-        width: calc(100% - 54px);
+        width: calc(100% - 345px);
         left: 27px;
-        background: #F0F0F1;
+        background: #6063EB;
         top: 20px;
-        z-index: -2;
+        z-index: 1;
     }
 
     .progress {
@@ -63,11 +63,12 @@ export default {
         flex-direction: column;
         align-items: center;
         font-size: 10px;
+        z-index: 10;
 
         img {
             margin-bottom: 16px;
         }
     }
-    
+
 }
 </style>
