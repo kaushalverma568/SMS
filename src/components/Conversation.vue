@@ -105,7 +105,7 @@ export default {
 
   .conversation-list
     height: calc(100vh - 210px)
-    padding: 0 4px 4px 0
+    padding: 0px 6px 4px 0
 
 
   &.inModal
@@ -168,11 +168,16 @@ export default {
     padding: 0 20px
     box-sizing: border-box
     flex-direction: column
+    transition: all .3s ease-in-out
+    // background-color: #fff
+    // box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.230769)
+    // border-radius: 18px 18px 0px 0px
 
-    &.active
+    &:hover
       background: #ffffff
       box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.230769)
-      border-radius: 18px 18px 0px 0px
+      border-radius: 18px 18px 0px
+      transition: all .3s ease-in-out
 
 
     .attachemnts

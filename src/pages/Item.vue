@@ -56,35 +56,41 @@
                       provided below.
                     </v-card-text>
                     <v-list>
-                      <v-list-item>
+                      <v-list-item class="wrap__list_checkbox">
                         <div>Reason 1</div>
-                        <v-checkbox
-                          id="checked1"
-                          @click="enabled(this)"
-                        ></v-checkbox>
+
+                        <a id="checked1"
+                          @click="enabled(this)">
+                          <CheckBoxCustom></CheckBoxCustom>
+                        </a>
+
                       </v-list-item>
 
-                      <v-list-item>
+                      <v-list-item class="wrap__list_checkbox">
                         <div>Reason 2</div>
-                        <v-checkbox
-                          id="checked1"
-                          @click="enabled(this)"
-                        ></v-checkbox>
+                        <a id="checked1"
+                          @click="enabled(this)">
+                          <CheckBoxCustom></CheckBoxCustom>
+                        </a>
+
                       </v-list-item>
 
-                      <v-list-item>
+                      <v-list-item class="wrap__list_checkbox">
                         <div>Reason 3</div>
-                        <v-checkbox
-                          id="checked1"
-                          @click="enabled(this)"
-                        ></v-checkbox>
+                        <a id="checked1"
+                          @click="enabled(this)">
+                          <CheckBoxCustom></CheckBoxCustom>
+                        </a>
+
                       </v-list-item>
 
-                      <v-list-item>
+                      <v-list-item class="wrap__list_checkbox">
                         <div>Other</div>
-                        <v-checkbox
-                          @click="typeReason = !typeReason"
-                        ></v-checkbox>
+                        <a
+                           @click="typeReasonPopup">
+                          <CheckBoxCustom></CheckBoxCustom>
+                        </a>
+
                       </v-list-item>
 
                       <transition name="fade">
@@ -146,16 +152,18 @@
 </template>
 
 <script>
-import ProductChat from "../components/atoms/ProductChat";
-import RequestAdmin from "../components/atoms/RequestAdmin";
-import productIMG from "../assets/exitem.svg";
-import Chat from "../assets/chat-prod.svg";
-import Phone from "../assets/phone.svg";
-import Report from "../assets/report.svg";
-import Oval from "../assets/oval.svg";
-import close from "../assets/close-modal.svg";
+import ProductChat from "../components/atoms/ProductChat"
+import RequestAdmin from "../components/atoms/RequestAdmin"
+import productIMG from "../assets/exitem.svg"
+import Chat from "../assets/chat-prod.svg"
+import Phone from "../assets/phone.svg"
+import Report from "../assets/report.svg"
+import Oval from "../assets/oval.svg"
+import close from "../assets/close-modal.svg"
+import CheckBoxCustom from "../components/atoms/CustomCheckbox"
 
-const BACKDROP_PATH = "http://image.tmdb.org/t/p/w1280";
+
+// const BACKDROP_PATH = "http://image.tmdb.org/t/p/w1280";
 
 export default {
   data: function () {
@@ -176,53 +184,66 @@ export default {
   components: {
     ProductChat,
     RequestAdmin,
+    CheckBoxCustom
+
   },
   created: function () {
-    this.fetchData();
+    // this.fetchData();
     this.enabled();
   },
 
   methods: {
-    fetchData: async function () {
-      try {
-        const res = await fetch(
-          // `https://api.themoviedb.org/3/movie/${this.$route.params.id}?api_key=3f3b341e1928f82512c99387ebeafc9d`
-          `https://api.themoviedb.org/3/movie/${this.$route.params.id}?api_key=65e043c24785898be00b4abc12fcdaae`
+    // fetchData: async function () {
+    //   try {
+    //     const res = await fetch(
+    //       // `https://api.themoviedb.org/3/movie/${this.$route.params.id}?api_key=3f3b341e1928f82512c99387ebeafc9d`
+    //       `https://api.themoviedb.org/3/movie/${this.$route.params.id}?api_key=65e043c24785898be00b4abc12fcdaae`
 
-          // `https://api.themoviedb.org/3/discover/movie?${this.$route.params.id}sort_by=popularity.descmovie/550&api_key=3f3b341e1928f82512c99387ebeafc9d`
-        );
-        const productdetail = await res.json();
-        this.productdetail = productdetail;
-        console.log("thisi iisljflskjflsfs", productdetail);
-      } catch (error) {
-        console.log(error);
-      }
-    },
+    //       // `https://api.themoviedb.org/3/discover/movie?${this.$route.params.id}sort_by=popularity.descmovie/550&api_key=3f3b341e1928f82512c99387ebeafc9d`
+    //     );
+    //     const productdetail = await res.json();
+    //     this.productdetail = productdetail;
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // },
 
     closeModal: function () {
       this.dialog = false;
+
       setTimeout(() => {
+        // show the report button
         this.showReport = true;
+        // add red color to the flag icon
         document.querySelector(".report__icon").classList.add("add_height");
       }, 1000);
+
     },
+
     enabled: function () {
+
       const ddl = document.getElementById("DDL");
       const checked1 = document.getElementById("checked1");
-      ddl.disabled = checked1.checked ? true : false;
+
+      ddl.disabled = checked1.checked ? true : false
+
+      // heighlihgt submit button
+      document.querySelector(".close_show_report_message").classList.add("bold_black")
+
       // if(!ddl.disabled) {
       //   ddl.focus()
       // }
-      console.log("wroking");
+
     },
+    typeReasonPopup () {
+      // toggle visibility of the other reason input..
+      this.typeReason =! this.typeReason
+      // heighlihgt submit button
+      document.querySelector(".close_show_report_message").classList.add("bold_black");
+
+    }
   },
-  computed: {
-    styles() {
-      return {
-        background: `url(${BACKDROP_PATH}/${this.productdetail.backdrop_path}) no-repeat`,
-      };
-    },
-  },
+
 };
 </script>
 
@@ -419,15 +440,19 @@ export default {
         font-weight: bold
 
 
-    button
+    .close_show_report_message
       width: 100%
-      border: 1px solid #BDBEBF
+      border: 1px solid #999a9c
       opacity: 0.5
       border-radius: 24px
       height: 46px
       outline: none
       color: #BDBEBF
       font-weight: bold
+      &.bold_black
+        opacity: 1
+        color: #000
+        font-weight: bold
   .v-btn:not(.v-btn--round).v-size--default
     min-width: 28px
 
@@ -442,4 +467,17 @@ export default {
 
 .v-dialog
   height: auto
+
+
+
+// fix__alignment__in__popUpReport
+.wrap__list_checkbox
+  dispaly: flex
+  justify-content: center
+  div
+    width: 93%
+  a
+    width: 7%
+    display: flex
+    justify-content: flex-end
 </style>

@@ -32,14 +32,18 @@ export default {
 
 <style lang="sass" scoped>
 .conversation-messages
-  overflow: scroll
-  max-height: calc(100vh - 401px)
+  // overflow: scroll
+  // max-height: calc(100vh - 401px)
   padding: 20px
+  .conversation-messages-scroll
+    overflow: scroll
+    max-height: calc(100vh - 365px)
+    // padding: 20px
 
 
 .message
   display: flex
-  margin: 20px 0
+  // margin: 20px 0
 
   .message-avatar
       margin-right: 10px
@@ -63,6 +67,9 @@ export default {
           font-size: 14px
           opacity: 0.5
 
+::-webkit-scrollbar
+  width: 4px !important
+  height: 22px !important
 
 
 </style>

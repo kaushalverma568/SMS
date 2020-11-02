@@ -44,19 +44,18 @@
       </div>
     </router-link>
 
-
-
     </div>
   </div>
 </template>
 
 <script>
 import discount from '../../assets/discount.svg'
+
 // import dis fro '../.'
 export default {
   data: function () {
     return {
-      discount: discount
+      discount: discount,
     }
   }
 

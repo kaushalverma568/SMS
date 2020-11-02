@@ -86,4 +86,10 @@ export default {
           font-weight: 300
       &.active
         opacity: 1
+
+
+::-webkit-scrollbar
+  width: 4px !important
+  // height: 22px !important
+
 </style>

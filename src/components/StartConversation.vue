@@ -32,7 +32,6 @@ export default {
   display: flex
   justify-content: center
   min-height: 100vh
-
   .start-converstation
     display: flex
     flex-direction: column
@@ -53,6 +52,8 @@ export default {
       flex-direction: column
       align-items: center
       justify-content: space-between
+      button
+        border: 1px solid #929395 !important
     h1
       font-size: 18px
       font-weight: 600
