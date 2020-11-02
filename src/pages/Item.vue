@@ -308,6 +308,10 @@ export default {
           align-items: center
           &:first-child
             border-left: none
+          &:nth-child(2)
+            margin-top: 7px
+          &:nth-child(3)
+            margin-top: -4px
           @media (max-width: 992px)
             font-size: 13px
             padding: 0 15px

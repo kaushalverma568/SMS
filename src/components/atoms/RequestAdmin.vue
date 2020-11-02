@@ -148,9 +148,12 @@ export default {
         cursor: pointer
     .avatar
       display: flex
+      align-items: flex-end
+
       .img__avatar
         margin-left: 24px
         cursor: pointer
+        // margin-top: 5px
       .text_avatar
         display: flex
         flex-direction: column
@@ -158,7 +161,7 @@ export default {
         .span__first
           font-size: 12px
           font-weight: bold
-          margin-bottom: -13px
+          margin-bottom: -6px
           color: #868787
         .span__last
           font-size: 16px

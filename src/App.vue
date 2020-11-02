@@ -94,8 +94,8 @@ export default {
 a
   text-decoration: none
 
-.v-dialog__content
-  height: auto !important
+// .v-dialog__content
+//   height: auto !important
 
 
 // .VueCarousel-slide

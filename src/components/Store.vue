@@ -43,10 +43,7 @@
           </header>
 
           <content>
-            <div
-              v-for="product in products"
-              :key="product.id"
-            >
+            <div v-for="product in 20" :key="product.id">
               <Product />
             </div>
           </content>
@@ -59,12 +56,12 @@
 
 <script>
 // import Checkbox from "../components/atoms/Checkbox";
-import SearchInput from "../components/atoms/SearchInput";
-import DropdownButton from "../components/atoms/DropdownButton";
-import Pagination from "../components/atoms/Pagination";
-import Button from "../components/atoms/Button";
-import productIMG from "../assets/exitem.svg";
-import Product from "../components/atoms/Product";
+import SearchInput from "../components/atoms/SearchInput"
+import DropdownButton from "../components/atoms/DropdownButton"
+import Pagination from "../components/atoms/Pagination"
+import Button from "../components/atoms/Button"
+// import productIMG from "../assets/exitem.svg"
+import Product from "../components/atoms/Product"
 import CheckBoxCustom from "./atoms/CustomCheckbox"
 
 // import SellItem from '../components/atoms/SellItem'
@@ -126,12 +123,11 @@ export default {
       selectedSort: {
         label: "Sellect Item",
         value: 'Sellect Item',
-        // img: require('../assets/option-checked.svg')
 
       },
-      productIMG: productIMG,
+      // productIMG: productIMG,
 
-      products: [],
+      // products: [],
     };
   },
 
@@ -140,21 +136,25 @@ export default {
       this.selectedSort = option;
     },
 
-    fetchData: async function () {
-      try {
-        const res = await fetch(
-          "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.descmovie/550&api_key=3f3b341e1928f82512c99387ebeafc9d"
-        );
-        const products = await res.json();
-        this.products = products.results;
-        console.log(products);
-      } catch (error) {
-        console.log(error);
-      }
-    },
+
+    // fetching data from and movies database
+
+    // fetchData: async function () {
+    //   try {
+    //     const res = await fetch(
+    //       "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.descmovie/550&api_key=3f3b341e1928f82512c99387ebeafc9d"
+    //     );
+    //     const products = await res.json();
+    //     this.products = products.results;
+    //     console.log(products);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // },
   },
   created: function () {
-    this.fetchData();
+    // call the function after the app is loading
+    // this.fetchData();
   },
 };
 </script>
