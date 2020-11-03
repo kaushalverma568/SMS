@@ -1,10 +1,11 @@
 <template>
   <div class="request-details">
-    <Modal v-if="conversationModalOpen">
-      <ModalContent @close="conversationModalOpen = false">
-        <Conversation inModal />
-      </ModalContent>
-    </Modal>
+    <!-- <Modal v-if="conversationModalOpen"> -->
+      <!-- <ModalContent @close="conversationModalOpen = false"> -->
+        <!-- <Conversation inModal /> -->
+
+      <!-- </ModalContent> -->
+    <!-- </Modal> -->
 
     <div class="details-header">
       <div class="timeline">
@@ -12,11 +13,12 @@
       </div>
       <div class="request-status">
         <Button small>Processing</Button>
-        <img
+        <!-- <img
           class="chat-icon"
           src="../assets/chat-filled.svg"
           @click="conversationModalOpen = true"
-        />
+        /> -->
+        <ConsultChat />
       </div>
     </div>
     <div class="request-infos">
@@ -41,11 +43,11 @@
         <div class="values-col">Sub total</div>
         <div class="values-col bold">$ 3.25</div>
       </div>
-      <div class="values-row">
+      <div class="values-row bor__bottom">
         <div class="values-col">Tax charge</div>
         <div class="values-col bold">$ 5.02</div>
       </div>
-      <div class="values-row">
+      <div class="values-row mar__top">
         <div class="values-col bold">Total price</div>
         <div class="values-col bold">$ 5.02</div>
       </div>
@@ -58,11 +60,13 @@
 </template>
 
 <script>
-import Button from "./atoms/Button";
-import Timeline from "./atoms/Timeline";
-import Modal from "./atoms/Modal";
-import ModalContent from "./atoms/ModalContent";
-import Conversation from "./Conversation";
+import Button from "./atoms/Button"
+import Timeline from "./atoms/Timeline"
+// import Modal from "./atoms/Modal"
+// import ModalContent from "./atoms/ModalContent"
+// import Conversation from "./Conversation"
+
+import ConsultChat from "./atoms/ConsultChat"
 
 export default {
   name: "RequestDetails",
@@ -90,9 +94,10 @@ export default {
   components: {
     Button,
     Timeline,
-    Modal,
-    ModalContent,
-    Conversation,
+    // Modal,
+    // ModalContent,
+    // Conversation,
+    ConsultChat
   },
 };
 </script>
@@ -156,6 +161,11 @@ export default {
       display: flex
       justify-content: space-between
       margin-bottom: 16px
+    .bor__bottom
+      border-bottom: 2px dashed #dadae4
+      padding-bottom: 30px
+    .mar__top
+      margin-top: 23px
       .values-col
         font-size: 14px
         font-weight: 600
@@ -166,4 +176,6 @@ export default {
   .payment-action
     padding: 0 32px
     margin-bottom: 32px
+    button
+      border: 1px solid #dedfdf !important
 </style>

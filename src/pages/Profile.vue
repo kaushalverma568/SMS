@@ -60,10 +60,10 @@
             <h2>Referal code</h2>
           </div>
           <div class="form-group">
-            <Input placeholder="Write code" />
+            <Input placeholder="Write code" id="write__code"/>
           </div>
           <div class="apply-button">
-            <Button big transparent fullWidth fullRounded>Apply</Button>
+            <Button big transparent fullWidth fullRounded class="apply_border">Apply</Button>
           </div>
         </div>
       </ModalContent>
@@ -95,6 +95,18 @@ export default {
     Input,
     ModalLanguages
   },
+  methods: {
+    validatCode () {
+      const writeCode = document.getElementById('write__code')
+      if (writeCode.value.length >= 6 ) {
+        console.log('hllo')
+        document.querySelector('.apply_border').classList.add('show__apply__btn')
+      }
+    }
+  },
+  mounted() {
+    this.validatCode()
+  }
 };
 </script>
 
@@ -174,4 +186,11 @@ export default {
       margin-bottom: 28px
     .apply-button
       margin-top: 24px
+
+
+.apply_border
+  border: 1px solid #dddede !important
+  opacity: .5
+  &.show__apply__btn
+    opacity: 1
 </style>

@@ -32,16 +32,19 @@
       </div>
       <div class="form-group">
         <div class="label">Payment</div>
-        <div class="payment-wrapper">
-          <div class="row">
-            <img src="../assets/card.svg" />
-            <Button small transparent @click="modalPayment = true">Edit</Button>
+        <div class="wrap__card_payment">
+          <div class="payment-wrapper">
+            <div class="row">
+              <img src="../assets/card.svg" />
+              <Button small transparent @click="modalPayment = true">Edit</Button>
+            </div>
+            <div class="label">Master Credit Card</div>
+            <div class="row">
+              <div class="card-owner">Sofia Alcocer</div>
+              <div class="card-number">310299******</div>
+            </div>
           </div>
-          <div class="label">Master Credit Card</div>
-          <div class="row">
-            <div class="card-owner">Sofia Alcocer</div>
-            <div class="card-number">310299******</div>
-          </div>
+
         </div>
       </div>
 
@@ -98,6 +101,9 @@ export default {
       border-radius: 23px;
       margin-bottom: 30px;
     }
+    button {
+      border: 1px solid #f1f1f9 !important
+    }
   }
 
   .form-profile {
@@ -111,6 +117,11 @@ export default {
         justify-content: space-between;
         align-items: center;
         margin-bottom: 12px;
+        button {
+          border: 1px solid #f0faf8 !important;
+          height: 30px;
+          padding: 0 20px;
+        }
       }
     }
     .label {
@@ -118,6 +129,16 @@ export default {
       font-size: 14px;
       margin-bottom: 14px;
     }
+    button {
+      border: 1px solid #a0a1a2 !important;
+    }
   }
+}
+
+.wrap__card_payment {
+  background: #FFFFFF;
+  box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  margin-bottom: 30px;
 }
 </style>

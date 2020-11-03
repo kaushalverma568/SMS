@@ -38,7 +38,7 @@ export default {
 <style scoped lang="scss">
 button {
   background-color: rgba(96, 99, 235, 0.1);
-  border: none;
+  /* border: none; */
   color: #131416;
   border-radius: 15px;
   box-shadow: none;
@@ -52,7 +52,7 @@ button {
   font-size: 15px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  border: 1px solid transparent;
+  /* border: 1px solid #000; */
 
   img {
     &:first-child {

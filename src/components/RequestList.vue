@@ -88,6 +88,7 @@ export default {
   .search-filters
     display: flex
     button
+      border: 1px solid #f0f0f1 !important
       margin-left: 20px
   .list
     .item
