@@ -99,7 +99,6 @@ export default {
     validatCode () {
       const writeCode = document.getElementById('write__code')
       if (writeCode.value.length >= 6 ) {
-        console.log('hllo')
         document.querySelector('.apply_border').classList.add('show__apply__btn')
       }
     }

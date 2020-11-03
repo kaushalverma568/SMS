@@ -37,11 +37,11 @@
 </template>
 
 <script>
-import Datepicker from "vuejs-datepicker";
+import Datepicker from "vuejs-datepicker"
 
-import Carousel from "../atoms/Carousel/Carousel";
-import CarouseScroll from "../atoms/Carousel/CarouseScroll";
-import Button from "../atoms/Button";
+import Carousel from "../atoms/Carousel/Carousel"
+import CarouseScroll from "../atoms/Carousel/CarouseScroll"
+import Button from "../atoms/Button"
 
 export default {
   name: "FilterRequest",

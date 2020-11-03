@@ -4,11 +4,11 @@
       <header class="page-header">
         <h1>{{ title }}</h1>
         <!-- <SellItem /> -->
-        <!-- <router-link to="/">
+        <router-link to="/buy-sale">
           <div class="sell-btn">
             <Button dark fullWidth> Sell Item</Button>
           </div>
-        </router-link> -->
+        </router-link>
       </header>
 
       <div class="exlusive-items-content">
@@ -59,8 +59,8 @@
 import SearchInput from "../components/atoms/SearchInput"
 import DropdownButton from "../components/atoms/DropdownButton"
 import Pagination from "../components/atoms/Pagination"
-// import Button from "../components/atoms/Button"
-// import productIMG from "../assets/exitem.svg"
+import Button from "../components/atoms/Button"
+// import productIMG from "../assets/exitem.svg";
 import Product from "../components/atoms/Product"
 import CheckBoxCustom from "./atoms/CustomCheckbox"
 
@@ -81,7 +81,7 @@ export default {
     SearchInput,
     DropdownButton,
     Pagination,
-    // Button,
+    Button,
     // SellItem
     Product,
     CheckBoxCustom
