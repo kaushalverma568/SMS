@@ -42,8 +42,8 @@ export default {
 <style lang="sass">
   // global_______________style
   .px-16__custome
-    padding-right: 64px !important
-    padding-left: 64px !important
+    padding-right: 150px !important
+    padding-left: 150px !important
     @media (max-width: 500px)
       padding-right: 15px !important
       padding-left: 15px !important
