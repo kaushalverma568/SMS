@@ -27,7 +27,7 @@ label {
 	cursor: pointer;
 	text-indent: -9999px;
 	width: 60px;
-	height: 23px;
+	height: 25px;
 	background: grey;
 	display: block;
 	border-radius: 100px;
@@ -38,22 +38,27 @@ label {
 label:after {
 	content: '';
 	position: absolute;
-	top: -6px;
-	left: -6px;
+	top: 2px;
+	left: 3px;
 	width: 40px;
 	height: 30px;
-	background-image: url("../../assets/switch.svg");
+	/* background-image: url("../../assets/switch.svg"); */
+  background-image: url(../../assets/checkbox-off.svg);
 	/* border-radius: 90px; */
 	transition: 0.3s;
 }
 
  input:checked + label {
 	background: blue;
+
 }
 
 input:checked + label:after {
-	left: 65px;
+  top: -5px;
+	left: 64px;
 	transform: translateX(-100%);
+	background-image: url("../../assets/switch.svg");
+
 }
 
 </style>

@@ -92,7 +92,7 @@
                 </div>
               </div>
         </div>
-        <button class="get_feature__btn_submit">Submit</button>
+        <ItmeListedPopUP />
         </v-col>
       </v-list-item>
     </v-card>
@@ -102,7 +102,7 @@
 <script>
 import ProductType from "../components/atoms/ProductTypePop"
 import CheckBoxCustom from "../components/atoms/CustomCheckbox"
-
+import ItmeListedPopUP from "../components/atoms/ItmeListedPopUP"
 import SwitchBtn from "../components/atoms/Switch"
 
 
@@ -114,7 +114,8 @@ export default {
   components: {
     ProductType,
     CheckBoxCustom,
-    SwitchBtn
+    SwitchBtn,
+    ItmeListedPopUP
   },
   methods: {},
   mounted() {},
@@ -199,7 +200,7 @@ export default {
       padding: 16px 16px
       outline: none
       border-radius: 14px
-      color: #a0a1a2
+      // color: #a0a1a2
 /// custome popup menu for modal
 // .custome__popup__menu
 //   width: 475px
@@ -252,15 +253,7 @@ export default {
       span
         margin-left: 68px
         margin-top: 17px
-  .get_feature__btn_submit
-    width: 100%
-    border: 1px solid #dedfdf
-    height: 46px
-    border-radius: 24px
-    color: #BDBEBF
-    font-weight: bold
-    font-size: 16px
-    outline: none
+
 .wrap__product_type
   margin-bottom: 15px
   h4
