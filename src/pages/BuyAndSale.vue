@@ -75,18 +75,24 @@
       <v-list-item class="get__features__now">
         <v-col>
           <div class="wrap__card">
-            <div class="avatar_get__features">
-              <img src="" alt="">
+            <div class="get__features__now_first__row">
+              <div class="avatar_get__features">
+              <img src="../assets/getfeatured-star.svg" alt="">
             </div>
             <div class="get__features__content">
               <h6>Get featured now</h6>
               <p>Improve your selling by getting your<br/> item appear on the top of listing</p>
-              <div class="toggel_btn_addtional_price">
-                <span>Additional $2.30</span>
-                <div class="toggle">sfs</div>
-              </div>
+
             </div>
+            </div>
+            <div class="toggel_btn_addtional_price">
+                <span>Additional $2.30</span>
+                <div>
+                  <SwitchBtn />
+                </div>
+              </div>
         </div>
+        <button class="get_feature__btn_submit">Submit</button>
         </v-col>
       </v-list-item>
     </v-card>
@@ -94,8 +100,11 @@
 </template>
 
 <script>
-import ProductType from "../components/atoms/ProductTypePop";
+import ProductType from "../components/atoms/ProductTypePop"
 import CheckBoxCustom from "../components/atoms/CustomCheckbox"
+
+import SwitchBtn from "../components/atoms/Switch"
+
 
 export default {
   name: "BuyAndSale",
@@ -104,7 +113,8 @@ export default {
   },
   components: {
     ProductType,
-    CheckBoxCustom
+    CheckBoxCustom,
+    SwitchBtn
   },
   methods: {},
   mounted() {},
@@ -122,20 +132,21 @@ export default {
     .wrapper__list_-item
       margin-top: 15px
       padding: 0
-      .buy_sale_title
-        font-size: 30px
-        font-weight: bold
-        color: #000
-        margin-left: 30px
-        position: relative
-        &:before
-          content: ""
-          position: absolute
-          top: 7px
-          left: -30px
-          background-image: url(../assets/arrow-left-big.svg)
-          width: 24px
-          height: 24px
+    .buy_sale_title
+      font-size: 30px
+      font-weight: bold
+      color: #000
+      margin-left: 30px
+      margin-bottom: 16px
+      position: relative
+      &:before
+        content: ""
+        position: absolute
+        top: 7px
+        left: -30px
+        background-image: url("../assets/arrow-left-big.svg")
+        width: 24px
+        height: 24px
       .upload__photo
         width: 140px
         height: 140px
@@ -206,16 +217,50 @@ export default {
     flex-wrap: nowrap
 
 .get__features__now
+
   .wrap__card
     background: #FFFFFF
     box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.15)
     border-radius: 15px
     margin-bottom: 30px
-
-
-
-
-
+    display: flex
+    // justify-content: space-between
+    // align-items: center
+    flex-direction: column
+    padding: 24px 24px
+    height: 142px
+    .get__features__now_first__row
+      display: flex
+      .avatar_get__features
+        margin-right: 28px
+        margin-top: 4px
+      .get__features__content
+        h6
+          font-size: 14px
+          font-weight: bold
+          color: #000
+        p
+          font-size: 12px
+          font-weight: bold
+          color: #B0B2B3
+          margin-bottom: 0
+    .toggel_btn_addtional_price
+      width: 100%
+      display: flex
+      justify-content: space-between
+      align-items: center
+      span
+        margin-left: 68px
+        margin-top: 17px
+  .get_feature__btn_submit
+    width: 100%
+    border: 1px solid #dedfdf
+    height: 46px
+    border-radius: 24px
+    color: #BDBEBF
+    font-weight: bold
+    font-size: 16px
+    outline: none
 .wrap__product_type
   margin-bottom: 15px
   h4
