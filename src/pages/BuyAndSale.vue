@@ -47,29 +47,29 @@
             </textarea>
           </v-list-item-title>
         </v-list-item-content>
-
-
       </v-list-item>
 
       <v-list-item class="parent__wrapper__choose_check">
         <v-col><h2>Posting period</h2></v-col>
-         <v-col class="wrapper__choose_check">
+        <v-col class="wrapper__choose_check">
           <h4>3 days (free)</h4>
-            <CheckBoxCustom></CheckBoxCustom>
+          <div @click="ShowPriceSubmitPrice = !ShowPriceSubmitPrice">
+            <CheckBoxCustom/>
+          </div>
         </v-col>
         <v-col class="wrapper__choose_check">
           <h4>7 days ($3.50)</h4>
 
-            <CheckBoxCustom></CheckBoxCustom>
-
+          <div @click="ShowPriceSubmitPrice = !ShowPriceSubmitPrice">
+            <CheckBoxCustom/>
+          </div>
         </v-col>
         <v-col class="wrapper__choose_check">
           <h4>14 days ($5.00)</h4>
-
-            <CheckBoxCustom></CheckBoxCustom>
-
+          <div @click="ShowPriceSubmitPrice = !ShowPriceSubmitPrice">
+            <CheckBoxCustom/>
+          </div>
         </v-col>
-
       </v-list-item>
 
       <v-list-item class="get__features__now">
@@ -77,22 +77,35 @@
           <div class="wrap__card">
             <div class="get__features__now_first__row">
               <div class="avatar_get__features">
-              <img src="../assets/getfeatured-star.svg" alt="">
-            </div>
-            <div class="get__features__content">
-              <h6>Get featured now</h6>
-              <p>Improve your selling by getting your<br/> item appear on the top of listing</p>
-
-            </div>
+                <img src="../assets/getfeatured-star.svg" alt="" />
+              </div>
+              <div class="get__features__content">
+                <h6>Get featured now</h6>
+                <p>
+                  Improve your selling by getting your<br />
+                  item appear on the top of listing
+                </p>
+              </div>
             </div>
             <div class="toggel_btn_addtional_price">
-                <span>Additional $2.30</span>
-                <div>
-                  <SwitchBtn />
-                </div>
+              <span>Additional $2.30</span>
+              <div>
+                <SwitchBtn />
               </div>
-        </div>
-        <ItmeListedPopUP />
+            </div>
+          </div>
+
+          <div class="wrapper__btn__with__price__info__btn">
+            <ItmeListedPopUP />
+            <router-link to="/purchase-confirmation">
+              <transition name="view">
+                <div class="price__info__btn" v-if="ShowPriceSubmitPrice">
+                  <span>{{ Price }}</span>
+                  <button>Submit</button>
+                </div>
+              </transition>
+            </router-link>
+          </div>
         </v-col>
       </v-list-item>
     </v-card>
@@ -105,17 +118,19 @@ import CheckBoxCustom from "../components/atoms/CustomCheckbox"
 import ItmeListedPopUP from "../components/atoms/ItmeListedPopUP"
 import SwitchBtn from "../components/atoms/Switch"
 
-
 export default {
   name: "BuyAndSale",
   data() {
-    return {};
+    return {
+      Price: "$7.30",
+      ShowPriceSubmitPrice: false,
+    };
   },
   components: {
     ProductType,
     CheckBoxCustom,
     SwitchBtn,
-    ItmeListedPopUP
+    ItmeListedPopUP,
   },
   methods: {},
   mounted() {},
@@ -148,28 +163,25 @@ export default {
         background-image: url("../assets/arrow-left-big.svg")
         width: 24px
         height: 24px
-      .upload__photo
-        width: 140px
-        height: 140px
-        background: #F8F8FA
-        border: 1px solid #E2E2E4
-        border-radius: 24px
-        border-radius: 24px
-        margin-right: 10px
+    .upload__photo
+      width: 140px
+      height: 140px
+      background: #F8F8FA
+      border: 1px solid #E2E2E4
+      border-radius: 24px
+      border-radius: 24px
+      margin-right: 10px
 
-        display: flex
-        justify-content: center
-        align-items: center
+      display: flex
+      justify-content: center
+      align-items: center
 
-        &:nth-child(1)
-          border: 2px dashed #efeffd
-          img
-            width: 21px
-            height: 21px
-            cursor: pointer
-    .title__content
-      font-size: 14px
-      font-weight: bold
+      &:nth-child(1)
+        border: 2px dashed #efeffd
+        img
+          width: 21px
+          height: 21px
+          cursor: pointer
 
 .wrap__first__row_in__sell__item
   margin-top: 15px
@@ -253,6 +265,40 @@ export default {
       span
         margin-left: 68px
         margin-top: 17px
+  .wrapper__btn__with__price__info__btn
+    // display: flex
+    // justify-content: center
+    // align-items: center
+    // flex-direction: column
+    position: relative
+    .price__info__btn
+      width: 100%
+      background: #25282B
+      display: flex
+      justify-content: space-between
+      align-items: center
+      border-radius: 24px
+      padding: 0 33px
+      height: 86px
+      position: absolute
+      top: 0
+      right: 0
+      left: 0
+      bottom: 0
+      z-index: 100
+      span
+        font-size: 20px
+        font-weight: bold
+        color: #fff
+      button
+        width: 241px
+        height: 46px
+        background: #131416
+        border-radius: 24px
+        color: #ffffff
+        font-weight: bold
+        font-size: 16px
+        outline: none
 
 .wrap__product_type
   margin-bottom: 15px
@@ -263,6 +309,18 @@ export default {
     margin-bottom: 15px
     margin-top: 15px
 // remove___box___shadwo
+
+.view-enter-active, .veiw-leave-active
+  transition: transfrom 0.4s ease-in-out, transform 0.4s ease-in-out
+
+// .view-enter-active
+  // transition-delay: .4s
+
+.view-enter, .view-leave-to
+  transform: translateY(5px)
+.view-enter-to, .view-leave
+  transform: translateY(0px)
+
 .v-sheet.v-card:not(.v-sheet--outlined)
   box-shadow: none
 
