@@ -11,7 +11,7 @@
         </v-card>
       </router-link>
 
-    <router-link to="/exclusive-items">
+    <router-link to="/buy-sale">
         <v-card class="Card">
           <div class="conent">
             <span class="title_card">Buy and <br/> Sell</span>
@@ -75,7 +75,7 @@ export default {
         justify-content: center
         align-items: center
       .Card
-        width: 222px
+        width: 235px
         height: 270px
         border-radius: 15px
         display: flex

@@ -25,7 +25,7 @@
         <v-list-item-content class="wrap__first__row_in__sell__item">
           <v-list-item-title class="list__title">
             <h4>Listing title</h4>
-            <input type="text" placeholder="Write your title" />
+            <input type="text" placeholder="Write your title" id="title__name" />
           </v-list-item-title>
 
           <div class="wrap__product_type">
@@ -96,7 +96,9 @@
           </div>
 
           <div class="wrapper__btn__with__price__info__btn">
-            <ItmeListedPopUP />
+
+              <ItmeListedPopUP class="btn_Work"/>
+
             <router-link to="/purchase-confirmation">
               <transition name="view">
                 <div class="price__info__btn" v-if="ShowPriceSubmitPrice">
@@ -132,8 +134,20 @@ export default {
     SwitchBtn,
     ItmeListedPopUP,
   },
-  methods: {},
-  mounted() {},
+  methods: {
+    enableSubmitBtn: function () {
+      // toggle enability of the submit button
+      const valueInput = document.getElementById('title__name');
+      valueInput.addEventListener('keyup',  () =>  {
+        if (valueInput.value.length > 3) {
+          document.querySelector('.btn_Work').classList.add('btn_enabled')
+        }
+      })
+    }
+  },
+  mounted() {
+    this.enableSubmitBtn()
+  },
 };
 </script>
 
@@ -326,4 +340,10 @@ export default {
 
 .v-list-item
   padding: 0 !important
+
+
+.btn_Work
+   pointer-events: none
+   &.btn_enabled
+     pointer-events: auto
 </style>

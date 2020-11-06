@@ -6,7 +6,8 @@ import Profile from './pages/Profile'
 import ProfileDetails from './pages/ProfileDetails'
 import LiveStream from './pages/LiveStream'
 import ExclusiveItems from './pages/ExclusiveItems'
-import BuyAndSale from './pages/BuyAndSale'
+import ProductType from './pages/ProductType'
+import BuySale from './pages/BuySale'
 import Item from './pages/Item'
 import SignUp from './pages/SignUP'
 import OurVideos from './pages/OurVideos.vue'
@@ -30,7 +31,7 @@ export const routes = [
   { path: '/profile-details', component: ProfileDetails },
   { path: '/live-stream', component: LiveStream },
   { path: '/exclusive-items', component: ExclusiveItems },
-  { path: '/buy-sale', component: BuyAndSale },
+  { path: '/product-type', component: ProductType },
   { path: '/item', component: Item },
   { path: '/sign-up', component: SignUp },
   {path: '/our-videos', component: OurVideos},
@@ -42,6 +43,7 @@ export const routes = [
   {path: '/my-blogs', component: MyBlogs},
   {path: '/car', component: Carousel},
   {path: '/blog-detail', component: BlogDetail},
+  {path: '/buy-sale', component: BuySale}
 
 
 ]

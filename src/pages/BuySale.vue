@@ -2,13 +2,13 @@
   <div class="exlusive-items-wrapper">
     <div class="exlusive-items">
       <header class="page-header">
-        <h1>{{ title }}</h1>
+        <h1>Buy and sale</h1>
         <!-- <SellItem /> -->
-        <!-- <router-link to="/buy-sale">
+        <router-link to="/product-type">
           <div class="sell-btn">
             <Button dark fullWidth> Sell Item</Button>
           </div>
-        </router-link> -->
+        </router-link>
       </header>
 
       <div class="exlusive-items-content">
@@ -59,7 +59,7 @@
 import SearchInput from "../components/atoms/SearchInput"
 import DropdownButton from "../components/atoms/DropdownButton"
 import Pagination from "../components/atoms/Pagination"
-// import Button from "../components/atoms/Button"
+import Button from "../components/atoms/Button"
 // import productIMG from "../assets/exitem.svg";
 import Product from "../components/atoms/Product"
 import CheckBoxCustom from "../components/atoms/CustomCheckbox"
@@ -81,14 +81,13 @@ export default {
     SearchInput,
     DropdownButton,
     Pagination,
-    // Button,
+    Button,
     // SellItem
     Product,
     CheckBoxCustom
 
   },
   props: {
-    title: String,
     sellButton: Boolean,
   },
   data() {

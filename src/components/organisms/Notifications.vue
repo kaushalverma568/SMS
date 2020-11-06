@@ -65,7 +65,7 @@ export default {
   .notifications-list
     max-height: 60vh
     overflow-y: scroll
-    
+
   .notification-item
     padding: 12px 16px
     display: flex
@@ -97,17 +97,17 @@ export default {
 
 .notifications-list::-webkit-scrollbar
   width: 4px !important
-  height: 22px !important
+  // height: 22px !important
 
-::-webkit-scrollbar 
-  display: block
-  max-height: 22px !important
-  height: 22px !important
+// ::-webkit-scrollbar
+//   display: block
+//   max-height: 22px !important
+//   height: 22px !important
 
 
 
-::-webkit-scrollbar-thumb 
-  max-height: 22px !important
-  height: 22px !important
-    
+// ::-webkit-scrollbar-thumb
+//   max-height: 22px !important
+//   height: 22px !important
+
 </style>

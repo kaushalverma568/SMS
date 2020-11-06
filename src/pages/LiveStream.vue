@@ -12,7 +12,7 @@
           <router-link to="/">
             <img src="../assets/arrow-left-big.svg" />
           </router-link>
-          Live Stream
+          Live Streaming
         </h1>
       </header>
       <div class="live-stream-content">
@@ -91,7 +91,7 @@ export default {
 
 <style lang="sass" scoped>
 .live-stream-wrapper
-  padding: 120px 0
+  padding: 50px 0
   display: flex
   justify-content: center
 
