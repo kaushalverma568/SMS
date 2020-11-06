@@ -10,7 +10,6 @@
   .search {
     position: relative;
     width: 100%;
-    margin-bottom: 24px;
     img {
       position: absolute;
       left: 14px;

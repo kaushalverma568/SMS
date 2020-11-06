@@ -26,8 +26,10 @@
         <div class="items-list-wrapper">
           <header class="search__checklist">
             <SearchInput />
-            <div>
-              <DropdownButton
+
+            <SelecBox />
+
+              <!-- <DropdownButton
                 big
                 transparent
                 dropdown
@@ -35,11 +37,10 @@
                 :label="selectedSort.value"
                 :options="sortOptions"
                 :selected="selectedSort"
-
               >
+              <img src="../assets/check-circle.svg"  />
+              </DropdownButton> -->
 
-              </DropdownButton>
-            </div>
           </header>
 
           <content>
@@ -57,12 +58,13 @@
 <script>
 // import Checkbox from "../components/atoms/Checkbox";
 import SearchInput from "../components/atoms/SearchInput"
-import DropdownButton from "../components/atoms/DropdownButton"
+// import DropdownButton from "../components/atoms/DropdownButton"
 import Pagination from "../components/atoms/Pagination"
 // import Button from "../components/atoms/Button"
 // import productIMG from "../assets/exitem.svg";
 import Product from "../components/atoms/Product"
 import CheckBoxCustom from "../components/atoms/CustomCheckbox"
+import SelecBox from "../components/atoms/SelecBox"
 
 // import SellItem from '../components/atoms/SellItem'
 // import axios from "axios"
@@ -79,12 +81,13 @@ export default {
   components: {
     // Checkbox,
     SearchInput,
-    DropdownButton,
+    // DropdownButton,
     Pagination,
     // Button,
     // SellItem
     Product,
-    CheckBoxCustom
+    CheckBoxCustom,
+    SelecBox
 
   },
   props: {
@@ -116,13 +119,15 @@ export default {
           value: "Hightst price",
         },
         {
+
           label: "Lowest price",
           value: "Lowest price",
+
         },
       ],
       selectedSort: {
-        label: "Sellect Item",
-        value: 'Sellect Item',
+        label: "Sort items",
+        value: 'Sort items',
 
       },
       // productIMG: productIMG,
@@ -218,6 +223,9 @@ export default {
     flex: 1
     .search__checklist
       display: flex
+      margin-bottom: 26px
+      justify-content: space-between
+      align-items: center
       @media (max-width: 992px)
         flex-direction: column
         .dropdown-button
