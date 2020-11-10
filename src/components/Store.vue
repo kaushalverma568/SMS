@@ -26,21 +26,7 @@
         <div class="items-list-wrapper">
           <header class="search__checklist">
             <SearchInput />
-
             <SelecBox />
-
-              <!-- <DropdownButton
-                big
-                transparent
-                dropdown
-                @change="handleSortChange"
-                :label="selectedSort.value"
-                :options="sortOptions"
-                :selected="selectedSort"
-              >
-              <img src="../assets/check-circle.svg"  />
-              </DropdownButton> -->
-
           </header>
 
           <content>
@@ -56,35 +42,18 @@
 </template>
 
 <script>
-// import Checkbox from "../components/atoms/Checkbox";
 import SearchInput from "../components/atoms/SearchInput"
-// import DropdownButton from "../components/atoms/DropdownButton"
 import Pagination from "../components/atoms/Pagination"
-// import Button from "../components/atoms/Button"
-// import productIMG from "../assets/exitem.svg";
 import Product from "../components/atoms/Product"
 import CheckBoxCustom from "../components/atoms/CustomCheckbox"
 import SelecBox from "../components/atoms/SelecBox"
-
-// import SellItem from '../components/atoms/SellItem'
-// import axios from "axios"
-// import { puplic_key } from "../data.js"
-
-// const POSTER_PATH = "http://image.tmdb.org/t/p/w154"
-
-// Key: http://www.omdbapi.com/?i=tt3896198&apikey=1c267267
-
 import arrow from '../assets/option-checked.svg'
 
 export default {
   name: "ExlusiveItems",
   components: {
-    // Checkbox,
     SearchInput,
-    // DropdownButton,
     Pagination,
-    // Button,
-    // SellItem
     Product,
     CheckBoxCustom,
     SelecBox
@@ -130,9 +99,7 @@ export default {
         value: 'Sort items',
 
       },
-      // productIMG: productIMG,
 
-      // products: [],
     };
   },
 
@@ -140,27 +107,8 @@ export default {
     handleSortChange(option) {
       this.selectedSort = option;
     },
+  }
 
-
-    // fetching data from and movies database
-
-    // fetchData: async function () {
-    //   try {
-    //     const res = await fetch(
-    //       "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.descmovie/550&api_key=3f3b341e1928f82512c99387ebeafc9d"
-    //     );
-    //     const products = await res.json();
-    //     this.products = products.results;
-    //     console.log(products);
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // },
-  },
-  created: function () {
-    // call the function after the app is loading
-    // this.fetchData();
-  },
 };
 </script>
 

@@ -97,8 +97,6 @@
                  <v-btn class="sign__up_btn"> Sign up </v-btn>
 
                  <v-btn class="" @click="showSignUp = !showSignUp"> Log in </v-btn>
-
-
               </div>
               </form>
         </div>

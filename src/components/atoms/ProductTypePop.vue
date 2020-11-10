@@ -4,7 +4,7 @@
       <template v-slot:activator="{ on, attrs }">
         <div class="wrap__list__sell__content" v-bind="attrs" v-on="on">
           <div class="line__height_adjust">
-            <div class="title__popup_select">Product type</div>
+            <div class="title__popup_select">Data field placeholder</div>
             <div class="arrow__down">
               <img src="../../assets/arrow__down__sell_page.svg" />
             </div>

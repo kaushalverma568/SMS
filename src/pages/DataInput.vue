@@ -3,112 +3,94 @@
     <v-card class="v___card">
       <v-list-item>
         <v-list-item-title>
-          <h3 class="buy_sale_title">Sell item</h3>
+          <h3 class="buy_sale_title">></h3>
           <v-list-item-subtitle class="subtitle"
             >Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Voluptatem, quam commodi nobis sit libero cumque animi iure sunt
             enim fugit. Nesciunt labore fuga distinctio pariatur quod dolor
             ipsum quisquam deserunt?</v-list-item-subtitle
           >
-          <span class="add__photo">Add photo</span>
+          <h4 class="sec__title">Section title</h4>
         </v-list-item-title>
-      </v-list-item>
-      <v-list-item class="wrapper__list_-item">
-        <v-sheet class="upload__photo">
-          <img src="../assets/uploadfile.svg" alt="" />
-        </v-sheet>
-        <v-sheet class="upload__photo"></v-sheet>
-        <v-sheet class="upload__photo"></v-sheet>
       </v-list-item>
 
       <v-list-item>
         <v-list-item-content class="wrap__first__row_in__sell__item">
           <v-list-item-title class="list__title">
-            <h4>Listing title</h4>
-            <input type="text" placeholder="Write your title" id="title__name" />
+            <h4>Data title</h4>
+            <input type="text" placeholder="Data field placeholder" id="title__name" />
           </v-list-item-title>
 
           <div class="wrap__product_type">
-            <h4>prodcut type</h4>
+            <h4>Data selection title</h4>
             <ProductType />
           </div>
 
-          <v-list-item-title class="list__title">
-            <h4>Price</h4>
-            <input type="text" placeholder="Write your price" />
-          </v-list-item-title>
-
-          <v-list-item-title class="list__title">
-            <h4>Description</h4>
-            <textarea
-              class="description__buy__sall"
-              placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod."
-            >
-            </textarea>
-          </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
       <v-list-item class="parent__wrapper__choose_check">
-        <v-col><h2>Posting period</h2></v-col>
-        <v-col class="wrapper__choose_check">
+
+        <div class="row">
+          <h4>Section title</h4>
+        </div>
+        <div class="row wrapper__choose_check">
+          <h4>1 month (free)</h4>
+          <div @click="ShowPriceSubmitPrice = !ShowPriceSubmitPrice">
+            <CheckBoxCustom/>
+          </div>
+        </div>
+        <div class="row wrapper__choose_check">
+          <h4>Option name</h4>
+
+          <div @click="ShowPriceSubmitPrice = !ShowPriceSubmitPrice">
+            <CheckBoxCustom/>
+          </div>
+        </div>
+        <div class="row wrapper__choose_check">
+          <h4>Option name</h4>
+          <div @click="ShowPriceSubmitPrice = !ShowPriceSubmitPrice">
+            <CheckBoxCustom/>
+          </div>
+        </div>
+      </v-list-item>
+
+      <v-list-item class="parent__wrapper__choose_check">
+        <div class="row"><h2>Posting period</h2></div>
+
+        <!-- <div class="row wrapper__choose_check">
           <h4>3 days (free)</h4>
           <div @click="ShowPriceSubmitPrice = !ShowPriceSubmitPrice">
             <CheckBoxCustom/>
           </div>
-        </v-col>
-        <v-col class="wrapper__choose_check">
+        </div>
+        <div class="row wrapper__choose_check">
           <h4>7 days ($3.50)</h4>
 
           <div @click="ShowPriceSubmitPrice = !ShowPriceSubmitPrice">
             <CheckBoxCustom/>
           </div>
-        </v-col>
-        <v-col class="wrapper__choose_check">
+        </div>
+        <div class="row wrapper__choose_check">
           <h4>14 days ($5.00)</h4>
           <div @click="ShowPriceSubmitPrice = !ShowPriceSubmitPrice">
             <CheckBoxCustom/>
           </div>
-        </v-col>
+        </div>
+         -->
+
+         <ChoosePeriod />
       </v-list-item>
 
       <v-list-item class="get__features__now">
-        <v-col>
-          <div class="wrap__card">
-            <div class="get__features__now_first__row">
-              <div class="avatar_get__features">
-                <img src="../assets/getfeatured-star.svg" alt="" />
-              </div>
-              <div class="get__features__content">
-                <h6>Get featured now</h6>
-                <p>
-                  Improve your selling by getting your<br />
-                  item appear on the top of listing
-                </p>
-              </div>
-            </div>
-            <div class="toggel_btn_addtional_price">
-              <span>Additional $2.30</span>
-              <div>
-                <SwitchBtn />
-              </div>
-            </div>
-          </div>
+        <div class="row">
 
           <div class="wrapper__btn__with__price__info__btn">
 
               <ItmeListedPopUP class="btn_Work"/>
 
-            <router-link to="/purchase-confirmation">
-              <transition name="view">
-                <div class="price__info__btn" v-if="ShowPriceSubmitPrice">
-                  <span>{{ Price }}</span>
-                  <button>Submit</button>
-                </div>
-              </transition>
-            </router-link>
           </div>
-        </v-col>
+        </div>
       </v-list-item>
     </v-card>
   </div>
@@ -118,21 +100,24 @@
 import ProductType from "../components/atoms/ProductTypePop"
 import CheckBoxCustom from "../components/atoms/CustomCheckbox"
 import ItmeListedPopUP from "../components/atoms/ItmeListedPopUP"
-import SwitchBtn from "../components/atoms/Switch"
+// import SwitchBtn from "../components/atoms/Switch"
+
+import ChoosePeriod from "../components/atoms/ChoosePeriod"
 
 export default {
   name: "BuyAndSale",
   data() {
     return {
-      Price: "$7.30",
+
       ShowPriceSubmitPrice: false,
     };
   },
   components: {
     ProductType,
     CheckBoxCustom,
-    SwitchBtn,
+    // SwitchBtn,
     ItmeListedPopUP,
+    ChoosePeriod
   },
   methods: {
     enableSubmitBtn: function () {
@@ -159,12 +144,11 @@ export default {
     // align-items: center
   .v___card
     width: 475px
-    .add__photo
-      margin-top: 10px
-      display: block
-    .wrapper__list_-item
-      margin-top: 15px
-      padding: 0
+    .sec__title
+      margin-top: 24px
+      font-size: 16px
+      font-weight: bold
+      color: #000
     .buy_sale_title
       font-size: 30px
       font-weight: bold
@@ -283,6 +267,7 @@ export default {
         margin-left: 68px
         margin-top: 17px
   .wrapper__btn__with__price__info__btn
+    width: 100%
     // display: flex
     // justify-content: center
     // align-items: center
@@ -349,4 +334,9 @@ export default {
    pointer-events: none
    &.btn_enabled
      pointer-events: auto
+
+
+.row
+  width: 100%
+  margin-bottom: 16px
 </style>

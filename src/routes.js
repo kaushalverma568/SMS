@@ -20,7 +20,8 @@ import MyBlogs from './pages/MyBlogs.vue'
 import Carousel from './pages/Carousel'
 import BlogDetail from './pages/BlogDetails'
 import Setting from './pages/Settings'
-
+import ServiceDetails from './pages/ServiceDetails'
+import DataInput from "./pages/DataInput"
 
 // define__routes
 export const routes = [
@@ -45,7 +46,9 @@ export const routes = [
   {path: '/car', component: Carousel},
   {path: '/blog-detail', component: BlogDetail},
   {path: '/buy-sale', component: BuySale},
-  {path: '/settings', component: Setting}
+  {path: '/settings', component: Setting},
+  {path: '/service-detail', component: ServiceDetails},
+  {path: '/data-input', component: DataInput}
 
 
 ]

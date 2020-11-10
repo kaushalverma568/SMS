@@ -20,7 +20,7 @@
         </v-card>
       </router-link>
 
-    <router-link to="/exclusive-items">
+    <router-link to="/service-detail">
       <div class="disapple__card">
         <v-card class="Card" disabled>
           <div class="conent">
@@ -32,7 +32,7 @@
       </div>
     </router-link>
 
-    <router-link to="/exclusive-items">
+    <router-link to="/service-detail">
       <div class="disapple__card">
         <v-card class="Card" disabled>
           <div class="conent">
@@ -113,6 +113,7 @@ export default {
         font-size: 12px
         text-align: center
         line-height: 25px
+        color: #000
         @media(max-width: 767px)
           bottom: 30px
 
