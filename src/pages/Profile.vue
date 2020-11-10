@@ -59,12 +59,17 @@
           <div class="header">
             <h2>Referal code</h2>
           </div>
+
+            <form id="refCode">
           <div class="form-group">
-            <Input placeholder="Write code" id="write__code"/>
+
+              <input type="text" placeholder="Write code">
           </div>
-          <div class="apply-button">
-            <Button big transparent fullWidth fullRounded class="apply_border">Apply</Button>
-          </div>
+
+                <Button big transparent fullWidth fullRounded class="apply_border">Apply</Button>
+            </form>
+            <!-- <Input placeholder="Write code" id="write__code"/> -->
+
         </div>
       </ModalContent>
     </Modal>
@@ -78,7 +83,7 @@ import Button from "../components/atoms/Button";
 import Modal from "../components/atoms/Modal";
 import ModalContent from "../components/atoms/ModalContent";
 import ModalLanguages from '../components/ModalLanguages'
-import Input from "../components/atoms/Input";
+// import Input from "../components/atoms/Input";
 
 export default {
   name: "Profile",
@@ -92,19 +97,19 @@ export default {
     Button,
     Modal,
     ModalContent,
-    Input,
+    // Input,
     ModalLanguages
   },
   methods: {
-    validatCode () {
-      const writeCode = document.getElementById('write__code')
-      if (writeCode.value.length >= 6 ) {
-        document.querySelector('.apply_border').classList.add('show__apply__btn')
-      }
-    }
+    // validatCode () {
+    //   const writeCode = document.getElementById('write__code')
+    //   if (writeCode.value.length > 5 ) {
+    //     document.querySelector('.apply_border').classList.add('show__apply__btn')
+    //   }
+    // }
   },
   mounted() {
-    this.validatCode()
+    // this.validatCode()
   }
 };
 </script>
@@ -179,6 +184,18 @@ export default {
     padding: 24px
     width: 391px
     box-sizing: border-box
+    input
+      background-color: rgba(96, 99, 235, 0.1)
+      border: none
+      border-radius: 15px
+      height: 40px
+      display: flex
+      align-items: center
+      padding: 0 16px
+      width: 100%
+      box-sizing: border-box
+      font-size: 14px
+      outline: none
     h2
       font-size: 24px
       margin: 0
