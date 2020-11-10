@@ -39,38 +39,39 @@
           <img src="../assets/arrow-right.svg" />
         </div>
       </div>
-
-      <div class="row">
-        <div class="line__height_adjust">
-          <img src="../assets/settings.svg" class="action-icon" />
-          Settings
-        </div>
-        <div class="">
-          <img src="../assets/arrow-right.svg" />
+      <router-link to="/settings" class="to_set">
+        <div class="row">
+          <div class="line__height_adjust">
+            <img src="../assets/settings.svg" class="action-icon" />
+            Settings
+          </div>
+          <div class="">
+            <img src="../assets/arrow-right.svg" />
         </div>
       </div>
-
+    </router-link>
       <Button danger fullWidth big fullRounded>Log out</Button>
     </div>
 
     <Modal v-if="modalReferal">
-      <ModalContent close="right" rounded @close="modalReferal = false">
+      <ModalContent close="right" class="checkNum" @close="modalReferal = false">
+          <form id="checkNum">
+
         <div class="form-referal">
           <div class="header">
             <h2>Referal code</h2>
           </div>
 
-            <form id="refCode">
-          <div class="form-group">
+            <div class="form-group">
+              <input type="text" id="type-number" placeholder="Write code" @click="checkFillINput"/>
+            </div>
 
-              <input type="text" placeholder="Write code">
-          </div>
-
-                <Button big transparent fullWidth fullRounded class="apply_border">Apply</Button>
-            </form>
-            <!-- <Input placeholder="Write code" id="write__code"/> -->
-
+            <!-- <Button big transparent fullWidth fullRounded class="apply_border">Apply</Button> -->
+            <button  class="apply-btn" id="apply-btn" disabled="disabled">Apply</button>
+          <!-- <Input placeholder="Write code" id="write__code"/> -->
         </div>
+          </form>
+
       </ModalContent>
     </Modal>
 
@@ -79,28 +80,47 @@
 </template>
 
 <script>
-import Button from "../components/atoms/Button";
-import Modal from "../components/atoms/Modal";
-import ModalContent from "../components/atoms/ModalContent";
-import ModalLanguages from '../components/ModalLanguages'
-// import Input from "../components/atoms/Input";
-
+import Modal from "../components/atoms/Modal"
+import ModalContent from "../components/atoms/ModalContent"
+import ModalLanguages from "../components/ModalLanguages"
+import Button from "../components/atoms/Button"
 export default {
   name: "Profile",
   data() {
     return {
       modalReferal: false,
-      modalLanguages: false
+      modalLanguages: false,
     };
   },
   components: {
-    Button,
     Modal,
     ModalContent,
-    // Input,
-    ModalLanguages
+    ModalLanguages,
+    Button
   },
   methods: {
+
+    checkFillINput: function () {
+
+      document.querySelector("#checkNum").addEventListener('input', function() {
+
+          let referalCode = document.querySelector("#type-number");
+
+          let applyBtn = document.querySelector("#apply-btn");
+
+          if (referalCode.value.length >= 6) {
+            applyBtn.removeAttribute("disabled");
+
+            document.querySelector('.apply-btn').classList.add('filled__btn')
+          } else {
+            applyBtn.setAttribute("disabled", "disabled");
+          }
+          console.log("wrokkkkkkkkkkkk");
+        });
+
+
+ },
+
     // validatCode () {
     //   const writeCode = document.getElementById('write__code')
     //   if (writeCode.value.length > 5 ) {
@@ -109,8 +129,9 @@ export default {
     // }
   },
   mounted() {
+    // this.checkFillINput();
     // this.validatCode()
-  }
+  },
 };
 </script>
 
@@ -200,13 +221,33 @@ export default {
       font-size: 24px
       margin: 0
       margin-bottom: 28px
-    .apply-button
+    .apply-btn
       margin-top: 24px
-
+      border: 1px solid #DDDEDE
+      color: #131416
+      border-radius: 15px
+      box-shadow: none
+      padding: 0 14px
+      width: 100%
+      height: 46px
+      display: flex
+      justify-content: center
+      align-items: center
+      color: #BDBEBF
+      font-weight: 600
+      font-size: 16px
+      outline: none
+      transition: background-color 0.3s ease
+      &.filled__btn
+        border: 1px solid #000 !important
+        color: #000 !important
+        font-weight: bold
+  .to_set
+    color: #000
 
 .apply_border
   border: 1px solid #dddede !important
-  opacity: .5
-  &.show__apply__btn
-    opacity: 1
+  opacity: 1
+.checkNum
+  border-radius: 24px
 </style>

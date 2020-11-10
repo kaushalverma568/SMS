@@ -19,6 +19,7 @@ import Blog from './pages/Blogs.vue'
 import MyBlogs from './pages/MyBlogs.vue'
 import Carousel from './pages/Carousel'
 import BlogDetail from './pages/BlogDetails'
+import Setting from './pages/Settings'
 
 
 // define__routes
@@ -34,16 +35,17 @@ export const routes = [
   { path: '/product-type', component: ProductType },
   { path: '/item', component: Item },
   { path: '/sign-up', component: SignUp },
-  { path: '/our-videos', component: OurVideos},
-  { path: '/my-videos', component: MyVideos},
-  { path: '/video-paid/details', component: Details},
-  { path: '/purchase-confirmation', component: PurchaseConfirmation},
-  { path: '/locked-vid-playing', component: LockedVideo},
-  { path: '/blog', component: Blog},
-  { path: '/my-blogs', component: MyBlogs},
-  { path: '/car', component: Carousel},
-  { path: '/blog-detail', component: BlogDetail},
-  { path: '/buy-sale', component: BuySale}
+  {path: '/our-videos', component: OurVideos},
+  {path: '/my-videos', component: MyVideos},
+  {path: '/details', component: Details},
+  {path: '/purchase-confirmation', component: PurchaseConfirmation},
+  {path: '/lock-vid', component: LockedVideo},
+  {path: '/blog', component: Blog},
+  {path: '/my-blogs', component: MyBlogs},
+  {path: '/car', component: Carousel},
+  {path: '/blog-detail', component: BlogDetail},
+  {path: '/buy-sale', component: BuySale},
+  {path: '/settings', component: Setting}
 
 
 ]

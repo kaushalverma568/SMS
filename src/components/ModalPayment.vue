@@ -18,7 +18,7 @@
             <div class="label">Card type</div>
             <Select :options="cardOptions" @change="handleCardSelect" />
           </div>
-          <button id="loginBtn" class="btnLogin" disabled="disabled">apply</button>
+          <button id="loginBtn" class="btnLogin" disabled="disabled">Apply</button>
         </div>
       </form>
     </ModalContent>
@@ -118,7 +118,6 @@ export default {
     font-size: 14px
     outline: none
 
-
   .form-group
     margin-bottom: 24px
     .payment-wrapper
@@ -139,7 +138,6 @@ export default {
 
 .btnLogin
   border: 1px solid #a0a1a2
-  color: pink
   // background-color: rgba(96, 99, 235, 0.1)
   /* border: none; */
   color: #131416
@@ -160,10 +158,4 @@ export default {
     border: 1px solid #000 !important
     color: #000 !important
     font-weight: bold
-
-
-// button
-//   width: 100%
-//   height: 50px
-//   outline: none
 </style>

@@ -8,7 +8,7 @@
       <v-card>
         <v-card-title>
           <span class="headline">Log in</span>
-          <v-btn  text @click="dialog = false">
+          <v-btn  text @click="dialog = false" class="close__icon">
             <img :src="close" alt="close icon">
           </v-btn>
 
@@ -19,6 +19,16 @@
 
 
               <form>
+                <v-col cols="12" sm="12">
+                <v-text-field
+                  v-model="email"
+                  :error-messages="emailErrors"
+                  required
+                  @input="$v.email.$touch()"
+                  @blur="$v.email.$touch()"
+                  placeholder="Email"
+                ></v-text-field>
+              </v-col>
                 <v-col  sm="12">
                 <v-text-field
                   v-model="password"
@@ -33,7 +43,31 @@
                   @click:append="show1 = !show1"
                 ></v-text-field>
               </v-col>
-              <v-col cols="12" sm="12">
+
+              <div class="wrap_button">
+                 <v-btn class="" @click="submit"> Log in </v-btn>
+
+                  <v-btn @click="showSignUp = !showSignUp"> Sign up </v-btn>
+
+              </div>
+              </form>
+            </v-row>
+
+        </v-card-text>
+        <!-- /// sig_up_popup  -->
+        <div class="sign___up" v-if="showSignUp">
+          <div class="sign__up__title">
+            <v-card-title>
+          <span class="headline">Sign up</span>
+          <v-btn  text @click="dialog = false" class="close__icon">
+            <img :src="close" alt="close icon">
+          </v-btn>
+
+        </v-card-title>
+
+          </div>
+              <form>
+                <v-col cols="12" sm="12">
                 <v-text-field
                   v-model="email"
                   :error-messages="emailErrors"
@@ -43,15 +77,31 @@
                   placeholder="Email"
                 ></v-text-field>
               </v-col>
+                <v-col  sm="12">
+                <v-text-field
+                  v-model="password"
+                  :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                  :rules="[rules.required, rules.min]"
+                  :type="show1 ? 'text' : 'password'"
+                  name="input-10-1"
+                  placeholder="Password"
+
+                  hint="At least 8 characters"
+                  counter
+                  @click:append="show1 = !show1"
+                ></v-text-field>
+              </v-col>
+
               <div class="wrap_button">
-                 <v-btn class="" @click="submit"> Log in </v-btn>
-                  <v-btn> Sign up </v-btn>
+
+                 <v-btn class="sign__up_btn"> Sign up </v-btn>
+
+                 <v-btn class="" @click="showSignUp = !showSignUp"> Log in </v-btn>
+
+
               </div>
               </form>
-            </v-row>
-
-        </v-card-text>
-
+        </div>
       </v-card>
     </v-dialog>
   </v-row>
@@ -92,6 +142,7 @@ export default {
 
     dialog: false,
     show1: false,
+    showSignUp: false
   }),
 
   computed: {
@@ -124,7 +175,7 @@ export default {
 <style lang="sass" >
 .v-dialog
   width: 391px
-  height: 410px
+  // height: 410px
   border-radius: 27px !important
   border: 1px solid #979797
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.230769) !important
@@ -184,4 +235,24 @@ export default {
   box-shadow: none !important
   &::before
     background-color: transparent !important
+
+
+
+// sign__up__style
+.sign___up
+  padding: 0 10px
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: #fff
+  border-radius: 27px
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.230769)
+  .wrap_button
+    padding: 0 15px
+.close__icon
+  margin-top: 12px
+.v-card__subtitle, .v-card__text, .v-card__title
+  padding: 16px 16px 16px 8px
 </style>

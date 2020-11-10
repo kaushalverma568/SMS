@@ -73,6 +73,10 @@ export default {
   padding: 24px;
   width: 391px;
   box-sizing: border-box;
+  .apply-button {
+    border: 1px solid #a0a1a2;
+    border-radius: 24px
+  }
   h2 {
     font-size: 24px;
     margin: 0;
