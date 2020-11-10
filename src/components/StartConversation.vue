@@ -54,6 +54,19 @@ export default {
       justify-content: space-between
       button
         border: 1px solid #929395 !important
+        /// add some hover effect to the start butn
+        color: #000
+        transition: all .6s ease-in-out
+
+        background:
+          image: linear-gradient(45deg, #000 50%, transparent 50%)
+          position: 100%
+          size: 400%
+        transition: all .6s ease-in-out
+        &:hover
+          color: #fff
+          background-position: 0
+          transition: all .6s ease-in-out
     h1
       font-size: 18px
       font-weight: 600

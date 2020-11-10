@@ -28,26 +28,26 @@
             </button>
           <div class="like__vid">18</div>
         </div>
-       
+
       </div>
       <div class="views_buy_vid">
         <div class="views_vid">
-          <p>4.5 <b>.</b> 43 views <b>.</b> <span class="views_vid_date">Jan 2, 2020</span></p>
+          <div class="viewwwws">4.5 <div class="dots_between_review">.</div> 43 views <div class="dots_between_review">.</div> <span class="views_vid_date">Jan 2, 2020</span></div>
         </div>
         <div class="buynow">
           <button> <span class="price">$25.30</span> Buy now</button>
         </div>
       </div>
     <!-- bokmark -->
-    
+
     <transition name="fade">
       <div class="center__button__bookmark" v-if="bookmarked">
           <button class="video_saved">Added to my videos</button>
       </div>
     </transition>
-     
+
     </div>
-    
+
     <div class="comment_details_downloads_tabs_vid">
       <v-card>
         <v-tabs v-model="tab">
@@ -119,7 +119,7 @@
           <!-- v-iteme__two -->
           <v-tab-item :value="'tab-2'">
             <v-card>
-              <div>
+              <div class="__details">
                 <Comment />
               </div>
             </v-card>
@@ -128,7 +128,7 @@
           <v-tab-item :value="'tab-3'">
             <v-card>
               <div>
-                <downloadTab />
+                <DownloadTab />
               </div>
             </v-card>
           </v-tab-item>
@@ -140,7 +140,7 @@
 
 <script>
 import Comment from '../components/atoms/Comment'
-import downloadTab from '../components/atoms/downloadTab'
+import DownloadTab from '../components/atoms/downloadTab'
 import SellAllpopup from '../components/atoms/SellAll'
 import Share from '../components/atoms/Share'
 import Media from '@dongido/vue-viaudio'
@@ -157,7 +157,7 @@ export default {
     },
     components: {
       Comment,
-      downloadTab,
+      DownloadTab,
       SellAllpopup,
       Share,
       Media
@@ -215,14 +215,15 @@ export default {
           border-radius: 20px !important
       .info__vid
         display: flex
-        align-items: flex-end
+        align-items: center
+        justify-content: space-between
         margin-top: 32px
         @media (max-width: 767px)
           width: 100%
           flex-direction: column
         p
           font-size: 22px
-          font-weight: bold
+          font-weight: normal
           color: #000
           width: 535px
           @media (max-width: 767px)
@@ -233,7 +234,7 @@ export default {
           display: flex
           justify-content: space-around
           align-items: center
-          width: 275px
+          width: 160px
           height: 50px
           @media (max-width: 767px)
             width: 100%
@@ -265,11 +266,16 @@ export default {
         align-items: baseline
         margin-top: 32px
 
-        p
+        .viewwwws
+          display: flex
+          align-items: center
           font-size: 18px
           font-weight: bold
           margin-left: 25px
           position: relative
+          @media (max-width: 767px)
+            font-size: 11px
+
           &:before
             content: ""
             position: absolute
@@ -278,11 +284,11 @@ export default {
             width: 19px
             height: 19px
             background-image: url('../assets/star.svg')
-          @media (max-width: 767px)
-            font-size: 11px
 
-          b
+          .dots_between_review
             color: #a4a5a8
+            padding: 0 5px
+            margin-top: -10px
           .views_vid_date
             color: #a4a5a8
         .buynow
@@ -328,7 +334,7 @@ export default {
           font-size: 14px
           font-weight: bold
           outline: none
-          
+
 
 .owned__vid
   display: flex
@@ -450,7 +456,6 @@ export default {
           left: -22px
           @media (max-width: 767px)
             top: -2px
-
 // add boder to first section only
 .owned__vid_borders
   border: 1px solid #f2f3f5
@@ -459,8 +464,8 @@ export default {
 .comment_details_downloads_tabs_vid
   width: 100%
   margin-top: 45px
-
-
+  .__details
+    margin-bottom: 50px
 
 .v-application, .deep-purple.accent-4
   background-color: transparent !important
@@ -470,18 +475,30 @@ export default {
   background-color: transparent !important
 
 .v-tab.v-tab
-  color: #aaad !important
-
+  color: #aaad
+  height: 50px
+.v-application .primary--text
+  color: #000
+  caret-color: #000
+.v-tab--active
+  color: #000 !important
+  border-bottom: 4px solid blue
 
 .v-sheet.v-card:not(.v-sheet--outlined)
   box-shadow: none
 
+.v-tab:before
+  background-color: transparent !important
 
 .fade-enter-active,
 .fade-leave-active
   transition: opacity .4s ease-in-out
 
-.fade-enter, 
+.fade-enter,
 .fade-leave-to
    opacity: 0
+
+
+.theme--light.v-tabs > .v-tabs-bar .v-tab:not(.v-tab--active), .theme--light.v-tabs > .v-tabs-bar .v-tab:not(.v-tab--active) > .v-icon, .theme--light.v-tabs > .v-tabs-bar .v-tab:not(.v-tab--active) > .v-btn, .theme--light.v-tabs > .v-tabs-bar .v-tab--disabled
+  font-weight: normal
 </style>

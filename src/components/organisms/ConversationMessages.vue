@@ -67,9 +67,9 @@ export default {
           font-size: 14px
           opacity: 0.5
 
+// adjust the with fo the scrollBar.
 ::-webkit-scrollbar
   width: 4px !important
-  height: 22px !important
 
 
 </style>

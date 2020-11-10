@@ -68,18 +68,17 @@ export default {
   color: #000
 
 
+// change the height of the dialog
 .v-dialog
   height: auto !important
-  // overflow-y: scroll
-  // overflow: hidden
+
+.v-dialog:not(.v-dialog--fullscreen)
+  max-height: 100% !important
 
 
 .v-sheet.v-toolbar:not(.v-sheet--outlined)
   box-shadow: none
 
-// .v-tabs-slider
-//     background: transparent
-//     height: 0 !important
 .v-tab--active.v-tab:not(:focus)::before
   display: none
 
@@ -90,18 +89,14 @@ export default {
   border-bottom: none
 .v-tabs, .theme--light
   border-bottom: none
+
 // global__style__for_link
 a
   text-decoration: none
 
-// .v-dialog__content
-//   height: auto !important
-
-
-// .VueCarousel-slide
-//   flex-basis: auto !important
-
-
+// remove the slider border-bottom
+.v-tabs-slider
+  display: none
 
 // customize checkbox
 .theme--light.v-icon

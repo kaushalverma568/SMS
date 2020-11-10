@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-dialog
-    class="adjust-height"
+      class="adjust-height"
       v-model="dialog"
       persistent
       max-width="475"
@@ -29,7 +29,7 @@
           </div>
           <div class="title__price">
             <div class="pric__vid">
-              <h4>title</h4>
+              <h4>Title Go here</h4>
               <span>
                 $1.75
               </span>
@@ -39,7 +39,7 @@
           </div>
         </v-card-text>
         <v-card-actions class="button_action">
-          <router-link to="purchase-confirmation">
+          <router-link to="/purchase-confirmation">
           <button
             class="more__button__call_action"
             @click="dialog = false"
@@ -63,13 +63,15 @@
 </script>
 
 <style lang="sass" scoped>
-  .details__vid_popup
-    width: 51px
-    height: 16px
-    color: #6063Eb
-    font-size: 16px
-    font-weight: normal
-    outline: none
+.adjust-height
+  height: 600px
+.details__vid_popup
+  width: 51px
+  height: 16px
+  color: #6063Eb
+  font-size: 16px
+  font-weight: normal
+  outline: none
 
 
 .more__button__call_action
@@ -81,7 +83,8 @@
   border: 1px solid #bbbcdb
   border-radius: 24px
   color: #000
-  margin-bottom: 25px
+  margin-top: 10px
+  margin-bottom: 30px
 
 
 .img_avater_vid
@@ -96,7 +99,9 @@
   .pric__vid
     display: flex
     justify-content: space-between
-    margin-top: 33px
+    text-align: center
+    margin-top: 24px
+    margin-bottom: 24px
     h4
       font-size: 18px
       font-weight: bold
@@ -113,7 +118,7 @@
       color: #6063EB
   p
     font-size: 16px
-    font-weight: bold
+    font-weight: normal
     line-height: 26px
 button
   outline: none
@@ -123,4 +128,10 @@ button
 
 .button_action
   padding: 0 20px
+
+.v-dialog > .v-card > .v-card__text
+  padding-bottom: 0
+
+
+
 </style>

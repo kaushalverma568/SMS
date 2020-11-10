@@ -26,20 +26,7 @@
         <div class="items-list-wrapper">
           <header class="search__checklist">
             <SearchInput />
-            <div>
-              <DropdownButton
-                big
-                transparent
-                dropdown
-                @change="handleSortChange"
-                :label="selectedSort.value"
-                :options="sortOptions"
-                :selected="selectedSort"
-
-              >
-
-              </DropdownButton>
-            </div>
+            <SelecBox />
           </header>
 
           <content>
@@ -57,12 +44,13 @@
 <script>
 // import Checkbox from "../components/atoms/Checkbox";
 import SearchInput from "../components/atoms/SearchInput"
-import DropdownButton from "../components/atoms/DropdownButton"
+// import DropdownButton from "../components/atoms/DropdownButton"
 import Pagination from "../components/atoms/Pagination"
 import Button from "../components/atoms/Button"
 // import productIMG from "../assets/exitem.svg";
 import Product from "../components/atoms/Product"
 import CheckBoxCustom from "../components/atoms/CustomCheckbox"
+import SelecBox from "../components/atoms/SelecBox"
 
 // import SellItem from '../components/atoms/SellItem'
 // import axios from "axios"
@@ -79,12 +67,13 @@ export default {
   components: {
     // Checkbox,
     SearchInput,
-    DropdownButton,
+    // DropdownButton,
     Pagination,
     Button,
     // SellItem
     Product,
-    CheckBoxCustom
+    CheckBoxCustom,
+    SelecBox
 
   },
   props: {
@@ -182,7 +171,7 @@ export default {
     .sell-btn
       width: 137px
       @media (max-width: 400px)
-        width: 70px
+        width: 100px
         .fullWidth
           height: 30px
 .exlusive-items-content
@@ -217,6 +206,9 @@ export default {
     flex: 1
     .search__checklist
       display: flex
+      margin-bottom: 26px
+      justify-content: space-between
+      align-items: center
       @media (max-width: 992px)
         flex-direction: column
         .dropdown-button

@@ -31,11 +31,8 @@
             <!-- category-checkList here -->
             <h2>Categories</h2>
             <div class="row" v-for="n in 6" :key="n.id">
-              <v-checkbox
-                class="customize--checkbox"
-                label="Category name here"
-              >
-              </v-checkbox>
+                <CustomCheckbox />
+              <div class="category-name">Category name here</div>
             </div>
           </div>
         </div>
@@ -43,18 +40,7 @@
         <div class="items-list-wrapper">
           <header class="search__checklist">
             <SearchInput />
-            <div>
-              <DropdownButton
-                big
-                transparent
-                dropdown
-                @change="handleSortChange"
-                :label="selectedSort.value"
-                :options="sortOptions"
-                :selected="selectedSort"
-              >
-              </DropdownButton>
-            </div>
+            <SelecBox />
           </header>
           <!-- upcoming__videos -->
           <div class="upcoming">
@@ -84,7 +70,7 @@
 
                   </div>
                   <h4>Live video title here</h4>
-                  <p>Title video lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor More…</p>
+                  <p>Title video lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor <b> More… </b></p>
                   <span>22 June 2020, 15:30</span>
                   <button>Buy video/series</button>
                 </v-card-text>
@@ -95,7 +81,7 @@
 
           <!-- end upcoming__videos -->
           <content>
-            <router-link to="/details">
+            <router-link to="/video-paid/details">
               <div class="video-preview">
                 <div class="video-thumb">
                   <img src="../assets/video-thumb.png" />
@@ -116,7 +102,7 @@
                 </div>
               </div>
           </router-link>
-            <router-link to="/details">
+            <router-link to="/video-paid/details">
               <div class="video-preview">
                 <div class="video-thumb">
                   <img src="../assets/video-thumb.png" />
@@ -146,11 +132,12 @@
 </template>
 
 <script>
-import SearchInput from "../components/atoms/SearchInput";
-import DropdownButton from "../components/atoms/DropdownButton";
-import Pagination from "../components/atoms/Pagination";
-import arrow from "../assets/option-checked.svg";
-import close from "../assets/close-modal.svg";
+import SearchInput from "../components/atoms/SearchInput"
+import Pagination from "../components/atoms/Pagination"
+import arrow from "../assets/option-checked.svg"
+import close from "../assets/close-modal.svg"
+import CustomCheckbox from "../components/atoms/CustomCheckbox"
+import SelecBox from "../components/atoms/SelecBox"
 
 // import bookmark from '../assets/bookmark.svg'
 
@@ -198,8 +185,9 @@ export default {
   },
   components: {
     SearchInput,
-    DropdownButton,
     Pagination,
+    CustomCheckbox,
+    SelecBox
   },
   methods: {
     handleSortChange(option) {
@@ -234,7 +222,7 @@ export default {
       width: 137px
       text-align: right
       @media (max-width: 400px)
-        width: 70px
+        width: 100px
         .fullWidth
           height: 30px
 .exlusive-items-content
@@ -260,8 +248,12 @@ export default {
     .row
       display: flex
       margin-bottom: 24px
+      align-items: center
+
       .category-name
         margin-left: 14px
+        font-size: 16px
+        font-weight: bold
   .items-list-wrapper
     flex: 1
     .search__checklist
@@ -497,9 +489,11 @@ export default {
         margin-top: 25px
       p
         font-size: 16px
-        font-weight: bold
+        font-weight: normal
         color:  #1B1D25
         margin-top: 25px
+
+
         @media (max-width: 500px)
           margin-top: 10px
           font-weight: normal

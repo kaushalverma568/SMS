@@ -37,8 +37,6 @@
     color: #BDBEBF
 
 
-.v-application .primary
-    background-color: transparent !important
 .v-pagination__item
   box-shadow: none
   outline: none
@@ -53,4 +51,8 @@
 
 .v-pagination__navigation .v-icon
   color: #000
+
+.v-application
+    .primary
+      background-color: #fff !important
 </style>

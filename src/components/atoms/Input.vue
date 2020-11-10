@@ -25,8 +25,11 @@ export default {
         display: flex;
         align-items: center;
         padding: 0 16px;
-        width: 100%;
+        width: 450px;
         box-sizing: border-box;
+        font-size: 14px;
+        color: #afafb0;
+
 
         &:focus {
             outline: none;

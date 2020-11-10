@@ -127,6 +127,9 @@
 
   // @media (min-width: 1200px)
   //   width: 30%
+  @media(max-width: 992px)
+    width: 100%
+    margin-top: 30px
   &__current
     position: relative
     // box-shadow: 0 15px 30px -10px transparentize(#000, 0.9)
@@ -139,6 +142,8 @@
     justify-content: space-between
     align-items: center
     height: 47px
+    @media(max-width: 992px)
+      width: 100%
     // background: #000
 
     &:focus
@@ -164,12 +169,14 @@
     &:checked + .select-box__input-text
       display: block
       color: #000
-      margin-right: 90px !important
+
+      margin-right: 78px !important
   &__input-text
     display: none
     // width: 100%
     margin: 0
-    padding-left: 15px
+
+    padding-left: 10px
     // background-color: #fff
   &__list
     position: absolute

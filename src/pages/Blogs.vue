@@ -27,20 +27,7 @@
         <div class="items-list-wrapper">
           <header class="search__checklist">
             <SearchInput />
-            <div>
-              <DropdownButton
-                big
-                transparent
-                dropdown
-                @change="handleSortChange"
-                :label="selectedSort.value"
-                :options="sortOptions"
-                :selected="selectedSort"
-
-              >
-
-              </DropdownButton>
-            </div>
+            <SelecBox />
           </header>
 
           <div class="warpper__myblogs">
@@ -77,7 +64,6 @@
 <script>
 // import Checkbox from "../components/atoms/Checkbox";
 import SearchInput from "../components/atoms/SearchInput"
-import DropdownButton from "../components/atoms/DropdownButton"
 import Pagination from "../components/atoms/Pagination"
 import CheckBoxCustom from "../components/atoms/CustomCheckbox"
 // import SellItem from '../components/atoms/SellItem'
@@ -87,6 +73,8 @@ import CheckBoxCustom from "../components/atoms/CustomCheckbox"
 // const POSTER_PATH = "http://image.tmdb.org/t/p/w154"
 
 // Key: http://www.omdbapi.com/?i=tt3896198&apikey=1c267267
+import SelecBox from "../components/atoms/SelecBox"
+
 
 import arrow from '../assets/option-checked.svg'
 
@@ -134,9 +122,9 @@ export default {
   components: {
     // Checkbox,
     SearchInput,
-    DropdownButton,
     Pagination,
-    CheckBoxCustom
+    CheckBoxCustom,
+    SelecBox
 
 
   },
@@ -174,7 +162,7 @@ export default {
       .btn__bookmark
         outline: none
       @media (max-width: 400px)
-        width: 70px
+        width: 100px
         .fullWidth
           height: 30px
 .exlusive-items-content

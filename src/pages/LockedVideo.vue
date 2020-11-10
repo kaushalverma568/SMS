@@ -36,7 +36,7 @@
       </div>
       <div class="views_buy_vid">
         <div class="views_vid">
-          <p>4.5 <b>.</b> 43 views <b>.</b> <span class="views_vid_date">Jan 2, 2020</span></p>
+          <div class="viewwwws">4.5 <div class="dots_between_review">.</div> 43 views <div class="dots_between_review">.</div> <span class="views_vid_date">Jan 2, 2020</span></div>
         </div>
         <div class="buynow">
           <button> <span class="price">$25.30</span> Buy now</button>
@@ -48,10 +48,10 @@
         <v-tabs v-model="tab">
           <!-- <v-tabs-slider></v-tabs-slider> -->
 
-          <v-tab href="#tab-1">
+          <v-tab href="#tab-1" class="v____tabs__uppercars">
             Details
           </v-tab>
-          <v-tab href="#tab-2">
+          <v-tab href="#tab-2" class="v____tabs__uppercars">
             Comments
           </v-tab>
           <button class="go_to_download_btn">
@@ -252,7 +252,9 @@ export default {
         align-items: baseline
         margin-top: 32px
 
-        p
+        .viewwwws
+          display: flex
+          align-items: center
           font-size: 18px
           font-weight: bold
           margin-left: 25px
@@ -268,8 +270,10 @@ export default {
           @media (max-width: 767px)
             font-size: 11px
 
-          b
+          .dots_between_review
             color: #a4a5a8
+            padding: 0 5px
+            margin-top: -10px
           .views_vid_date
             color: #a4a5a8
         .buynow
@@ -424,7 +428,8 @@ export default {
           left: -22px
           @media (max-width: 767px)
             top: -2px
-
+  .dots_between_review
+    margin-top: -10px
 // add boder to first section only
 .owned__vid_borders
   border: 1px solid #f2f3f5
@@ -433,12 +438,15 @@ export default {
 .comment_details_downloads_tabs_vid
   width: 100%
   margin-top: 45px
+  margin-bottom: 45px
   .go_to_download_btn
     color: #000
     font-weight: bold
     opacity: .3
     margin-left: 27px
 
+.v____tabs__uppercars
+  text-transform: capitalize
 
 
 .v-application, .deep-purple.accent-4
@@ -450,7 +458,18 @@ export default {
 
 .v-tab.v-tab
   color: #aaad !important
+  height: 50px
 
+.v-application .primary--text
+  color: #000
+  caret-color: #000
+
+
+.theme--light.v-tabs > .v-tabs-bar .v-tab:not(.v-tab--active), .theme--light.v-tabs > .v-tabs-bar .v-tab:not(.v-tab--active) > .v-icon, .theme--light.v-tabs > .v-tabs-bar .v-tab:not(.v-tab--active) > .v-btn, .theme--light.v-tabs > .v-tabs-bar .v-tab--disabled
+  font-weight: normal
+.v-tab--active
+  color: #000 !important
+  border-bottom: 4px solid blue
 
 .v-sheet.v-card:not(.v-sheet--outlined)
   box-shadow: none

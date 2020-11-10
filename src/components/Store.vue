@@ -188,7 +188,7 @@ export default {
     .sell-btn
       width: 137px
       @media (max-width: 400px)
-        width: 70px
+        width: 100px
         .fullWidth
           height: 30px
 .exlusive-items-content
@@ -233,6 +233,8 @@ export default {
           margin-bottom: 25px
       .search
         margin-right: 30px
+        @media (max-width: 992px)
+          margin-right: 0 !important
 
       .dropdown-button
         width: 222px

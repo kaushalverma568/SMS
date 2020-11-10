@@ -49,6 +49,7 @@ export default {
   .chat-history-items
     overflow: scroll
     max-height: calc(100% - 144px)
+    margin-top: 24px
 
 
   .chat-history-item

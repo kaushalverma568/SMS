@@ -59,11 +59,10 @@
 
 <style lang="sass" scoped>
 
-
-
 .call__down__action
   outline: none
-  text-transform: uppercase
+  text-transform: capitalize
+  font-weight: normal
 .card___wrpper
   .wrap_content
     display: flex

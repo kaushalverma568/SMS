@@ -77,7 +77,7 @@
 
         <v-card-actions class="wrapper_start__conv">
           <div class="load__icon__hole">
-            <img :src="fileload" alt="">
+            <!-- <img :src="fileload" alt=""> -->
           </div>
           <div class="hold_input_conv">
             <input type="text" placeholder="Write chat...">
@@ -307,7 +307,7 @@ export default {
         font-weight: normal
         margin-bottom: 37px
         display: block
-      button
+      .start___now
         width: 427px
         max-width: 427px
         height: 46px
@@ -316,5 +316,17 @@ export default {
         outline: none
         border: 1px solid #cbc9c9
         border-radius: 24px
+        color: #000
+        transition: all .6s ease-in-out
+
+        background:
+          image: linear-gradient(45deg, #000 50%, transparent 50%)
+          position: 100%
+          size: 400%
+        transition: all .6s ease-in-out
+        &:hover
+          color: #fff
+          background-position: 0
+          transition: all .6s ease-in-out
 
 </style>

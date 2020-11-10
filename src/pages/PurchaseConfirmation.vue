@@ -4,7 +4,7 @@
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="headline">
-            <router-link to="/lock-vid">
+            <router-link to="/locked-vid-playing">
               <h3>Confirmation</h3>
             </router-link>
             <span>Item details</span>
@@ -27,7 +27,7 @@
                  <span>$1200</span>
                </div>
                <div class="tax">
-                 <p><b>tax charge</b></p>
+                 <p><b>Tax charge</b></p>
                  <span>$18900</span>
                </div>
                <div class="totalprice">
@@ -57,10 +57,10 @@ export default {};
 .wrapper__confirmation
   display: flex
   justify-content: center
-  align-items: center
-  margin: 100px auto
+  // align-items: center
+  margin: 50px auto
   width: 475px
-  height: 409px
+  height: 700px
   @media (max-width: 767px)
     width: 100%
   .headline

@@ -5,7 +5,7 @@
         <button class="see__all" v-bind="attrs" v-on="on">See all</button>
       </template>
 
-      <v-card>
+      <v-card class="v_________card">
         <v-card-title class="headline">
           <h5>{{ title }}</h5>
           <button @click="dialog = false">
@@ -33,7 +33,7 @@
             <!-- go to video__locked -->
 
               <div class="fle__to__right">
-              <router-link to="/lock-vid">
+              <router-link to="/locked-vid-playing">
                   <div class="thumb thumb_blocked" />
               </router-link>
               <div class="about_vid">
@@ -202,7 +202,7 @@ export default {
 
 
 .vidd_wrap
-  height: calc(100vh - 300px)
+  height: calc(100vh - 160px)
   overflow-y: scroll
   width: 784px
 
@@ -213,4 +213,12 @@ export default {
   justify-content: space-between
   button
     outline: none
+
+.v_________card
+  // height: calc(100vh - 100px)
+  // overflow-y: scroll
+
+
+::-webkit-scrollbar
+  width: 4px
 </style>

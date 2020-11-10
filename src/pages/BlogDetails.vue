@@ -88,14 +88,14 @@
       <div>
         <Comment />
       </div>
-      <div class="type__comment">
+      <!-- <div class="type__comment">
         <input @click="showConversationArrow" type="text" class="input__type reduce-width" placeholder="Write comment…" />
         <transition name="slide-fade">
            <button v-if="conversation" class="start__convers">
             <img src="../assets/arrow-conversation.svg" alt="">
           </button>
         </transition>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -125,13 +125,13 @@ export default {
       this.bookmarked = !this.bookmarked;
       document.querySelector(".highlight_bookmark").classList.toggle("fill_bookmark");
     },
-    showConversationArrow() {
-      this.conversation = true;
-    }
+    // showConversationArrow() {
+    //   this.conversation = true;
+    // }
   },
-  mounted () {
-    this.showConversationArrow
-  }
+  // mounted () {
+  //   this.showConversationArrow
+  // }
 };
 </script>
 
@@ -198,7 +198,7 @@ export default {
         display: flex
         justify-content: space-around
         align-items: center
-        width: 275px
+        width: 160px
         height: 50px
         @media (max-width: 767px)
           width: 100%
@@ -232,7 +232,7 @@ export default {
 
         p
           font-size: 16px
-          font-weight: bold
+          font-weight: normal
           width: 100%
           @media (max-width: 767px)
             font-size: 15px
@@ -411,34 +411,34 @@ export default {
   width: 100%
   margin-top: 45px
   margin-bottom: 50px
-  .type__comment
-    display: flex
-    align-items: center
-    margin-top: 13px
-    width: 100%
-    .input__type
-      width: 100%
-      height: 48px
-      outline: none
-      border-radius: 14px
-      background: #F4F4F4
-      padding: 20px
-      margin-top: 9px
-      font-size: 16px
-      font-weight: bold
-      color: #9d9ea1
-      &.reduce-width
-        width: 80%
-    .start__convers
-      display: flex
-      justify-content: center
-      align-items: center
-      width: 42px
-      height:  42px
-      background: #6063EB
-      border-radius: 24px
-      margin-left: 20px
-      outline: none
+  // .type__comment
+  //   display: flex
+  //   align-items: center
+  //   margin-top: 13px
+  //   width: 100%
+  //   .input__type
+  //     width: 100%
+  //     height: 48px
+  //     outline: none
+  //     border-radius: 14px
+  //     background: #F4F4F4
+  //     padding: 20px
+  //     margin-top: 9px
+  //     font-size: 16px
+  //     font-weight: bold
+  //     color: #9d9ea1
+  //     &.reduce-width
+  //       width: 80%
+  //   .start__convers
+  //     display: flex
+  //     justify-content: center
+  //     align-items: center
+  //     width: 42px
+  //     height:  42px
+  //     background: #6063EB
+  //     border-radius: 24px
+  //     margin-left: 20px
+  //     outline: none
 
 
 
@@ -467,15 +467,15 @@ export default {
   transition: all .3s ease-in-out
 
 
-.slide-fade-enter-active
-  transition: all .3s ease
+// .slide-fade-enter-active
+//   transition: all .3s ease
 
-.slide-fade-leave-active
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0)
+// .slide-fade-leave-active
+//   transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0)
 
-.slide-fade-enter, .slide-fade-leave-to
-  transform: translateX(10px)
-  opacity: 0
+// .slide-fade-enter, .slide-fade-leave-to
+//   transform: translateX(10px)
+//   opacity: 0
 
 
 </style>

@@ -14,7 +14,7 @@
       </div>
       <div class="see-details">
         <router-link to="/profile-details">
-          <Button class="detail__button">Details</Button>
+          <Button class="detail__button">Detail</Button>
         </router-link>
       </div>
     </div>
@@ -144,7 +144,7 @@ export default {
           background: transparent
           color: #000
           font-size: 16px
-          font-wight: bold
+          font-weight: normal
 
     .name
       font-weight: 600
