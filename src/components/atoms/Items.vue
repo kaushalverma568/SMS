@@ -32,7 +32,7 @@
       </div>
     </router-link>
 
-    <router-link to="/service-detail">
+    <router-link to="/service-detail-progress">
       <div class="disapple__card">
         <v-card class="Card" disabled>
           <div class="conent">

@@ -22,6 +22,8 @@ import BlogDetail from './pages/BlogDetails'
 import Setting from './pages/Settings'
 import ServiceDetails from './pages/ServiceDetails'
 import DataInput from "./pages/DataInput"
+import ServiceDetail from "./pages/ServiceDetailWithProgressBar"
+import DataProgress from "./pages/DataProgress"
 
 // define__routes
 export const routes = [
@@ -48,7 +50,8 @@ export const routes = [
   {path: '/buy-sale', component: BuySale},
   {path: '/settings', component: Setting},
   {path: '/service-detail', component: ServiceDetails},
-  {path: '/data-input', component: DataInput}
-
+  {path: '/data-input', component: DataInput},
+  {path: '/service-detail-progress', component: ServiceDetail},
+  {path: '/data-progress', component: DataProgress}
 
 ]
