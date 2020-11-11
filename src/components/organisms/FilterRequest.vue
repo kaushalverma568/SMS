@@ -1,22 +1,41 @@
 <template>
   <div class="filter-request">
     <h2>Filter</h2>
-    <Carousel
-      height="36px"
-      v-touch:swipe.right="swipeRight"
-      v-touch:swipe.left="swipeLeft"
-    >
-      <CarouseScroll :page="activePage" :perPage="2">
+    <Carousel class="car__fle" height="36px" :mouse-drag="true" :per-page="2">
+      <Slide>
+        <div
+        class="service-ctg"
+        @click="heighlightProductType($event, 'active')"
+        >Service name</div>
+      </Slide>
+
+      <Slide>
         <div
           class="service-ctg"
-          v-for="n in 5"
-          :key="n"
-          @click="activeService = n"
-          :class="{ active: activeService === n }"
-        >
-          Service name
-        </div>
-      </CarouseScroll>
+          @click="heighlightProductType($event, 'active')"
+        >Service name</div>
+      </Slide>
+
+      <Slide>
+        <div
+          class="service-ctg"
+          @click="heighlightProductType($event, 'active')"
+        >Service name</div>
+      </Slide>
+
+      <Slide>
+        <div
+          class="service-ctg"
+          @click="heighlightProductType($event, 'active')"
+        >Service name</div>
+      </Slide>
+
+      <Slide>
+        <div
+          class="service-ctg"
+          @click="heighlightProductType($event, 'active')"
+        >Service name</div>
+      </Slide>
     </Carousel>
 
     <div class="dates-pickers">
@@ -31,17 +50,23 @@
     </div>
 
     <div class="apply-filter">
-      <Button @click="handleApply" fullWidth transparent big>Apply</Button>
+      <Button class="apply___btn"
+        @click="handleApply"
+        fullWidth
+        transparent
+        big
+        :class="{choosingService : ischoosingType}"
+      >
+      Apply</Button>
     </div>
   </div>
 </template>
 
 <script>
-import Datepicker from "vuejs-datepicker"
+import Datepicker from "vuejs-datepicker";
+import Button from "../atoms/Button";
 
-import Carousel from "../atoms/Carousel/Carousel"
-import CarouseScroll from "../atoms/Carousel/CarouseScroll"
-import Button from "../atoms/Button"
+import { Carousel, Slide } from "vue-carousel";
 
 export default {
   name: "FilterRequest",
@@ -54,29 +79,36 @@ export default {
       activeService: this.filters?.activeService,
       startDate: this.filters?.startDate,
       endDate: this.filters?.endDate,
+      ischoosingType: false
+
     };
   },
   components: {
     Carousel,
-    CarouseScroll,
+    Slide,
     Button,
     Datepicker,
   },
   methods: {
-    swipeLeft() {
-      const newPage = this.activePage + 1;
-      this.activePage = newPage <= 3 ? newPage : 3;
-    },
-    swipeRight() {
-      const newPage = this.activePage - 1;
-      this.activePage = newPage >= 1 ? newPage : 1;
-    },
+    // swipeLeft() {
+    //   const newPage = this.activePage + 1;
+    //   this.activePage = newPage <= 3 ? newPage : 3;
+    // },
+    // swipeRight() {
+    //   const newPage = this.activePage - 1;
+    //   this.activePage = newPage >= 1 ? newPage : 1;
+    // },
     handleApply() {
       this.$emit("apply", {
         startDate: this.startDate,
         endDate: this.endDate,
         service: this.activeService,
       });
+    },
+
+    heighlightProductType: function(event, theClass) {
+      event.target.classList.toggle(theClass)
+      this.ischoosingType = true
     },
   },
 };
@@ -95,24 +127,32 @@ export default {
 
   .apply-filter
     margin-top: 24px
+    .apply___btn
+      border: 2px solid #dddede !important
+      border-radius: 24px
+      font-weight: bold
+      color: #BDBEBF
+      &.choosingService
+        border: 1px solid #000 !important
+        color: #000
+
 
 .service-ctg
-  border: 1px solid #f0f0f1
+  border: 2px solid #f0f0f8
   border-radius: 12px
   height: 34px
   display: flex
   align-items: center
   justify-content: center
   font-size: 14px
-  color: #25282b
+  color: #a0a1a2
   font-weight: 600
   margin-right: 16px
-  opacity: 0.4
-
+  cursor: pointer
   &.active
     background: #25282b
     color: white
-    opacity: 1
+
 
 .dates-pickers
   margin-top: 24px
@@ -138,4 +178,17 @@ export default {
     box-sizing: border-box
   .vdp-datepicker
     margin-bottom: 16px
+    background: #F2F2F2
+    width: 100%
+    height: 40px
+    border-radius: 15px
+    padding: 7px 16px
+    input
+      width: 100%
+      outline: none
+
+.VueCarousel-slide
+  display: flex
+  .service-ctg
+    width: 150px
 </style>

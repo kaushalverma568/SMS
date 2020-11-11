@@ -104,6 +104,7 @@ a
 
 
 // remove all outline from all btns
-button
+button,
+input
   outline: none
 </style>

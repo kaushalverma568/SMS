@@ -34,12 +34,11 @@
 </template>
 
 <script>
-import Title from "./atoms/Title";
-// import Button from "./atoms/Button"
-import Container from "./atoms/Container";
-import VideoPreview from "./organisms/VideoPreview";
+import Title from "./atoms/Title"
+import Container from "./atoms/Container"
+import VideoPreview from "./organisms/VideoPreview"
 
-import { Carousel, Slide } from "vue-carousel";
+import { Carousel, Slide } from "vue-carousel"
 
 export default {
   name: "Videos",
