@@ -11,7 +11,7 @@
       <Button :transparent="selectedTab === 1" @click="selectedTab = 0"
         >Ongoing</Button
       >
-      <Button :transparent="selectedTab === 0" @click="selectedTab = 1"
+      <Button  class="Btn__border" :transparent="selectedTab === 0" @click="selectedTab = 1"
         >History</Button
       >
     </div>
@@ -120,5 +120,9 @@ export default {
 
       .item-status
         margin-left: auto
-
+.Btn__border
+  border: 2px solid #f0f0f1 !important
+  &:focus
+    // border: 1px solid transparent !important
+    border: none !important
 </style>

@@ -177,5 +177,5 @@ export default {
     padding: 0 32px
     margin-bottom: 32px
     button
-      border: 1px solid #dedfdf !important
+      border: 2px solid #dedfdf !important
 </style>

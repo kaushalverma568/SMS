@@ -83,8 +83,8 @@ export default {
   display: none
 
 // remove all the background-color that appear on all buttons
-.v-ripple__container
-  display: none
+.v-ripple___container
+  display: none !important
 .v-tabs, .theme--light
   border-bottom: none
 .v-tabs, .theme--light
@@ -101,4 +101,9 @@ a
 // customize checkbox
 .theme--light.v-icon
   color: #f0f0f8
+
+
+// remove all outline from all btns
+button
+  outline: none
 </style>

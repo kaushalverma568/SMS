@@ -69,16 +69,24 @@
         <div class="row some__padidng__left"><h2>Posting period</h2></div>
          <div class="switch__city">
            <h4>City name</h4>
-          <SwitchBtn />
+         <v-switch
+            class="v____switch"
+            color="secondary"
+            value="Jacob"
+          ></v-switch>
          </div>
         <div class="switch__city">
           <h4>City name</h4>
-          <SwitchBtn />
+           <v-switch
+            class="v____switch"
+            color="secondary"
+            value="Jacob"
+          ></v-switch>
         </div>
       </div>
 
-      <div class="parent__wrapper__choose_check">
-        <div class="row some__padidng__left"><h2>Files</h2></div>
+      <div class="parent__wrapper__choose_check some_mar_up_file">
+        <h2>Files</h2>
          <div class="switch__city">
            <h4>Audio file</h4>
           <button class="upload_btn">Upload</button>
@@ -126,7 +134,7 @@ import ProductType from "../components/atoms/ProductTypePop"
 import CheckBoxCustom from "../components/atoms/CustomCheckbox"
 // import ItmeListedPopUP from "../components/atoms/ItmeListedPopUP"
 import TimelineBar from "../components/atoms/Timeline"
-import SwitchBtn from "../components/atoms/Switch"
+// import SwitchBtn from "../components/atoms/Switch"
 
 // import ChoosePeriod from "../components/atoms/ChoosePeriod"
 
@@ -136,6 +144,7 @@ export default {
     return {
       price: "$5.5",
       showPriceBtn: false,
+      switch2: false,
       items: [
         {
           label: "Step 1",
@@ -157,9 +166,7 @@ export default {
   components: {
     ProductType,
     CheckBoxCustom,
-    SwitchBtn,
-    // ItmeListedPopUP,
-    // ChoosePeriod,
+    // SwitchBtn,
     TimelineBar
 
   },
@@ -453,8 +460,14 @@ h2
 .row
   width: 100%
   margin-bottom: 16px
-
-
+.v____switch
+  margin-top: 0
+  height: 30px
+.some_mar_up_file
+  margin-top: 28px
+///////////////////checked
+.v-application, .primary--text
+  color: blue !important
 // add some transition for btn_with_price_popUP
 
 .slide-fade-enter-active

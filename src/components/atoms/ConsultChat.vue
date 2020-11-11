@@ -65,9 +65,16 @@
         </div>
           <v-divider></v-divider>
 
-        <v-card-actions class="wrapper_start__conv">
+        <v-card-actions class="wrapper_start__conv" :class="{ active: attachement }">
+           <div class="attachemnts" v-if="attachement">
+            <div class="attachement-thumb" />
+            <div class="attachement-thumb" />
+          </div>
           <div class="load__icon__hole">
-            <img :src="fileload" alt="">
+            <!-- <img :src="fileload" alt=""> -->
+            <a @click="attachement = !attachement" href="#">
+              <img src="../../assets/attachement.svg" />
+            </a>
           </div>
           <div class="hold_input_conv">
             <input type="text" placeholder="Write chat...">
@@ -103,7 +110,8 @@ export default {
         avatar,
         pChat,
         fileload,
-        arrowconv
+        arrowconv,
+        attachement: false,
       }
     },
   }
@@ -243,4 +251,25 @@ export default {
 
 .v-dialog, .v-dialog--active
   height: 767px !important
+
+
+.load__icon__hole
+  // width: 100%
+  display: flex
+  align-items: center
+  align-items: center
+  height: 80px
+
+
+.attachemnts
+  display: flex
+  position: absolute
+  bottom: 130px
+
+.attachement-thumb
+  background: #dd6633
+  height: 200px
+  width: 200px
+  border-radius: 24px
+  margin: 20px 20px 0 0
 </style>

@@ -81,7 +81,7 @@
 
           <!-- end upcoming__videos -->
           <content>
-            <router-link to="/video-paid/details">
+            <router-link to="/details">
               <div class="video-preview">
                 <div class="video-thumb">
                   <img src="../assets/video-thumb.png" />
@@ -102,7 +102,7 @@
                 </div>
               </div>
           </router-link>
-            <router-link to="/video-paid/details">
+            <router-link to="/details">
               <div class="video-preview">
                 <div class="video-thumb">
                   <img src="../assets/video-thumb.png" />
