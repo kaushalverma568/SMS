@@ -3,14 +3,17 @@
     <v-card class="v___card">
       <v-list-item>
         <v-list-item-title>
-          <h3 class="buy_sale_title">></h3>
+          <router-link to="/service-detail">
+            <h3 class="buy_sale_title"></h3>
+          </router-link>
+
           <v-list-item-subtitle class="subtitle"
             >Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Voluptatem, quam commodi nobis sit libero cumque animi iure sunt
             enim fugit. Nesciunt labore fuga distinctio pariatur quod dolor
             ipsum quisquam deserunt?</v-list-item-subtitle
           >
-          <h4 class="sec__title">Section title</h4>
+          <h2 class="sec__title">Section title</h2>
         </v-list-item-title>
       </v-list-item>
 
@@ -22,7 +25,7 @@
           </v-list-item-title>
 
           <div class="wrap__product_type">
-            <h4>Data selection title</h4>
+            <h4 class="g__some__margin__bottom">Data selection title</h4>
             <ProductType />
           </div>
 
@@ -32,63 +35,66 @@
       <v-list-item class="parent__wrapper__choose_check">
 
         <div class="row">
-          <h4>Section title</h4>
+          <h2>Section title</h2>
         </div>
         <div class="row wrapper__choose_check">
-          <h4>1 month (free)</h4>
-          <div @click="ShowPriceSubmitPrice = !ShowPriceSubmitPrice">
+          <h4>Option name</h4>
+          <div>
             <CheckBoxCustom/>
           </div>
         </div>
         <div class="row wrapper__choose_check">
           <h4>Option name</h4>
 
-          <div @click="ShowPriceSubmitPrice = !ShowPriceSubmitPrice">
+          <div>
             <CheckBoxCustom/>
           </div>
         </div>
         <div class="row wrapper__choose_check">
           <h4>Option name</h4>
-          <div @click="ShowPriceSubmitPrice = !ShowPriceSubmitPrice">
+          <div>
             <CheckBoxCustom/>
           </div>
         </div>
+           <div class="row wrapper__choose_check">
+          <h4>Option name</h4>
+          <div>
+            <CheckBoxCustom/>
+          </div>
+        </div>
+
+      <div class="parent__wrapper__choose_check">
+        <div class="row some__padidng__left"><h2>Posting period</h2></div>
+         <ChoosePeriod TextOption="1 month (free)"/>
+         <div  @click="showPriceBtn = !showPriceBtn">
+          <ChoosePeriod TextOption="3 months ($5.00)"/>
+         </div>
+        <div  @click="showPriceBtn = !showPriceBtn">
+          <ChoosePeriod TextOption="6 months ($7.00)"/>
+        </div>
+      </div>
+
       </v-list-item>
-
-      <v-list-item class="parent__wrapper__choose_check">
-        <div class="row"><h2>Posting period</h2></div>
-
-        <!-- <div class="row wrapper__choose_check">
-          <h4>3 days (free)</h4>
-          <div @click="ShowPriceSubmitPrice = !ShowPriceSubmitPrice">
-            <CheckBoxCustom/>
-          </div>
-        </div>
-        <div class="row wrapper__choose_check">
-          <h4>7 days ($3.50)</h4>
-
-          <div @click="ShowPriceSubmitPrice = !ShowPriceSubmitPrice">
-            <CheckBoxCustom/>
-          </div>
-        </div>
-        <div class="row wrapper__choose_check">
-          <h4>14 days ($5.00)</h4>
-          <div @click="ShowPriceSubmitPrice = !ShowPriceSubmitPrice">
-            <CheckBoxCustom/>
-          </div>
-        </div>
-         -->
-
-         <ChoosePeriod />
-      </v-list-item>
-
       <v-list-item class="get__features__now">
         <div class="row">
-
           <div class="wrapper__btn__with__price__info__btn">
-
-              <ItmeListedPopUP class="btn_Work"/>
-
+              <!-- <ItmeListedPopUP class="btn_Work" />
+               -->
+               <!-- submit___btn -->
+               <router-link to="/purchase-confirmation" class="link__to__purchase_enable">
+                 <button class="btn_Work">Submit</button>
+                </router-link>
+                <!-- // show price with submit_btn -->
+            <transition name="slide-fade">
+                <v-card class="wrap__card_input" v-if="showPriceBtn">
+                  <div class="price__in__data__input">
+                    {{price}}
+                  </div>
+                  <router-link to="/purchase-confirmation">
+                    <button class="but__now__btn">Buy now</button>
+                  </router-link>
+              </v-card>
+            </transition>
           </div>
         </div>
       </v-list-item>
@@ -99,7 +105,7 @@
 <script>
 import ProductType from "../components/atoms/ProductTypePop"
 import CheckBoxCustom from "../components/atoms/CustomCheckbox"
-import ItmeListedPopUP from "../components/atoms/ItmeListedPopUP"
+// import ItmeListedPopUP from "../components/atoms/ItmeListedPopUP"
 // import SwitchBtn from "../components/atoms/Switch"
 
 import ChoosePeriod from "../components/atoms/ChoosePeriod"
@@ -108,15 +114,15 @@ export default {
   name: "BuyAndSale",
   data() {
     return {
-
-      ShowPriceSubmitPrice: false,
+      price: "$5.5",
+      showPriceBtn: false,
     };
   },
   components: {
     ProductType,
     CheckBoxCustom,
     // SwitchBtn,
-    ItmeListedPopUP,
+    // ItmeListedPopUP,
     ChoosePeriod
   },
   methods: {
@@ -125,13 +131,17 @@ export default {
       const valueInput = document.getElementById('title__name');
       valueInput.addEventListener('keyup',  () =>  {
         if (valueInput.value.length > 3) {
-          document.querySelector('.btn_Work').classList.add('btn_enabled')
+          document.querySelector('.link__to__purchase_enable').classList.add('btn_enabled')
         }
       })
-    }
+    },
+    // showBtnWPrice () {
+    //   this.show = true
+    // }
   },
   mounted() {
     this.enableSubmitBtn()
+    // this.showBtnWPrice
   },
 };
 </script>
@@ -144,26 +154,31 @@ export default {
     // align-items: center
   .v___card
     width: 475px
+    a
+      display: block
+      margin-bottom: 46px
+      .buy_sale_title
+        font-size: 30px
+        font-weight: bold
+        color: #000
+        margin-left: 30px
+        position: relative
+        &:before
+          content: ""
+          position: absolute
+          top: 7px
+          left: -30px
+          background-image: url("../assets/arrow-left-big.svg")
+          width: 24px
+          height: 24px
+      // margin-bottom: 45px
     .sec__title
       margin-top: 24px
       font-size: 16px
       font-weight: bold
       color: #000
-    .buy_sale_title
-      font-size: 30px
-      font-weight: bold
-      color: #000
-      margin-left: 30px
-      margin-bottom: 16px
-      position: relative
-      &:before
-        content: ""
-        position: absolute
-        top: 7px
-        left: -30px
-        background-image: url("../assets/arrow-left-big.svg")
-        width: 24px
-        height: 24px
+
+
     .upload__photo
       width: 140px
       height: 140px
@@ -218,20 +233,18 @@ export default {
 // .custome__popup__menu
 //   width: 475px
 .parent__wrapper__choose_check
+  justify-content: space-between
   display: flex
   flex-direction: column
-  h2
-    font-size: 14px
-    font-weight: bold
-    color: #000
+  width: 100%
+  .some__padidng__left
+    padding-left: 12px
+
   .wrapper__choose_check
     width: 100%
     display: flex
     justify-content: space-between
     flex-wrap: nowrap
-
-.get__features__now
-
   .wrap__card
     background: #FFFFFF
     box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.15)
@@ -266,13 +279,57 @@ export default {
       span
         margin-left: 68px
         margin-top: 17px
-  .wrapper__btn__with__price__info__btn
+.wrapper__btn__with__price__info__btn
+  width: 100%
+  // display: flex
+  // justify-content: center
+  // align-items: center
+  // flex-direction: column
+  position: relative
+  .link__to__purchase_enable
+    pointer-events: none
+    &.btn_enabled
+      pointer-events: auto
+    .btn_Work
+      width: 100%
+      border: 1px solid #dedfdf
+      height: 46px
+      border-radius: 24px
+      color: #BDBEBF
+      font-weight: bold
+      font-size: 16px
+      outline: none
+      pointer-events: none
+
+
+  .wrap__card_input
+    position: absolute
+    top: -20px
+    left: 0
+    right: 0
+    bottom: 0
     width: 100%
-    // display: flex
-    // justify-content: center
-    // align-items: center
-    // flex-direction: column
-    position: relative
+    height: 86px
+    background: #fff
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.230769) !important
+    border-radius: 24px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 20px
+    .price__in__data__input
+      font-size: 20px
+      font-weight: bold
+      color: #6063EB
+    .but__now__btn
+      width: 241px
+      height: 46px
+      border: 1px solid #a1a0a2
+      border-radius: 24px
+      color: #000000
+      font-weight: bold
+      outline: none
+
     .price__info__btn
       width: 100%
       background: #25282B
@@ -302,19 +359,24 @@ export default {
         font-size: 16px
         outline: none
 
+
 .wrap__product_type
   margin-bottom: 15px
-  h4
-    font-size: 14px
-    font-weight: bold
-    color: #000
-    margin-bottom: 15px
-    margin-top: 15px
+h4
+  font-size: 14px
+  font-weight: bold
+  color: #000
+  // margin-bottom: 15px
+  // margin-top: 15px
 // remove___box___shadwo
-
+h2
+  font-size: 16px
+  font-weight: bold
+  color: #000
 .view-enter-active, .veiw-leave-active
   transition: transfrom 0.4s ease-in-out, transform 0.4s ease-in-out
-
+.g__some__margin__bottom
+  margin-bottom: 15px
 // .view-enter-active
   // transition-delay: .4s
 
@@ -329,14 +391,22 @@ export default {
 .v-list-item
   padding: 0 !important
 
-
-.btn_Work
-   pointer-events: none
-   &.btn_enabled
-     pointer-events: auto
-
-
 .row
   width: 100%
   margin-bottom: 16px
+
+
+// add some transition for btn_with_price_popUP
+
+.slide-fade-enter-active
+  transition: all .3s ease
+
+
+.slide-fade-leave-active
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0)
+
+
+.slide-fade-enter, .slide-fade-leave-to
+  transform: translateY(10px)
+  opacity: 0
 </style>

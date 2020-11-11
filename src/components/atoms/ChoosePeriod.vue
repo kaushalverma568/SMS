@@ -1,15 +1,14 @@
 <template>
-
     <div class="form-language">
 
         <div class="row">
-          <h4>1 month (free)</h4>
+          <h4>{{TextOption}}</h4>
           <Checkbox
             @click="(c) => handleLanguageSelect(0, c)"
             :active="languages === 0"
           />
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <h4>
             3 months ($5.00)
           </h4>
@@ -17,20 +16,18 @@
             @click="(c) => handleLanguageSelect(1, c)"
             :active="languages === 1"
           />
-        </div>
-        <div class="row">
+        </div> -->
+        <!-- <div class="row">
           <h4>
-          6 months ($7.00)
-
+            6 months ($7.00)
           </h4>
           <Checkbox
             @click="(c) => handleLanguageSelect(2, c)"
             :active="languages === 2"
           />
-        </div>
+        </div> -->
 
       </div>
-
 </template>
 
 <script>
@@ -43,9 +40,10 @@ export default {
   },
   data() {
     return {
-      languages: 0,
+      languages: ""
     };
   },
+  props: ['TextOption'],
   methods: {
 
     handleLanguageSelect(i, s) {
@@ -55,6 +53,7 @@ export default {
         this.languages = undefined;
       }
     },
+
   },
 };
 </script>

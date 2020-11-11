@@ -1,7 +1,7 @@
 <template>
   <div class="checkbox" @click="handleClick">
-    <img src="../../assets/checkbox-on.svg" v-if="active" />
-    <img src="../../assets/checkbox-off.svg" v-else />
+    <img class="checkbox__img" src="../../assets/checkbox-on.svg" v-if="active" />
+    <img class="checkbox__img" src="../../assets/checkbox-off.svg" v-else />
   </div>
 </template>
 
@@ -18,3 +18,8 @@ export default {
   },
 };
 </script>
+<style lang="sass" scoped>
+  .checkbox
+    .checkbox__img
+      cursor: pointer !important
+</style>
