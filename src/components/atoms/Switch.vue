@@ -1,7 +1,6 @@
 <template>
   <div>
    <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
-
   </div>
 </template>
 
@@ -28,7 +27,7 @@ label {
 	text-indent: -9999px;
 	width: 60px;
 	height: 25px;
-	background: grey;
+	background: #f0f0f1;
 	display: block;
 	border-radius: 100px;
 	position: relative;

@@ -67,13 +67,30 @@
 
       <div class="parent__wrapper__choose_check">
         <div class="row some__padidng__left"><h2>Posting period</h2></div>
-         <ChoosePeriod TextOption="1 month (free)"/>
-         <div  @click="showPriceBtn = !showPriceBtn">
-          <ChoosePeriod TextOption="3 months ($5.00)"/>
+         <div class="switch__city">
+           <h4>City name</h4>
+          <SwitchBtn />
          </div>
-        <div  @click="showPriceBtn = !showPriceBtn">
-          <ChoosePeriod TextOption="6 months ($7.00)"/>
+        <div class="switch__city">
+          <h4>City name</h4>
+          <SwitchBtn />
         </div>
+      </div>
+
+      <div class="parent__wrapper__choose_check">
+        <div class="row some__padidng__left"><h2>Files</h2></div>
+         <div class="switch__city">
+           <h4>Audio file</h4>
+          <button class="upload_btn">Upload</button>
+         </div>
+        <div class="switch__city">
+           <h4>Photo file</h4>
+          <button class="upload_btn">Upload</button>
+         </div>
+         <div class="switch__city">
+           <h4>Video file</h4>
+          <button class="upload_btn">Upload</button>
+         </div>
       </div>
 
       </v-list-item>
@@ -109,8 +126,9 @@ import ProductType from "../components/atoms/ProductTypePop"
 import CheckBoxCustom from "../components/atoms/CustomCheckbox"
 // import ItmeListedPopUP from "../components/atoms/ItmeListedPopUP"
 import TimelineBar from "../components/atoms/Timeline"
+import SwitchBtn from "../components/atoms/Switch"
 
-import ChoosePeriod from "../components/atoms/ChoosePeriod"
+// import ChoosePeriod from "../components/atoms/ChoosePeriod"
 
 export default {
   name: "BuyAndSale",
@@ -139,9 +157,9 @@ export default {
   components: {
     ProductType,
     CheckBoxCustom,
-    // SwitchBtn,
+    SwitchBtn,
     // ItmeListedPopUP,
-    ChoosePeriod,
+    // ChoosePeriod,
     TimelineBar
 
   },
@@ -263,6 +281,21 @@ export default {
   display: flex
   flex-direction: column
   width: 100%
+  .switch__city
+    display: flex
+    width: 100%
+    justify-content: space-between
+    align-items: center
+    h4
+      margin-top: 12px
+    .upload_btn
+      width: 60px
+      height: 24px
+      border: 1px solid #F0F0F8
+      border-radius: 14px
+      font-size: 12px
+      font-weight: bold
+      color: #000
   .some__padidng__left
     padding-left: 12px
 

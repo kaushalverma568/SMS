@@ -28,7 +28,6 @@
             <h4 class="g__some__margin__bottom">Data selection title</h4>
             <ProductType />
           </div>
-
         </v-list-item-content>
       </v-list-item>
 
