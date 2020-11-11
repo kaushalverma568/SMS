@@ -52,22 +52,6 @@ export default {
 .theme--light.v-label
   color: #000 !important
 
-
-// change the sahpe of the scroll....
-
-::-webkit-scrollbar-track
-  border-radius: 10px
-
-
-::-webkit-scrollbar
-  width: 8px
-
-::-webkit-scrollbar-thumb
-  border-radius: 10px
-  background-color: #e2e2e4
-  color: #000
-
-
 // change the height of the dialog
 .v-dialog
   height: auto !important
@@ -107,4 +91,16 @@ a
 button,
 input
   outline: none
+
+
+
+// change the sahpe of the scrollBar
+::-webkit-scrollbar-track
+  border-radius: 10px
+::-webkit-scrollbar
+  width: 8px
+::-webkit-scrollbar-thumb
+  border-radius: 10px
+  background-color: #e2e2e4
+  color: #000
 </style>

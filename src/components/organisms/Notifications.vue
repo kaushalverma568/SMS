@@ -94,20 +94,6 @@ export default {
       margin-top: 12px
 
 
-
 .notifications-list::-webkit-scrollbar
   width: 4px !important
-  // height: 22px !important
-
-// ::-webkit-scrollbar
-//   display: block
-//   max-height: 22px !important
-//   height: 22px !important
-
-
-
-// ::-webkit-scrollbar-thumb
-//   max-height: 22px !important
-//   height: 22px !important
-
 </style>
